@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SetViewController" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bm2-Tc-Ee9">
+                                <rect key="frame" x="132" y="139.5" width="150" height="149"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ktP-HB-oZn"/>
+                                    <constraint firstAttribute="width" constant="150" id="yjn-oA-d2O"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib2-OS-efD">
+                                <rect key="frame" x="132" y="139" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Jt5-1F-zZ5"/>
+                                    <constraint firstAttribute="height" constant="150" id="QzH-EX-8D5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="avatarImageViewChange:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iGY-Q9-5gT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-xs-RUP">
+                                <rect key="frame" x="57" y="79" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lip-xs-oaB"/>
+                                    <constraint firstAttribute="width" constant="300" id="sRr-Iw-2h2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-hy-Pg5" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="752" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PEu-Ly-NeZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="xKW-uv-e1k"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="92E-TR-7Ss" appends="YES" id="nci-4m-y80"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vf5-3P-DNt" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="682" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0Jg-bT-xRn"/>
+                                    <constraint firstAttribute="width" constant="200" id="Blh-El-4p7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DUZ-sB-miK"/>
+                                    <constraint firstAttribute="height" constant="50" id="hO4-rL-NDO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Save"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C4c-w5-dMh" appends="YES" id="ZDS-pB-vZ1"/>
+                                </connections>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Change player name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OdZ-gu-jzs">
+                                <rect key="frame" x="82" y="334" width="250" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QAV-8g-lyf"/>
+                                    <constraint firstAttribute="width" constant="250" id="zHk-cX-LEi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change avatar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voi-Xs-4y8">
+                                <rect key="frame" x="131" y="294" width="152" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="50z-pw-l6S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9YG-pA-OGg">
+                                <rect key="frame" x="87" y="424" width="240" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="NsL-wr-pCn"/>
+                                    <constraint firstAttribute="height" constant="100" id="ok4-tN-IoU"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change background color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deF-Zp-K8f">
+                                <rect key="frame" x="81" y="394" width="252.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ejx-Pz-sm8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TH-AK-Vn9">
+                                <rect key="frame" x="57" y="534" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0rU-oy-dmt"/>
+                                    <constraint firstAttribute="width" constant="300" id="PLd-fF-J2t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-iZ-Zpk">
+                                <rect key="frame" x="213" y="576" width="189" height="36"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Russian">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius ">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeLanguage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="g3S-45-K6H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1L-KD-GCb">
+                                <rect key="frame" x="12" y="576" width="189" height="36"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="English">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius ">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeLanguage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aCW-tC-DbA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7TH-AK-Vn9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="03Q-Ws-hsT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yJY-hy-Pg5" secondAttribute="bottom" constant="60" id="1Ko-Fa-QbG"/>
+                            <constraint firstItem="bm2-Tc-Ee9" firstAttribute="top" secondItem="Bio-xs-RUP" secondAttribute="bottom" constant="10" id="1Ms-CF-8g0"/>
+                            <constraint firstItem="iNJ-iZ-Zpk" firstAttribute="width" secondItem="v1L-KD-GCb" secondAttribute="width" id="21o-tn-3dS"/>
+                            <constraint firstItem="iNJ-iZ-Zpk" firstAttribute="top" secondItem="v1L-KD-GCb" secondAttribute="top" id="2XO-fa-pTy"/>
+                            <constraint firstItem="7TH-AK-Vn9" firstAttribute="top" secondItem="9YG-pA-OGg" secondAttribute="bottom" constant="10" id="3yX-ew-ziy"/>
+                            <constraint firstItem="iNJ-iZ-Zpk" firstAttribute="leading" secondItem="v1L-KD-GCb" secondAttribute="trailing" constant="12" id="503-9a-CM2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iNJ-iZ-Zpk" secondAttribute="trailing" constant="12" id="6hI-b9-qGR"/>
+                            <constraint firstItem="OdZ-gu-jzs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Pn-79-qDZ"/>
+                            <constraint firstItem="v1L-KD-GCb" firstAttribute="top" secondItem="7TH-AK-Vn9" secondAttribute="bottom" constant="12" id="9Va-oc-5Md"/>
+                            <constraint firstItem="Ib2-OS-efD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="F7H-mm-hNU"/>
+                            <constraint firstItem="OdZ-gu-jzs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GK3-bR-Ow5"/>
+                            <constraint firstItem="Ib2-OS-efD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="KKd-vl-bBB"/>
+                            <constraint firstItem="Bio-xs-RUP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Kek-LF-APf"/>
+                            <constraint firstItem="v1L-KD-GCb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="NbY-AR-7nG"/>
+                            <constraint firstItem="9YG-pA-OGg" firstAttribute="top" secondItem="deF-Zp-K8f" secondAttribute="bottom" id="NhN-BF-xTv"/>
+                            <constraint firstItem="bm2-Tc-Ee9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PzC-Kz-Epq"/>
+                            <constraint firstItem="Vf5-3P-DNt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SOX-MG-Neb"/>
+                            <constraint firstItem="OdZ-gu-jzs" firstAttribute="top" secondItem="voi-Xs-4y8" secondAttribute="bottom" constant="10" id="Ye2-fR-IcJ"/>
+                            <constraint firstItem="Ib2-OS-efD" firstAttribute="top" secondItem="Bio-xs-RUP" secondAttribute="bottom" constant="10" id="aa2-LY-59i"/>
+                            <constraint firstItem="Bio-xs-RUP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="axt-vN-iqD"/>
+                            <constraint firstItem="voi-Xs-4y8" firstAttribute="top" secondItem="bm2-Tc-Ee9" secondAttribute="bottom" constant="5" id="gee-dL-7vq"/>
+                            <constraint firstItem="9YG-pA-OGg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hO1-Gt-baU"/>
+                            <constraint firstItem="voi-Xs-4y8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jTC-eL-ZXf"/>
+                            <constraint firstItem="yJY-hy-Pg5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="k1A-52-m0x"/>
+                            <constraint firstItem="yJY-hy-Pg5" firstAttribute="top" secondItem="Vf5-3P-DNt" secondAttribute="bottom" constant="20" id="luu-qM-cNs"/>
+                            <constraint firstItem="deF-Zp-K8f" firstAttribute="top" secondItem="OdZ-gu-jzs" secondAttribute="bottom" constant="10" id="nzb-BJ-4e1"/>
+                            <constraint firstItem="deF-Zp-K8f" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xSn-zC-UWi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="avButton" destination="Ib2-OS-efD" id="ABf-JB-zdA"/>
+                        <outlet property="avatarView" destination="bm2-Tc-Ee9" id="7h1-XM-bPn"/>
+                        <outlet property="backButton" destination="yJY-hy-Pg5" id="2py-gG-ugG"/>
+                        <outlet property="bgColorPicker" destination="9YG-pA-OGg" id="Hbi-IB-Mss"/>
+                        <outlet property="changeAvatarLabel" destination="voi-Xs-4y8" id="nYF-pu-6uQ"/>
+                        <outlet property="changeBgColorLabel" destination="deF-Zp-K8f" id="uLK-Jp-W5Z"/>
+                        <outlet property="changeLangLabel" destination="7TH-AK-Vn9" id="sc3-gF-N3c"/>
+                        <outlet property="changePlayerNameTextField" destination="OdZ-gu-jzs" id="wSr-53-GQy"/>
+                        <outlet property="enLangButton" destination="v1L-KD-GCb" id="CCu-FB-I5h"/>
+                        <outlet property="ruLangButton" destination="iNJ-iZ-Zpk" id="5X2-29-erK"/>
+                        <outlet property="saveButton" destination="Vf5-3P-DNt" id="fsi-Ki-mNm"/>
+                        <outlet property="settingsLabel" destination="Bio-xs-RUP" id="Vr3-RG-H6J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="92E-TR-7Ss" userLabel="Back Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonBackAction:" destination="Y6W-OH-hqX" id="dnm-nv-qgH"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="C4c-w5-dMh" userLabel="Save Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonSaveAction:" destination="Y6W-OH-hqX" id="niv-3e-dz4"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="11.594202898550726" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

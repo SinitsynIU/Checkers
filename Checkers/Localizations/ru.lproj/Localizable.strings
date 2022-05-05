@@ -1,0 +1,56 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Илья Синицын on 29.03.2022.
+  
+*/
+// SetVC
+"settingsLabel_text_setVC" = "Настройки";
+"changeAvatarLabel_text_setVC" = "Изменить аватар";
+"changeLangLabel_text_setVC" = "Изменить язык";
+"changeBgColorLabel_text_setVC" = "Bзменить цвет фона";
+"saveButton_text_setVC" = "Сохранить";
+"backButton_text_setVC" = "Назад";
+"changePlayerNameTextField_placeholder_setVC" = "Изменить имя игрока";
+"buttonSaveAlert_message_setVC" = "Настройки успешно сохранены!";
+// aboutVC
+"aboutLabel_text_aboutVC" = "О игре";
+"infoGameLabel_text_aboutVC" = "Эта игра разработана Ильей Синицыным, TMS-15 iOs";
+"backButton_text_aboutVC" = "Назад";
+// startGameVC
+"gameCheckers_text_startGameVC" = "Шашки";
+"scoreLabel_text_startGameVC" = "Счет";
+"whitePlayerLabel.text_startGameVC" = "Белый игрок";
+"greyPlayerLabel.text_startGameVC" = "Серый игрок";
+"moveNotYourPlayerLabel_text_startGameVC" = "Не ваш ход!";
+"backButton_text_startGameVC" = "Назад";
+"saveButton_text_startGameVC" = "Сохранить";
+"resetButton_text_startGameVC" = "Сброс";
+"moveGreyPlayerLabel_text_startGameVC" = "Ходят серые!";
+"moveWhitePlayerLabel_text_startGameVC" = "Ходят белые!";
+"buttonSaveAlert_message_startGameVC" = "Вы хотите сохранить игру?";
+"buttonSaveAlertYes_message_startGameVC" = "Да";
+"buttonSaveAlertNo_message_startGameVC" = "Нет";
+"buttonResetAlert_message_startGameVC" = "Вы хотите сбросить игру?";
+// scoreVC
+"clearButton_text_scoreVC" = "Очистить";
+// scoreCell
+"timerGame_text_scoreCell" = "Время игры";
+// settingsVC
+"choseColorCheckerLabel_text_settingsVC" = "Цвет вашей шашки?";
+"startButton_text_settingsVC" = "Начать игру";
+"choseColorChekersPlayerWhite_Title_settingsVC" = "Белые";
+"choseColorChekersPlayerGray_Title_settingsVC" = "Серые";
+// arrayColors
+"white_arrayColors"= "Белый";
+"green_arrayColors"= "Зеленый";
+"yellow_arrayColors"= "Желтый";
+"blue_arrayColors"= "Синий";
+"orange_arrayColors"= "Оранжевый";
+"brown_arrayColors"= "Коричневый";
+"gray_arrayColors"= "Серый";
+"cyan_arrayColors"= "Голубой";
+"purple_arrayColors"= "Фиолетовый";
+// playerVC
+"buttonStartAlert_message_playerVC" = "Вы хотите загрузить сохраненную игру?";

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoreTableViewCell" customModule="Checkers" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreTableViewCell" rowHeight="140" id="KGk-i7-Jjw" customClass="ScoreTableViewCell" customModule="Checkers" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="412" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name White Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xd-9y-xSz">
+                        <rect key="frame" x="8" y="8" width="145" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Gray Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaf-Ht-Yvi">
+                        <rect key="frame" x="268" y="8" width="136" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HT-NT-xvZ">
+                        <rect key="frame" x="164.5" y="34" width="83" height="22"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-5P-zPv">
+                        <rect key="frame" x="174" y="61" width="64.5" height="30"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="23"/>
+                        <color key="textColor" systemColor="systemGreenColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boA-nL-cyC">
+                        <rect key="frame" x="41" y="101" width="79.5" height="30"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="23"/>
+                        <color key="textColor" systemColor="systemRedColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12z-1D-2ck">
+                        <rect key="frame" x="296.5" y="101" width="79.5" height="30"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="23"/>
+                        <color key="textColor" systemColor="systemRedColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra7-c0-5Gl">
+                        <rect key="frame" x="58" y="34" width="45" height="22"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwR-Ks-y4N">
+                        <rect key="frame" x="313.5" y="34" width="45" height="22"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rw-13-Esk">
+                        <rect key="frame" x="65.5" y="61" width="30" height="30"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="23"/>
+                        <color key="textColor" systemColor="systemOrangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVI-On-mYw">
+                        <rect key="frame" x="321" y="61" width="30" height="30"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="23"/>
+                        <color key="textColor" systemColor="systemOrangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7Xd-9y-xSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1f0-KZ-AFK"/>
+                    <constraint firstItem="TVI-On-mYw" firstAttribute="top" secondItem="nwR-Ks-y4N" secondAttribute="bottom" constant="5" id="245-G5-T5J"/>
+                    <constraint firstItem="boA-nL-cyC" firstAttribute="centerX" secondItem="7Xd-9y-xSz" secondAttribute="centerX" id="5an-On-qJm"/>
+                    <constraint firstItem="8Rw-13-Esk" firstAttribute="centerX" secondItem="ra7-c0-5Gl" secondAttribute="centerX" id="7qm-TP-65a"/>
+                    <constraint firstItem="ra7-c0-5Gl" firstAttribute="top" secondItem="7Xd-9y-xSz" secondAttribute="bottom" constant="5" id="LEH-cu-eK1"/>
+                    <constraint firstItem="vsp-5P-zPv" firstAttribute="top" secondItem="2HT-NT-xvZ" secondAttribute="bottom" constant="5" id="LYv-Yd-8Go"/>
+                    <constraint firstItem="ra7-c0-5Gl" firstAttribute="centerX" secondItem="7Xd-9y-xSz" secondAttribute="centerX" id="NWt-1p-6Zt"/>
+                    <constraint firstItem="8Rw-13-Esk" firstAttribute="top" secondItem="ra7-c0-5Gl" secondAttribute="bottom" constant="5" id="No5-aL-Z7J"/>
+                    <constraint firstItem="vsp-5P-zPv" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="NsT-Ig-LIO"/>
+                    <constraint firstItem="nwR-Ks-y4N" firstAttribute="top" secondItem="Kaf-Ht-Yvi" secondAttribute="bottom" constant="5" id="QYN-aJ-gvh"/>
+                    <constraint firstAttribute="trailing" secondItem="Kaf-Ht-Yvi" secondAttribute="trailing" constant="8" id="Rz0-zy-AxA"/>
+                    <constraint firstItem="Kaf-Ht-Yvi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="S4D-KI-Jyj"/>
+                    <constraint firstItem="7Xd-9y-xSz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="aYt-1z-fK5"/>
+                    <constraint firstItem="2HT-NT-xvZ" firstAttribute="top" secondItem="7Xd-9y-xSz" secondAttribute="bottom" constant="5" id="alx-xO-E0O"/>
+                    <constraint firstItem="2HT-NT-xvZ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eMD-zR-cWH"/>
+                    <constraint firstItem="12z-1D-2ck" firstAttribute="top" secondItem="vsp-5P-zPv" secondAttribute="bottom" constant="10" id="eha-M8-7ZC"/>
+                    <constraint firstItem="TVI-On-mYw" firstAttribute="centerX" secondItem="nwR-Ks-y4N" secondAttribute="centerX" id="iyW-dm-dLy"/>
+                    <constraint firstItem="boA-nL-cyC" firstAttribute="top" secondItem="vsp-5P-zPv" secondAttribute="bottom" constant="10" id="vTx-NI-IRz"/>
+                    <constraint firstItem="12z-1D-2ck" firstAttribute="centerX" secondItem="Kaf-Ht-Yvi" secondAttribute="centerX" id="wGa-R7-0Us"/>
+                    <constraint firstItem="nwR-Ks-y4N" firstAttribute="centerX" secondItem="Kaf-Ht-Yvi" secondAttribute="centerX" id="yKV-Cg-RuA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="greyPlayerName" destination="Kaf-Ht-Yvi" id="NsD-6O-ilG"/>
+                <outlet property="scoreGrayPlayerLabel" destination="nwR-Ks-y4N" id="Plt-7Q-ZXZ"/>
+                <outlet property="scoreWhitePlayerLabel" destination="ra7-c0-5Gl" id="166-Ve-5Tj"/>
+                <outlet property="timerGameLabel" destination="2HT-NT-xvZ" id="2pb-Ud-iF7"/>
+                <outlet property="whitePlayerName" destination="7Xd-9y-xSz" id="j4h-GO-X2e"/>
+                <outlet property="winnerGrayPlayer" destination="12z-1D-2ck" id="76S-ch-Q0I"/>
+                <outlet property="winnerWhitePlayer" destination="boA-nL-cyC" id="QC9-OG-aet"/>
+            </connections>
+            <point key="canvasLocation" x="156.52173913043478" y="39.508928571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

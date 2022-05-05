@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--About View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="AboutViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkers" translatesAutoresizingMaskIntoConstraints="NO" id="dV2-Kq-VGf">
+                                <rect key="frame" x="79" y="179" width="256" height="256"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qR-2w-MNf">
+                                <rect key="frame" x="57" y="79" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ak4-Fu-Daf"/>
+                                    <constraint firstAttribute="height" constant="50" id="wWb-cy-QNP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This game is designed by Ilya Sinitsyn, TMS-15 iOs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhp-qM-1MH">
+                                <rect key="frame" x="20" y="465" width="374" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="tYK-7L-60d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9s-nc-hE6" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="752" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Ve6-jK-TWc"/>
+                                    <constraint firstAttribute="height" constant="50" id="llf-WW-hg7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="SZP-iR-zkV" appends="YES" id="5Ek-m4-k6g"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dV2-Kq-VGf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EZv-bw-eIU"/>
+                            <constraint firstItem="Zhp-qM-1MH" firstAttribute="top" secondItem="dV2-Kq-VGf" secondAttribute="bottom" constant="30" id="Tng-hp-sA2"/>
+                            <constraint firstItem="Zhp-qM-1MH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aV7-BO-rzk"/>
+                            <constraint firstItem="4qR-2w-MNf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="bEn-pc-out"/>
+                            <constraint firstItem="b9s-nc-hE6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j4b-VW-xEO"/>
+                            <constraint firstItem="4qR-2w-MNf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jYr-dB-FRX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="b9s-nc-hE6" secondAttribute="bottom" constant="60" id="y3o-hF-dtv"/>
+                            <constraint firstItem="dV2-Kq-VGf" firstAttribute="top" secondItem="4qR-2w-MNf" secondAttribute="bottom" constant="50" id="zCw-Ef-Go9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutLabel" destination="4qR-2w-MNf" id="Jhc-Cd-79X"/>
+                        <outlet property="backButton" destination="b9s-nc-hE6" id="8iX-Mf-Dre"/>
+                        <outlet property="infoGameLabel" destination="Zhp-qM-1MH" id="3Eb-FZ-TH4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="SZP-iR-zkV" userLabel="Back Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="BackButtonAction:" destination="Y6W-OH-hqX" id="LmL-hW-hUP"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="63.616071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkers" width="256" height="256"/>
+    </resources>
+</document>

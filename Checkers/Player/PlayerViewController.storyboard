@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Y6W-OH-hqX" customClass="PlayerViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUv-32-KUT" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="546.5" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ApO-08-6Ci"/>
+                                    <constraint firstAttribute="width" constant="200" id="nG5-G8-Kwt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Start"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4iN-Te-OhZ" appends="YES" id="zDI-JB-nUi"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIC-yZ-0mh" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="616.5" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6vu-c7-RWG"/>
+                                    <constraint firstAttribute="width" constant="200" id="DYA-Dc-muY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Score"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bgS-Lx-hjN" appends="YES" id="KtZ-gE-GAY"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-Ve-IrV" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="686.5" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hw2-mR-68e"/>
+                                    <constraint firstAttribute="width" constant="200" id="miq-JH-Rjq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Settings"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zB2-ff-iHv" appends="YES" id="9ZD-0p-THC"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z54-R7-5Ze" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
+                                <rect key="frame" x="107" y="756.5" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Fh0-u1-GLM"/>
+                                    <constraint firstAttribute="height" constant="50" id="sea-Vj-lo8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="About"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ASS-JD-Mw8" appends="YES" id="5gS-Fc-vJy"/>
+                                </connections>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qSG-To-M8F" userLabel="Image View Player">
+                                <rect key="frame" x="132" y="169.5" width="150" height="149"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Vk5-Oj-B2y"/>
+                                    <constraint firstAttribute="height" constant="150" id="fNc-Yk-xsQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHEKERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8j-ui-9em" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="93" y="79" width="228" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Q0r-Gf-yJC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="64"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="morphingEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APG-Zb-Ndv">
+                                <rect key="frame" x="7" y="349" width="400" height="54.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="zIk-RW-ZMo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="50"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="foS-cY-K3r">
+                                <rect key="frame" x="107" y="476.5" width="200" height="41"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SsZ-v0-uCr"/>
+                                    <constraint firstAttribute="width" constant="200" id="zhA-Hm-MHN"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="White"/>
+                                    <segment title="Grey"/>
+                                </segments>
+                                <connections>
+                                    <action selector="choseColorChekersPleyer:" destination="Y6W-OH-hqX" eventType="valueChanged" id="wcj-2x-Vai"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chose color checkers?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-RD-wzQ">
+                                <rect key="frame" x="7" y="433.5" width="400" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="6fB-ns-bIL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="foS-cY-K3r" firstAttribute="top" secondItem="PWF-RD-wzQ" secondAttribute="bottom" constant="10" id="1sY-SW-R9Q"/>
+                            <constraint firstItem="1hQ-Ve-IrV" firstAttribute="top" secondItem="VIC-yZ-0mh" secondAttribute="bottom" constant="20" id="7RV-e9-Jf2"/>
+                            <constraint firstItem="z54-R7-5Ze" firstAttribute="top" secondItem="1hQ-Ve-IrV" secondAttribute="bottom" constant="20" id="ATZ-t3-xeY"/>
+                            <constraint firstItem="foS-cY-K3r" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="I3k-VN-ywA"/>
+                            <constraint firstItem="gUv-32-KUT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="MIy-bX-WwH"/>
+                            <constraint firstItem="z8j-ui-9em" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="O5w-Ue-jTt"/>
+                            <constraint firstItem="qSG-To-M8F" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QS0-aH-K70"/>
+                            <constraint firstItem="VIC-yZ-0mh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QzE-dT-Waa"/>
+                            <constraint firstItem="PWF-RD-wzQ" firstAttribute="top" secondItem="APG-Zb-Ndv" secondAttribute="bottom" constant="30" id="RZy-ey-WNF"/>
+                            <constraint firstItem="gUv-32-KUT" firstAttribute="top" secondItem="foS-cY-K3r" secondAttribute="bottom" constant="30" id="SEM-Wa-L6Z"/>
+                            <constraint firstItem="z8j-ui-9em" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="TMN-8H-q4y"/>
+                            <constraint firstItem="z54-R7-5Ze" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="UYP-Wk-e0E"/>
+                            <constraint firstItem="VIC-yZ-0mh" firstAttribute="top" secondItem="gUv-32-KUT" secondAttribute="bottom" constant="20" id="WaQ-ed-kbN"/>
+                            <constraint firstItem="PWF-RD-wzQ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="a3J-ZK-geo"/>
+                            <constraint firstItem="APG-Zb-Ndv" firstAttribute="top" secondItem="qSG-To-M8F" secondAttribute="bottom" constant="30" id="ca9-3W-29Y"/>
+                            <constraint firstItem="APG-Zb-Ndv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="d1p-V5-3HP"/>
+                            <constraint firstItem="1hQ-Ve-IrV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dgm-7M-4PG"/>
+                            <constraint firstItem="qSG-To-M8F" firstAttribute="top" secondItem="z8j-ui-9em" secondAttribute="bottom" constant="40" id="lSG-bs-7Mb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutButton" destination="z54-R7-5Ze" id="m5n-XY-rGJ"/>
+                        <outlet property="checkersGameLabel" destination="z8j-ui-9em" id="blV-v4-ov3"/>
+                        <outlet property="choseColorCheckerLabel" destination="PWF-RD-wzQ" id="YcZ-ec-MpG"/>
+                        <outlet property="choseColorChekersPlayer" destination="foS-cY-K3r" id="QOI-bR-9LJ"/>
+                        <outlet property="playerImageView" destination="qSG-To-M8F" id="o0v-cN-5CK"/>
+                        <outlet property="playerName" destination="APG-Zb-Ndv" id="gJs-JT-XbC"/>
+                        <outlet property="scoreButton" destination="VIC-yZ-0mh" id="V1k-3P-lc8"/>
+                        <outlet property="settingsButton" destination="1hQ-Ve-IrV" id="JHk-Iv-1gi"/>
+                        <outlet property="startButton" destination="gUv-32-KUT" id="DZj-tS-vxj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4iN-Te-OhZ" userLabel="ButtonStart Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonStart:" destination="Y6W-OH-hqX" id="XPv-4n-edy"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bgS-Lx-hjN" userLabel="Score Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonScore:" destination="Y6W-OH-hqX" id="eIN-60-Py7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zB2-ff-iHv" userLabel="Settings Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonSettings:" destination="Y6W-OH-hqX" id="yEu-lj-xDq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ASS-JD-Mw8" userLabel="About Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="buttonAbout:" destination="Y6W-OH-hqX" id="mtW-es-90i"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="z8j-ui-9em">
+            <size key="intrinsicContentSize" width="228" height="70"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

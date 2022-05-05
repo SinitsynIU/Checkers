@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Илья Синицын on 29.03.2022.
+  
+*/
+// setVC
+"settingsLabel_text_setVC" = "Settings";
+"changeAvatarLabel_text_setVC" = "Change avatar";
+"changeLangLabel_text_setVC" = "Change language";
+"changeBgColorLabel_text_setVC" = "Change background color";
+"saveButton_text_setVC" = "Save";
+"backButton_text_setVC" = "Back";
+"changePlayerNameTextField_placeholder_setVC" = "Change player name";
+"buttonSaveAlert_message_setVC" = "Settings successfully saved!";
+// aboutVC
+"aboutLabel_text_aboutVC" = "About game";
+"infoGameLabel_text_aboutVC" = "This game is designed by Ilya Sinitsyn, TMS-15 iOs";
+// startGameVC
+"gameCheckers_text_startGameVC" = "Chekers";
+"scoreLabel_text_startGameVC" = "Score";
+"whitePlayerLabel.text_startGameVC" = "White player";
+"greyPlayerLabel.text_startGameVC" = "Grey player";
+"resetButton_text_startGameVC" = "Reset";
+"moveGreyPlayerLabel_text_startGameVC" = "Grey move!";
+"moveWhitePlayerLabel_text_startGameVC" = "White move!";
+"moveNotYourPlayerLabel_text_startGameVC" = "Not your move!";
+"buttonSaveAlert_message_startGameVC" = "Do you want to save the game?";
+"buttonSaveAlertYes_message_startGameVC" = "Yes";
+"buttonSaveAlertNo_message_startGameVC" = "No";
+"buttonResetAlert_message_startGameVC" = "Do you want to reset the game?";
+// scoreVC
+"clearButton_text_scoreVC" = "Clear";
+// scoreCell
+"timerGame_text_scoreCell" = "Time game";
+// settingsVC
+"choseColorCheckerLabel_text_settingsVC" = "Color your checkers?";
+"startButton_text_settingsVC" = "Start game";
+"choseColorChekersPlayerWhite_Title_settingsVC" = "White";
+"choseColorChekersPlayerGray_Title_settingsVC" = "Gray";
+// arrayColors
+"white_arrayColors"= "White";
+"green_arrayColors"= "Green";
+"yellow_arrayColors"= "Yellow";
+"blue_arrayColors"= "Blue";
+"orange_arrayColors"= "Orange";
+"brown_arrayColors"= "Brown";
+"gray_arrayColors"= "Gray";
+"cyan_arrayColors"= "Cyan";
+"purple_arrayColors"= "Purple";
+// playerVC
+"buttonStartAlert_message_playerVC" = "Do you want to download the saved game?";
