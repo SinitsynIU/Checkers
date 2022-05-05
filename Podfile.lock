@@ -1,0 +1,28 @@
+PODS:
+  - GlitchLabel (2.1.0)
+  - IQKeyboardManagerSwift (6.5.9)
+  - LTMorphingLabel (0.9.3)
+  - SwiftEntryKit (2.0.0)
+
+DEPENDENCIES:
+  - GlitchLabel
+  - IQKeyboardManagerSwift
+  - LTMorphingLabel
+  - SwiftEntryKit
+
+SPEC REPOS:
+  trunk:
+    - GlitchLabel
+    - IQKeyboardManagerSwift
+    - LTMorphingLabel
+    - SwiftEntryKit
+
+SPEC CHECKSUMS:
+  GlitchLabel: b7970749cfdc780ef5489709726a60dd93c71e77
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  LTMorphingLabel: f2b256e4fe665aac27f0d0e8ccdcd79590f0cd70
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
+
+PODFILE CHECKSUM: 0e906e7a2e2178c194fdbb0c8464de3c71b09837
+
+COCOAPODS: 1.11.3
