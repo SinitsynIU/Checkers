@@ -6,16 +6,42 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import GlitchLabel
+
 class CheckViewController: UIViewController {
 
+    @IBOutlet weak var checkerImageView: UIImageView!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
+    @IBOutlet weak var checkerLabel: GlitchLabel!
+    
+    let group = DispatchGroup()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        playerNameChek()
+        group.enter()
+        RemoteConfigureManager.shared.connectToFirebase { [weak self] in
+            self?.group.leave()
+        }
+
+        group.notify(queue: .main) { [weak self] in
+            self?.stopAnimations()
+            self?.playerNameChek()
+        }
+    }
+    
+    private func stopAnimations() {
+        activityIndicatorView.stopAnimating()
+        UIView.animate(withDuration: 0.5){ [weak self] in
+            self?.checkerLabel.alpha = 0
+            self?.checkerImageView.alpha = 0
+        }
     }
     
     private func setupUI() {
         self.overrideUserInterfaceStyle = .light
+        activityIndicatorView.startAnimating()
     }
     
     private func playerNameChek() {

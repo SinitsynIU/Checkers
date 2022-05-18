@@ -18,7 +18,7 @@
 "aboutLabel_text_aboutVC" = "About game";
 "infoGameLabel_text_aboutVC" = "This game is designed by Ilya Sinitsyn, TMS-15 iOs";
 // startGameVC
-"gameCheckers_text_startGameVC" = "Chekers";
+"gameCheckers_text_startGameVC" = "CHECKERS";
 "scoreLabel_text_startGameVC" = "Score";
 "whitePlayerLabel.text_startGameVC" = "White player";
 "greyPlayerLabel.text_startGameVC" = "Grey player";

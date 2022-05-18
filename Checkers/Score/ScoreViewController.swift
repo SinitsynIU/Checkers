@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ScoreViewController: UIViewController {
     
     @IBOutlet weak var clearButton: ButtonCustom!
     @IBOutlet weak var backButton: ButtonCustom!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocalization()
+        setupUI()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ScoreTableViewCell", bundle: nil), forCellReuseIdentifier: "ScoreTableViewCell")
+        AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
     }
     
     func setupLocalization() {
@@ -68,9 +72,5 @@ extension ScoreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140.0
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

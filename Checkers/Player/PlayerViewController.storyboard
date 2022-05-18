@@ -167,6 +167,34 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GmZ-5y-gld">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ND7-7I-5FI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhk-L4-w63" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                            <rect key="frame" x="167" y="408" width="80" height="80"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="bIE-UZ-xt0"/>
+                                                <constraint firstAttribute="width" constant="80" id="rI7-Dg-iih"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballTrianglePath"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mhk-L4-w63" firstAttribute="centerX" secondItem="ND7-7I-5FI" secondAttribute="centerX" id="BdC-O7-Txa"/>
+                                        <constraint firstItem="mhk-L4-w63" firstAttribute="centerY" secondItem="ND7-7I-5FI" secondAttribute="centerY" id="gNe-X5-8ql"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="systemUltraThinMaterial"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,9 +202,11 @@
                             <constraint firstItem="foS-cY-K3r" firstAttribute="top" secondItem="PWF-RD-wzQ" secondAttribute="bottom" constant="10" id="1sY-SW-R9Q"/>
                             <constraint firstItem="1hQ-Ve-IrV" firstAttribute="top" secondItem="VIC-yZ-0mh" secondAttribute="bottom" constant="20" id="7RV-e9-Jf2"/>
                             <constraint firstItem="z54-R7-5Ze" firstAttribute="top" secondItem="1hQ-Ve-IrV" secondAttribute="bottom" constant="20" id="ATZ-t3-xeY"/>
+                            <constraint firstItem="GmZ-5y-gld" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="GE8-c4-JHK"/>
                             <constraint firstItem="foS-cY-K3r" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="I3k-VN-ywA"/>
                             <constraint firstItem="gUv-32-KUT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="MIy-bX-WwH"/>
                             <constraint firstItem="z8j-ui-9em" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="O5w-Ue-jTt"/>
+                            <constraint firstAttribute="bottom" secondItem="GmZ-5y-gld" secondAttribute="bottom" id="OhP-UK-WkT"/>
                             <constraint firstItem="qSG-To-M8F" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QS0-aH-K70"/>
                             <constraint firstItem="VIC-yZ-0mh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QzE-dT-Waa"/>
                             <constraint firstItem="PWF-RD-wzQ" firstAttribute="top" secondItem="APG-Zb-Ndv" secondAttribute="bottom" constant="30" id="RZy-ey-WNF"/>
@@ -189,10 +219,14 @@
                             <constraint firstItem="APG-Zb-Ndv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="d1p-V5-3HP"/>
                             <constraint firstItem="1hQ-Ve-IrV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dgm-7M-4PG"/>
                             <constraint firstItem="qSG-To-M8F" firstAttribute="top" secondItem="z8j-ui-9em" secondAttribute="bottom" constant="40" id="lSG-bs-7Mb"/>
+                            <constraint firstItem="GmZ-5y-gld" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="mfg-cd-64h"/>
+                            <constraint firstItem="GmZ-5y-gld" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p3E-XK-UbC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="aboutButton" destination="z54-R7-5Ze" id="m5n-XY-rGJ"/>
+                        <outlet property="activityIndicatorView" destination="mhk-L4-w63" id="9pN-Rj-R8Q"/>
+                        <outlet property="blur" destination="GmZ-5y-gld" id="7LA-1J-JxO"/>
                         <outlet property="checkersGameLabel" destination="z8j-ui-9em" id="blV-v4-ov3"/>
                         <outlet property="choseColorCheckerLabel" destination="PWF-RD-wzQ" id="YcZ-ec-MpG"/>
                         <outlet property="choseColorChekersPlayer" destination="foS-cY-K3r" id="QOI-bR-9LJ"/>

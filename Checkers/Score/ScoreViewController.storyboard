@@ -78,16 +78,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9z-rH-RJ8" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PUz-Km-SvB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Y9z-rH-RJ8" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="3Ov-Li-1ph"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7t8-4i-TDZ" secondAttribute="trailing" id="9gk-tR-XsN"/>
                             <constraint firstItem="7t8-4i-TDZ" firstAttribute="top" secondItem="pHm-eA-sSB" secondAttribute="bottom" constant="20" id="Jev-pQ-jV9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y9z-rH-RJ8" secondAttribute="trailing" id="RVV-gA-hlF"/>
+                            <constraint firstItem="Y9z-rH-RJ8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TVi-ma-QSe"/>
                             <constraint firstItem="1cn-sV-rpP" firstAttribute="top" secondItem="7t8-4i-TDZ" secondAttribute="bottom" constant="20" id="Umb-V6-ai7"/>
                             <constraint firstItem="t5U-xd-uFh" firstAttribute="top" secondItem="1cn-sV-rpP" secondAttribute="bottom" constant="20" id="aZD-af-uz8"/>
                             <constraint firstItem="7t8-4i-TDZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="caw-Y5-0D3"/>
                             <constraint firstItem="pHm-eA-sSB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="dBD-TT-rjc"/>
+                            <constraint firstItem="Y9z-rH-RJ8" firstAttribute="top" secondItem="t5U-xd-uFh" secondAttribute="bottom" constant="10" id="gI0-Rm-aJZ"/>
                             <constraint firstItem="1cn-sV-rpP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hmC-Ou-bX3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="t5U-xd-uFh" secondAttribute="bottom" constant="60" id="kYu-JG-vP0"/>
                             <constraint firstItem="t5U-xd-uFh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="yDc-gm-E6i"/>
@@ -96,6 +107,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="t5U-xd-uFh" id="16a-gb-vGO"/>
+                        <outlet property="bunnerView" destination="Y9z-rH-RJ8" id="aOy-mk-uZd"/>
                         <outlet property="clearButton" destination="1cn-sV-rpP" id="QDh-qw-hJ0"/>
                         <outlet property="scoreLabel" destination="pHm-eA-sSB" id="VeG-eh-uXH"/>
                         <outlet property="tableView" destination="7t8-4i-TDZ" id="s2I-R3-sXW"/>

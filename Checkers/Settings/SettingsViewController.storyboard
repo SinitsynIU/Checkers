@@ -184,6 +184,13 @@
                                     <action selector="changeLanguage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aCW-tC-DbA"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8c-3p-I2j" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zMc-La-7ro"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -203,10 +210,12 @@
                             <constraint firstItem="OdZ-gu-jzs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="GK3-bR-Ow5"/>
                             <constraint firstItem="Ib2-OS-efD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="KKd-vl-bBB"/>
                             <constraint firstItem="Bio-xs-RUP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Kek-LF-APf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="c8c-3p-I2j" secondAttribute="bottom" id="KfT-jb-imJ"/>
                             <constraint firstItem="v1L-KD-GCb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="NbY-AR-7nG"/>
                             <constraint firstItem="9YG-pA-OGg" firstAttribute="top" secondItem="deF-Zp-K8f" secondAttribute="bottom" id="NhN-BF-xTv"/>
                             <constraint firstItem="bm2-Tc-Ee9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PzC-Kz-Epq"/>
                             <constraint firstItem="Vf5-3P-DNt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SOX-MG-Neb"/>
+                            <constraint firstItem="c8c-3p-I2j" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="XWv-ZV-RuL"/>
                             <constraint firstItem="OdZ-gu-jzs" firstAttribute="top" secondItem="voi-Xs-4y8" secondAttribute="bottom" constant="10" id="Ye2-fR-IcJ"/>
                             <constraint firstItem="Ib2-OS-efD" firstAttribute="top" secondItem="Bio-xs-RUP" secondAttribute="bottom" constant="10" id="aa2-LY-59i"/>
                             <constraint firstItem="Bio-xs-RUP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="axt-vN-iqD"/>
@@ -216,6 +225,7 @@
                             <constraint firstItem="yJY-hy-Pg5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="k1A-52-m0x"/>
                             <constraint firstItem="yJY-hy-Pg5" firstAttribute="top" secondItem="Vf5-3P-DNt" secondAttribute="bottom" constant="20" id="luu-qM-cNs"/>
                             <constraint firstItem="deF-Zp-K8f" firstAttribute="top" secondItem="OdZ-gu-jzs" secondAttribute="bottom" constant="10" id="nzb-BJ-4e1"/>
+                            <constraint firstItem="c8c-3p-I2j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="pYW-pW-lgW"/>
                             <constraint firstItem="deF-Zp-K8f" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xSn-zC-UWi"/>
                         </constraints>
                     </view>
@@ -224,6 +234,7 @@
                         <outlet property="avatarView" destination="bm2-Tc-Ee9" id="7h1-XM-bPn"/>
                         <outlet property="backButton" destination="yJY-hy-Pg5" id="2py-gG-ugG"/>
                         <outlet property="bgColorPicker" destination="9YG-pA-OGg" id="Hbi-IB-Mss"/>
+                        <outlet property="bunnerView" destination="c8c-3p-I2j" id="59A-yk-30j"/>
                         <outlet property="changeAvatarLabel" destination="voi-Xs-4y8" id="nYF-pu-6uQ"/>
                         <outlet property="changeBgColorLabel" destination="deF-Zp-K8f" id="uLK-Jp-W5Z"/>
                         <outlet property="changeLangLabel" destination="7TH-AK-Vn9" id="sc3-gF-N3c"/>

@@ -14,10 +14,68 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-eD-Wl4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkers" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-wg-OhE">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="14k-9d-yvE"/>
+                                    <constraint firstAttribute="width" constant="256" id="20n-Fu-ckj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoRun" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcn-PY-taB" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="167" y="408" width="80" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="6Jk-ne-URa"/>
+                                    <constraint firstAttribute="height" constant="80" id="lIt-ah-ESS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballTrianglePath"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHECKERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4W-0l-e3d" customClass="GlitchLabel" customModule="GlitchLabel">
+                                <rect key="frame" x="79.5" y="202" width="255" height="70"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="64"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="morphingEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="glitchEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="drawScanline" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hJd-wg-OhE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DXX-uk-lzj"/>
+                            <constraint firstItem="hJd-wg-OhE" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="MdU-v5-U7y"/>
+                            <constraint firstItem="jcn-PY-taB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Yi9-63-DGH"/>
+                            <constraint firstItem="B4W-0l-e3d" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="158" id="bUY-tb-wUY"/>
+                            <constraint firstItem="jcn-PY-taB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cGW-62-tyk"/>
+                            <constraint firstItem="jcn-PY-taB" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="d2O-GX-ber"/>
+                            <constraint firstItem="B4W-0l-e3d" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jA3-CG-Trp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aEs-MW-NTC"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="jcn-PY-taB" id="I0q-jz-L7K"/>
+                        <outlet property="checkerImageView" destination="hJd-wg-OhE" id="FSb-N1-eqf"/>
+                        <outlet property="checkerLabel" destination="B4W-0l-e3d" id="DfH-Ty-xIu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,4 +99,13 @@
             <point key="canvasLocation" x="0.0" y="50.892857142857139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="B4W-0l-e3d">
+            <size key="intrinsicContentSize" width="254.5" height="70"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="bg" width="4480" height="6720"/>
+        <image name="checkers" width="256" height="256"/>
+    </resources>
 </document>

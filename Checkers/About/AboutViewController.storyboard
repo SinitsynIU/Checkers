@@ -61,16 +61,26 @@
                                     <outletCollection property="gestureRecognizers" destination="SZP-iR-zkV" appends="YES" id="5Ek-m4-k6g"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmJ-9E-0S9" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wk4-26-bR8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nmJ-9E-0S9" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="7mW-TF-2y7"/>
                             <constraint firstItem="dV2-Kq-VGf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EZv-bw-eIU"/>
                             <constraint firstItem="Zhp-qM-1MH" firstAttribute="top" secondItem="dV2-Kq-VGf" secondAttribute="bottom" constant="30" id="Tng-hp-sA2"/>
+                            <constraint firstItem="nmJ-9E-0S9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Zti-Dz-Ql6"/>
                             <constraint firstItem="Zhp-qM-1MH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aV7-BO-rzk"/>
                             <constraint firstItem="4qR-2w-MNf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="bEn-pc-out"/>
                             <constraint firstItem="b9s-nc-hE6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j4b-VW-xEO"/>
                             <constraint firstItem="4qR-2w-MNf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jYr-dB-FRX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nmJ-9E-0S9" secondAttribute="bottom" id="s6V-tM-cRd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="b9s-nc-hE6" secondAttribute="bottom" constant="60" id="y3o-hF-dtv"/>
                             <constraint firstItem="dV2-Kq-VGf" firstAttribute="top" secondItem="4qR-2w-MNf" secondAttribute="bottom" constant="50" id="zCw-Ef-Go9"/>
                         </constraints>
@@ -78,6 +88,7 @@
                     <connections>
                         <outlet property="aboutLabel" destination="4qR-2w-MNf" id="Jhc-Cd-79X"/>
                         <outlet property="backButton" destination="b9s-nc-hE6" id="8iX-Mf-Dre"/>
+                        <outlet property="bunnerView" destination="nmJ-9E-0S9" id="bIQ-Jk-Ye7"/>
                         <outlet property="infoGameLabel" destination="Zhp-qM-1MH" id="3Eb-FZ-TH4"/>
                     </connections>
                 </viewController>

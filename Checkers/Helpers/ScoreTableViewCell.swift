@@ -20,10 +20,10 @@ class ScoreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupLang()
+        setupLocalization()
     }
     
-    func setupLang() {
+    func setupLocalization() {
         if UserDefaults.standard.string(forKey: "language") == nil {
             url = Bundle.main.url(forResource: "en", withExtension: "lproj")
         } else {

@@ -10,8 +10,9 @@
 		480C1AF027B4EE6B000B87E0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C1AEF27B4EE6B000B87E0 /* SettingsViewController.swift */; };
 		480C1AF227B4EE80000B87E0 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480C1AF127B4EE80000B87E0 /* SettingsViewController.storyboard */; };
 		48189A8827F9F8A60006C65C /* StringLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48189A8727F9F8A60006C65C /* StringLocalized.swift */; };
-		48189A8A27FA1CF90006C65C /* CustomAlertViewOneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48189A8927FA1CF90006C65C /* CustomAlertViewOneButton.swift */; };
-		48189A8E27FAE3050006C65C /* CustomAlertViewTwoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48189A8D27FAE3050006C65C /* CustomAlertViewTwoButton.swift */; };
+		4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342724282E16D600157DA2 /* RemoteConfigureManager.swift */; };
+		4834272C282E16D600157DA2 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342725282E16D600157DA2 /* AdsManager.swift */; };
+		48342734282E28E900157DA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48342733282E28E900157DA2 /* GoogleService-Info.plist */; };
 		4856947927CDD466002B8F8A /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856947827CDD466002B8F8A /* ScoreViewController.swift */; };
 		4856947B27CDD48D002B8F8A /* ScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4856947A27CDD48D002B8F8A /* ScoreViewController.storyboard */; };
 		4856947E27CDD56E002B8F8A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856947D27CDD56E002B8F8A /* AboutViewController.swift */; };
@@ -42,8 +43,9 @@
 		480C1AEF27B4EE6B000B87E0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		480C1AF127B4EE80000B87E0 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		48189A8727F9F8A60006C65C /* StringLocalized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalized.swift; sourceTree = "<group>"; };
-		48189A8927FA1CF90006C65C /* CustomAlertViewOneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewOneButton.swift; sourceTree = "<group>"; };
-		48189A8D27FAE3050006C65C /* CustomAlertViewTwoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewTwoButton.swift; sourceTree = "<group>"; };
+		48342724282E16D600157DA2 /* RemoteConfigureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigureManager.swift; sourceTree = "<group>"; };
+		48342725282E16D600157DA2 /* AdsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		48342733282E28E900157DA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4856947827CDD466002B8F8A /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4856947A27CDD48D002B8F8A /* ScoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScoreViewController.storyboard; sourceTree = "<group>"; };
 		4856947D27CDD56E002B8F8A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		48342722282E16D600157DA2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				48342724282E16D600157DA2 /* RemoteConfigureManager.swift */,
+				48342725282E16D600157DA2 /* AdsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		4856947727CDD38D002B8F8A /* Score */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +147,7 @@
 			children = (
 				48DBAECB27F394EC0035222E /* Localizations */,
 				4899AC4227B247B3000B0631 /* Helpers */,
+				48342722282E16D600157DA2 /* Managers */,
 				48D6B61F27BD62D5002EA2C5 /* CheckLogin */,
 				48D6B61B27BD618D002EA2C5 /* Login */,
 				48D6B61D27BD625B002EA2C5 /* Player */,
@@ -147,6 +159,7 @@
 				488A3AF22796728A00ADFC5B /* SceneDelegate.swift */,
 				488A3AF92796728B00ADFC5B /* Assets.xcassets */,
 				488A3AFB2796728B00ADFC5B /* LaunchScreen.storyboard */,
+				48342733282E28E900157DA2 /* GoogleService-Info.plist */,
 				488A3AFE2796728B00ADFC5B /* Info.plist */,
 			);
 			path = Checkers;
@@ -161,8 +174,6 @@
 				4856948127CDDECE002B8F8A /* ScoreTableViewCell.swift */,
 				4856948227CDDECE002B8F8A /* ScoreTableViewCell.xib */,
 				48189A8727F9F8A60006C65C /* StringLocalized.swift */,
-				48189A8927FA1CF90006C65C /* CustomAlertViewOneButton.swift */,
-				48189A8D27FAE3050006C65C /* CustomAlertViewTwoButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -303,6 +314,7 @@
 				488A3AF82796728A00ADFC5B /* LoginViewController.storyboard in Resources */,
 				4856948427CDDECE002B8F8A /* ScoreTableViewCell.xib in Resources */,
 				48DBAECF27F3956A0035222E /* en.lproj in Resources */,
+				48342734282E28E900157DA2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,13 +371,13 @@
 				488A3AF52796728A00ADFC5B /* LoginViewController.swift in Sources */,
 				488A3AF12796728A00ADFC5B /* AppDelegate.swift in Sources */,
 				4859B3DE27ABF7230095CC44 /* CheckViewController.swift in Sources */,
-				48189A8E27FAE3050006C65C /* CustomAlertViewTwoButton.swift in Sources */,
+				4834272C282E16D600157DA2 /* AdsManager.swift in Sources */,
 				488A3AF32796728A00ADFC5B /* SceneDelegate.swift in Sources */,
 				4856948327CDDECE002B8F8A /* ScoreTableViewCell.swift in Sources */,
 				480C1AF027B4EE6B000B87E0 /* SettingsViewController.swift in Sources */,
 				4899AC3F27B24717000B0631 /* PlayerViewController.swift in Sources */,
-				48189A8A27FA1CF90006C65C /* CustomAlertViewOneButton.swift in Sources */,
 				48DBAE7E27EF7E690035222E /* hideKeyboardWhenTappedAround.swift in Sources */,
+				4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */,
 				4899AC4C27B24B06000B0631 /* ButtonCustom.swift in Sources */,
 				48189A8827F9F8A60006C65C /* StringLocalized.swift in Sources */,
 				4856947E27CDD56E002B8F8A /* AboutViewController.swift in Sources */,
@@ -399,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -433,6 +446,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7 armv7s";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -461,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -495,6 +510,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7 armv7s";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -523,6 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3WKKZ73TCJ;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7 armv7s";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Checkers/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Set Backgroundcolor";
@@ -556,6 +573,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3WKKZ73TCJ;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7 armv7s";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Checkers/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Set Backgroundcolor";

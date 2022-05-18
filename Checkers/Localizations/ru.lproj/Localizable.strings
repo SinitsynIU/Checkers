@@ -19,7 +19,7 @@
 "infoGameLabel_text_aboutVC" = "Эта игра разработана Ильей Синицыным, TMS-15 iOs";
 "backButton_text_aboutVC" = "Назад";
 // startGameVC
-"gameCheckers_text_startGameVC" = "Шашки";
+"gameCheckers_text_startGameVC" = "ШАШКИ";
 "scoreLabel_text_startGameVC" = "Счет";
 "whitePlayerLabel.text_startGameVC" = "Белый игрок";
 "greyPlayerLabel.text_startGameVC" = "Серый игрок";

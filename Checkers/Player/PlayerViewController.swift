@@ -7,9 +7,12 @@
 
 import UIKit
 import LTMorphingLabel
+import GoogleMobileAds
+import NVActivityIndicatorView
 
 class PlayerViewController: UIViewController {
     
+    @IBOutlet weak var blur: UIVisualEffectView!
     @IBOutlet weak var checkersGameLabel: LTMorphingLabel!
     @IBOutlet weak var playerImageView: UIImageView!
     @IBOutlet weak var choseColorCheckerLabel: UILabel!
@@ -19,6 +22,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var settingsButton: ButtonCustom!
     @IBOutlet weak var aboutButton: ButtonCustom!
     @IBOutlet weak var scoreButton: ButtonCustom!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     var choseChekers: String = "white"
     
@@ -48,10 +52,11 @@ class PlayerViewController: UIViewController {
         checkersGameLabel.morphingCharacterDelay = 1.5
         checkersGameLabel.morphingEffect = .sparkle
         choseColorChekersPlayer.selectedSegmentIndex = 0
+        blur.isHidden = true
         if UserDefaults.standard.colorForKey(key: "bgColor") == nil {
             view.backgroundColor = .white
         } else {
-        view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
+            view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
         }
     }
     
@@ -118,13 +123,24 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func buttonAbout(_ sender: Any) {
-        if let vc = UIStoryboard(name: "AboutViewController", bundle: nil).instantiateInitialViewController() as? AboutViewController {
-            navigationController?.pushViewController(vc, animated: true)
+        blur.isHidden = false
+        activityIndicatorView.startAnimating()
+        AdsManager.shared.setupRewarded(viewController: self) { [weak self] in
+            self?.activityIndicatorView.stopAnimating()
+        } onError: {
+            print("Failed to load rewarded ad with error")
+            self.blur.isHidden = true
+            self.activityIndicatorView.stopAnimating()
+            if let vc = UIStoryboard(name: "AboutViewController", bundle: nil).instantiateInitialViewController() as? AboutViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
+
     }
 }
 
 extension UINavigationController {
+    
   public func pushViewController(viewController: UIViewController,
                                  animated: Bool,
                                  completion: (() -> Void)?) {
@@ -133,4 +149,14 @@ extension UINavigationController {
     pushViewController(viewController, animated: animated)
     CATransaction.commit()
   }
+}
+
+extension PlayerViewController: GADFullScreenContentDelegate {
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        if let vc = UIStoryboard(name: "AboutViewController", bundle: nil).instantiateInitialViewController() as? AboutViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        blur.isHidden = true
+    }
 }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class AboutViewController: UIViewController {
     
     @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var backButton: ButtonCustom!
     @IBOutlet weak var infoGameLabel: UILabel!
 
@@ -17,6 +19,7 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         setupLocalization()
         setupUI()
+        AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
     }
     
     private func setupUI() {

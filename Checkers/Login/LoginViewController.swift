@@ -21,7 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         userDefaultsRemove()
         scrollView.delegate = self
         textFieldName.delegate = self
-        buttonDone.isEnabled = false
     }
     
     func setupUI() {
@@ -31,6 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textFieldName.layer.borderColor = UIColor.black.cgColor
         buttonDone.layer.cornerRadius = 15
         imageViewPlayer.layer.cornerRadius = 75
+        buttonDone.isEnabled = false
     }
     
     func setupAction () {

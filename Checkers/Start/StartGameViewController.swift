@@ -65,14 +65,12 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AdsManager.shared.setupInterstitial(viewController: self) {
+            print("Failed to load interstitial ad with error")
+        }
         addView()
         setupUI()
         setupLocalization()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timer.invalidate()
     }
     
    private func setupUI() {
@@ -359,7 +357,8 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
             
-        if let data = UserDefaults.standard.object(forKey: "Checkers") as? Data { if let checkers = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Checker] { self.checkersSave = checkers }
+        if let data = UserDefaults.standard.object(forKey: "Checkers") as? Data { if let checkers = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Checker] {
+            self.checkersSave = checkers }
         }
         for view in self.viewBoard.subviews {
             if let checker = self.checkersSave.first(where:

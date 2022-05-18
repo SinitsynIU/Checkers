@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftEntryKit
+import GoogleMobileAds
 
 struct BgColor {
     let color: UIColor
@@ -15,6 +16,7 @@ struct BgColor {
 
 class SettingsViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var avButton: UIButton!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var changeAvatarLabel: UILabel!
@@ -52,6 +54,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         bgColorPicker.delegate = self
         bgColorPicker.dataSource = self
         imageAvViewLoad()
+        AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
     }
     
     private func setupUI() {
@@ -96,31 +99,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         }
     }
     
-//    private func setupAttributes() -> EKAttributes {
-//        var attributes = EKAttributes.bottomFloat
-//        attributes.displayDuration = .infinity
-//        //затемнение экрана
-//        attributes.screenBackground = .color(color: .init(light: UIColor(white: 100.0/255.0, alpha: 0.3), dark: UIColor(white: 50.0/255.0, alpha: 0.3)))
-//        // тень
-//        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 8))
-//        // бэкграунд
-//        attributes.entryBackground = .color(color: .standardBackground)
-//        attributes.roundCorners = .all(radius: 25)
-//        // анимация перемещения алерта
-//        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
-//        // анимация алерта
-//        attributes.entranceAnimation = .init(translate: .init(duration: 0.7, spring: .init(damping: 1, initialVelocity: 0)), scale: .init(from: 1.05, to: 1, duration: 0.4, spring: .init(damping: 1, initialVelocity: 0)))
-//        attributes.exitAnimation = .init(translate: .init(duration: 0.2))
-//        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.2)))
-//        // отступ с низу
-//        attributes.positionConstraints.verticalOffset = 10
-//        attributes.statusBar = .dark
-//        return attributes
-//    }
-    
     @IBAction func buttonSaveAction(_ sender: Any) {
-//        SwiftEntryKit.display(entry: CustomAlertViewOneButton(textDescriptionMessagge: "buttonSaveAlert_message_setVC".localized), using: setupAttributes())
-        
         let alert = UIAlertController(title: nil, message: "buttonSaveAlert_message_setVC".localized, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ок", style: .default) { _ in
             if let dataImageAv = self.imageAv?.jpegData(compressionQuality: 0.96) {
