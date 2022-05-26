@@ -47,7 +47,6 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.hideKeyboardWhenTappedAround()
         setupLocalization()
         setupUI()
         changePlayerNameTextField.delegate = self
@@ -120,9 +119,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     @IBAction func buttonBackAction(_ sender: Any) {
-        if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func avatarImageViewChange(_ sender: Any) {

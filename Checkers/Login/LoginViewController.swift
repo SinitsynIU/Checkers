@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.hideKeyboardWhenTappedAround()
         setupUI()
         setupAction()
         userDefaultsRemove()
@@ -53,13 +52,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func buttonDoneAction(_ sender: Any) {
-        if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
+        guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
             navigationController?.pushViewController(vc, animated: true)
             UserDefaults.standard.set(textFieldName?.text ?? "", forKey: "userName")
             if let dataImageAv = self.image?.jpegData(compressionQuality: 0.96) {
                 UserDefaults.standard.set(dataImageAv, forKey: "avatarImageView")
             }
-        }
     }
     
     @IBAction func buttonImageChangeAction(_ sender: Any) {
