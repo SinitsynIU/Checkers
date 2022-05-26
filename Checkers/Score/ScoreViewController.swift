@@ -46,9 +46,8 @@ class ScoreViewController: UIViewController {
     }
     
     @IBAction func buttonBackAction(_ sender: Any) {
-        if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
