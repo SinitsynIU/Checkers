@@ -77,31 +77,35 @@ class PlayerViewController: UIViewController {
         if UserDefaults.standard.object(forKey: "Checkers") != nil {
             let alert = UIAlertController(title: nil, message: "buttonStartAlert_message_playerVC".localized, preferredStyle: .alert)
             let yes = UIAlertAction(title: "buttonSaveAlertYes_message_startGameVC".localized, style: .default) { _ in
-                guard let vc = StartGameViewController.getInstanceViewController as? StartGameViewController else { return }
+            if let vc = UIStoryboard(name: "StartGameViewController", bundle: nil).instantiateInitialViewController() as? StartGameViewController {
                 self.navigationController?.pushViewController(viewController: vc, animated: true) {
                     vc.gameLoad()
                 }
+                }
             }
             let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .cancel) { _ in
-                guard let vc = StartGameViewController.getInstanceViewController as? StartGameViewController else { return }
+                if let vc = UIStoryboard(name: "StartGameViewController", bundle: nil).instantiateInitialViewController() as? StartGameViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.choseChekerPlayer = self.choseChekers
                     vc.timerGame()
+                }
             }
             alert.addAction(no)
             alert.addAction(yes)
             self.present(alert, animated: true, completion: nil)
         } else {
-            guard let vc = StartGameViewController.getInstanceViewController as? StartGameViewController else { return }
+            if let vc = UIStoryboard(name: "StartGameViewController", bundle: nil).instantiateInitialViewController() as? StartGameViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
                 vc.choseChekerPlayer = self.choseChekers
                 vc.timerGame()
+                }
         }
     }
     
     @IBAction func buttonScore(_ sender: Any) {
-        guard let vc = ScoreViewController.getInstanceViewController as? ScoreViewController else { return }
+        if let vc = UIStoryboard(name: "ScoreViewController", bundle: nil).instantiateInitialViewController() as? ScoreViewController {
             navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func choseColorChekersPleyer(_ sender: Any) {
@@ -113,8 +117,9 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func buttonSettings(_ sender: Any) {
-        guard let vc = SettingsViewController.getInstanceViewController as? SettingsViewController else { return }
+        if let vc = UIStoryboard(name: "SettingsViewController", bundle: nil).instantiateInitialViewController() as? SettingsViewController {
             navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func buttonAbout(_ sender: Any) {
@@ -126,8 +131,9 @@ class PlayerViewController: UIViewController {
             print("Failed to load rewarded ad with error")
             self.blur.isHidden = true
             self.activityIndicatorView.stopAnimating()
-            guard let vc = AboutViewController.getInstanceViewController as? AboutViewController else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let vc = UIStoryboard(name: "AboutViewController", bundle: nil).instantiateInitialViewController() as? AboutViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
 
     }
@@ -148,8 +154,9 @@ extension UINavigationController {
 extension PlayerViewController: GADFullScreenContentDelegate {
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        guard let vc = AboutViewController.getInstanceViewController as? AboutViewController else { return }
-        navigationController?.pushViewController(vc, animated: true)
+        if let vc = UIStoryboard(name: "AboutViewController", bundle: nil).instantiateInitialViewController() as? AboutViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
         blur.isHidden = true
     }
 }

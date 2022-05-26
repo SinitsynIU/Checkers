@@ -46,11 +46,13 @@ class CheckViewController: UIViewController {
     
     private func playerNameChek() {
         if UserDefaults.standard.object(forKey: "userName") != nil {
-            guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
+            if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
                 navigationController?.pushViewController(vc, animated: true)
+            }
             } else {
-                guard let vc = LoginViewController.getInstanceViewController as? LoginViewController else { return }
+            if let vc = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController() as? LoginViewController {
                 navigationController?.pushViewController(vc, animated: true)
+            }
             }
     }
 }

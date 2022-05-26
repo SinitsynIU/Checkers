@@ -38,7 +38,8 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func BackButtonAction(_ sender: Any) {
-        guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
-        navigationController?.pushViewController(vc, animated: true)
+        if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

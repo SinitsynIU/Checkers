@@ -324,8 +324,9 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func buttonBackTapAction(_ sender: Any) {
-        guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
-        navigationController?.pushViewController(vc, animated: true)
+        if let vc = UIStoryboard(name: "PlayerViewController", bundle: nil).instantiateInitialViewController() as? PlayerViewController {
+            navigationController?.pushViewController(vc, animated: true)
+        }
         timer.invalidate()
     }
     
