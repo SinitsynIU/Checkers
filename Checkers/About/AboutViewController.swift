@@ -19,6 +19,7 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         setupLocalization()
         setupUI()
+        
         AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
     }
     
