@@ -29,8 +29,9 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var gameCheckers: LTMorphingLabel!
     @IBOutlet weak var whitePlayerName: UILabel!
     @IBOutlet weak var whitePleyerScore: UILabel!
-    @IBOutlet weak var whitePlayerLabel: UILabel!
-    @IBOutlet weak var greyPlayerLabel: UILabel!
+    @IBOutlet weak var grayPlayerView: UIView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var whitePlayerView: UIView!
     @IBOutlet weak var grayPlayerName: UILabel!
     @IBOutlet weak var blackPlayerScore: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -85,19 +86,23 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         movePlayerLabel.text = nil
         gameCheckers.text = " Checkers "
         movePlayerLabel.textColor = .magenta
+        whitePlayerView.layer.cornerRadius = 15
+        whitePlayerView.layer.borderWidth = 1
+        grayPlayerView.layer.cornerRadius = 15
+        grayPlayerView.layer.borderWidth = 1
+        contentView.layer.cornerRadius = 30
+        choseChekerPlayerFunc()
+    }
+    
+    private func choseChekerPlayerFunc() {
+        guard let playerName1 = UserDefaults.standard.object(forKey: "userName"), let playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
         if choseChekerPlayer == "white" {
-            if let i = UserDefaults.standard.object(forKey: "userName") {
-                let playerName: String = i as! String
-                whitePlayerName.text = " \(playerName) "
-                grayPlayerName.text = " PC "
-            }
+                whitePlayerName.text = " \(playerName1) "
+                grayPlayerName.text = " \(playerName2) "
         }
         if choseChekerPlayer == "gray" {
-            if let i = UserDefaults.standard.object(forKey: "userName") {
-                let playerName: String = i as! String
-                whitePlayerName.text = " PC "
-                grayPlayerName.text = " \(playerName) "
-            }
+                whitePlayerName.text = " \(playerName2) "
+                grayPlayerName.text = " \(playerName2) "
         }
     }
     
@@ -109,8 +114,6 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     private func setupLocalization() {
         gameCheckers.text = "gameCheckers_text_startGameVC".localized
         scoreLabel.text = "scoreLabel_text_startGameVC".localized
-        whitePlayerLabel.text = "whitePlayerLabel.text_startGameVC".localized
-        greyPlayerLabel.text = "greyPlayerLabel.text_startGameVC".localized
         buttonBack.text = "backButton_text_setVC".localized
         buttonSave.text = "saveButton_text_setVC".localized
         buttonReset.text = "resetButton_text_startGameVC".localized
@@ -298,20 +301,7 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.printViewCheckersBoard()
             self.view.addSubview(self.viewBoard)
             self.currentPlayerMove = .white
-            if self.choseChekerPlayer == "white" {
-                    if let i = UserDefaults.standard.object(forKey: "userName") {
-                        let playerName: String = i as! String
-                        self.whitePlayerName.text = " \(playerName) "
-                        self.grayPlayerName.text = " PC "
-                    }
-                }
-            if self.choseChekerPlayer == "gray" {
-                    if let i = UserDefaults.standard.object(forKey: "userName") {
-                        let playerName: String = i as! String
-                        self.whitePlayerName.text = " PC "
-                        self.grayPlayerName.text = " \(playerName) "
-                    }
-                }
+            self.choseChekerPlayerFunc()
             self.movePlayerLabel.text =  "moveWhitePlayerLabel_text_startGameVC".localized
             self.timer.invalidate()
             self.seconds = 0
@@ -340,19 +330,14 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         movePlayerLabel.text = UserDefaults.standard.string(forKey: "move")
         
         if let chosePlayer = UserDefaults.standard.string(forKey: "chosePlayerCheker") {
+            guard let  playerName1 = UserDefaults.standard.object(forKey: "userName"), let  playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
             if chosePlayer == "white" {
-                if let i = UserDefaults.standard.object(forKey: "userName") {
-                    let playerName: String = i as! String
-                    whitePlayerName.text = " \(playerName) "
-                    grayPlayerName.text = " PC "
-                }
+                whitePlayerName.text = " \(playerName1) "
+                grayPlayerName.text = " \(playerName2) "
             }
             if chosePlayer == "gray" {
-                if let i = UserDefaults.standard.object(forKey: "userName") {
-                    let playerName: String = i as! String
-                    whitePlayerName.text = " PC "
-                    grayPlayerName.text = " \(playerName) "
-                }
+                whitePlayerName.text = " \(playerName2) "
+                grayPlayerName.text = " \(playerName2) "
             }
         }
             

@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserDefaults.standard.removeObject(forKey: "userName")
         UserDefaults.standard.removeObject(forKey: "avatarImageView")
         UserDefaults.standard.removeObject(forKey: "bgColorView")
+        UserDefaults.standard.removeObject(forKey: "secondUserName")
     }
     
     

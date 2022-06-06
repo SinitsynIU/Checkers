@@ -20,8 +20,6 @@
 // startGameVC
 "gameCheckers_text_startGameVC" = "CHECKERS";
 "scoreLabel_text_startGameVC" = "Score";
-"whitePlayerLabel.text_startGameVC" = "White player";
-"greyPlayerLabel.text_startGameVC" = "Grey player";
 "resetButton_text_startGameVC" = "Reset";
 "moveGreyPlayerLabel_text_startGameVC" = "Grey move!";
 "moveWhitePlayerLabel_text_startGameVC" = "White move!";

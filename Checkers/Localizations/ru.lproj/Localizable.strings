@@ -21,8 +21,6 @@
 // startGameVC
 "gameCheckers_text_startGameVC" = "ШАШКИ";
 "scoreLabel_text_startGameVC" = "Счет";
-"whitePlayerLabel.text_startGameVC" = "Белый игрок";
-"greyPlayerLabel.text_startGameVC" = "Серый игрок";
 "moveNotYourPlayerLabel_text_startGameVC" = "Не ваш ход!";
 "backButton_text_startGameVC" = "Назад";
 "saveButton_text_startGameVC" = "Сохранить";
