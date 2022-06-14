@@ -106,7 +106,6 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (2.0.0)
-  - SwiftEntryKit (2.0.0)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -116,7 +115,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - LTMorphingLabel
   - NVActivityIndicatorView
-  - SwiftEntryKit
 
 SPEC REPOS:
   trunk:
@@ -138,7 +136,6 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - PromisesObjC
-    - SwiftEntryKit
 
 SPEC CHECKSUMS:
   Firebase: 629510f1a9ddb235f3a7c5c8ceb23ba887f0f814
@@ -159,8 +156,7 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: d501ebc2e94d743738b8d73c0683a8168d39c1e4
+PODFILE CHECKSUM: adfd8ab1d51e5f33b5bf979ceea1cb588f495813
 
 COCOAPODS: 1.11.3

@@ -49,8 +49,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserDefaults.standard.removeObject(forKey: "avatarImageView")
         UserDefaults.standard.removeObject(forKey: "bgColorView")
         UserDefaults.standard.removeObject(forKey: "secondUserName")
+        UserDefaults.standard.removeObject(forKey: "scoreGreyPlayer")
+        UserDefaults.standard.removeObject(forKey: "scoreWhitePlayer")
     }
-    
     
     @IBAction func buttonDoneAction(_ sender: Any) {
         guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }

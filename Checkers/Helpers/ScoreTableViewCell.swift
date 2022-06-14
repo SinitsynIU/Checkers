@@ -14,24 +14,29 @@ class ScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var timerGameLabel: UILabel!
     @IBOutlet weak var scoreWhitePlayerLabel: UILabel!
     @IBOutlet weak var winnerWhitePlayer: UILabel!
+    @IBOutlet weak var whitePlayerScoreTextLabel: UILabel!
+    @IBOutlet weak var gameTimerTextLabel: UILabel!
+    @IBOutlet weak var greyPlayerScoreTextLabel: UILabel!
     @IBOutlet weak var scoreGrayPlayerLabel: UILabel!
     @IBOutlet weak var winnerGrayPlayer: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     var url: URL?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLocalization()
+        winnerWhitePlayer.isHidden = true
+        winnerGrayPlayer.isHidden = true
     }
     
     func setupLocalization() {
-        if UserDefaults.standard.string(forKey: "language") == nil {
-            url = Bundle.main.url(forResource: "en", withExtension: "lproj")
-        } else {
-            url = Bundle.main.url(forResource: UserDefaults.standard.string(forKey: "language"), withExtension: "lproj")
-        }
-        guard let langBandel = Bundle(url: url!.absoluteURL) else { return }
-        timerGameLabel.text = NSLocalizedString("timerGame_text_scoreCell", bundle: langBandel, comment: "")
-        scoreGrayPlayerLabel.text = NSLocalizedString("scoreLabel_text_startGameVC", bundle: langBandel, comment: "")
-        scoreWhitePlayerLabel.text = NSLocalizedString("scoreLabel_text_startGameVC", bundle: langBandel, comment: "")
+        gameTimerTextLabel.text = "timerGame_text_scoreCell".localized
+        greyPlayerScoreTextLabel.text = "scoreLabel_text_startGameVC".localized
+        whitePlayerScoreTextLabel.text = "scoreLabel_text_startGameVC".localized
+    }
+    
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

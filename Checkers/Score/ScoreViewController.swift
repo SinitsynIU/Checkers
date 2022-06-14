@@ -16,6 +16,8 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    var checkers: [Checkers] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocalization()
@@ -24,9 +26,26 @@ class ScoreViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ScoreTableViewCell", bundle: nil), forCellReuseIdentifier: "ScoreTableViewCell")
         AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CheckersDataBaseDidChange), name: NSNotification.Name("CheckersDataBaseDidChange"), object: nil)
+    }
+                                               
+    @objc func CheckersDataBaseDidChange() {
+        getData()
+        tableView.reloadData()
     }
     
-    func setupLocalization() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getData()
+    }
+    
+    private func getData() {
+        let checkersDB = CoreDataManager.shared.getFromDB()
+        checkers = checkersDB
+    }
+    
+    private func setupLocalization() {
         scoreLabel.text = "scoreLabel_text_startGameVC".localized
         backButton.text = "backButton_text_setVC".localized
         clearButton.text = "clearButton_text_scoreVC".localized
@@ -39,10 +58,20 @@ class ScoreViewController: UIViewController {
         } else {
         view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
         }
+        clearButton.isHidden = true
     }
     
     @IBAction func buttonClearAction(_ sender: Any) {
-        
+        let alert = UIAlertController(title: nil, message: "clearButtonAlert_message_scoreVC".localized, preferredStyle: .alert)
+        let yes = UIAlertAction(title: "buttonSaveAlertYes_message_startGameVC".localized, style: .default) { _ in
+            self.checkers.removeAll()
+            CoreDataManager.shared.deleteAllInDB()
+            self.tableView.reloadData()
+        }
+        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
+        alert.addAction(no)
+        alert.addAction(yes)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func buttonBackAction(_ sender: Any) {
@@ -54,15 +83,38 @@ class ScoreViewController: UIViewController {
 extension ScoreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if checkers.count > 0 {
+            clearButton.isHidden = false
+        }
+        return checkers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreTableViewCell") as? ScoreTableViewCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreTableViewCell") as? ScoreTableViewCell else                                                                                  { return UITableViewCell() }
+        
+        let checkerSave = checkers[indexPath.row]
+        cell.whitePlayerName.text = "\(checkerSave.nameWhitePlayer ?? "")"
+        cell.greyPlayerName.text = "\(checkerSave.nameGreyPlayer ?? "")"
+        cell.scoreGrayPlayerLabel.text = "\(checkerSave.scoreGreyPlayer ?? 0)"
+        cell.scoreWhitePlayerLabel.text = "\(checkerSave.scoreWhitePlayer ?? 0)"
+        cell.timerGameLabel.text = "\(checkerSave.timer ?? "")"
+        cell.dateLabel.text = "\(checkerSave.date ?? "")"
+    
+        guard let greyPlayerScore = checkerSave.scoreGreyPlayer, let whitePlayerScore = checkerSave.scoreWhitePlayer else { return cell }
+        if greyPlayerScore > whitePlayerScore {
+            cell.winnerGrayPlayer.isHidden = false
+            cell.winnerGrayPlayer.text = "winnerPlayerWinner_text_scoreVC".localized
+        } else {
+            if whitePlayerScore > greyPlayerScore {
+                cell.winnerWhitePlayer.isHidden = false
+                cell.winnerWhitePlayer.text = "winnerPlayerWinner_text_scoreVC".localized
+            } else {
+                cell.winnerGrayPlayer.isHidden = false
+                cell.winnerWhitePlayer.isHidden = false
+                cell.winnerGrayPlayer.text = "winnerPlayerTie_text_scoreVC".localized
+                cell.winnerWhitePlayer.text = "winnerPlayerTie_text_scoreVC".localized
+            }
         }
-        cell.winnerGrayPlayer.isHidden = true
-        cell.winnerWhitePlayer.isHidden = true
         return cell
     }
 }

@@ -21,7 +21,7 @@
 // startGameVC
 "gameCheckers_text_startGameVC" = "ШАШКИ";
 "scoreLabel_text_startGameVC" = "Счет";
-"moveNotYourPlayerLabel_text_startGameVC" = "Не ваш ход!";
+//"moveNotYourPlayerLabel_text_startGameVC" = "Не ваш ход!";
 "backButton_text_startGameVC" = "Назад";
 "saveButton_text_startGameVC" = "Сохранить";
 "resetButton_text_startGameVC" = "Сброс";
@@ -33,6 +33,9 @@
 "buttonResetAlert_message_startGameVC" = "Вы хотите сбросить игру?";
 // scoreVC
 "clearButton_text_scoreVC" = "Очистить";
+"clearButtonAlert_message_scoreVC" = "Вы хотите удалить все сохраненные истории игр?";
+"winnerPlayerTie_text_scoreVC" = "Ничья";
+"winnerPlayerWinner_text_scoreVC" = "Выиграл!";
 // scoreCell
 "timerGame_text_scoreCell" = "Время игры";
 // settingsVC

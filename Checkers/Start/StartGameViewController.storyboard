@@ -44,7 +44,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-Db-cFF">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-Db-cFF">
                                                 <rect key="frame" x="24" y="53.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="jg8-Cg-Mpl"/>
@@ -109,7 +109,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cja-1N-0iw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cja-1N-0iw">
                                                 <rect key="frame" x="24" y="93.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="NpB-U8-vAz"/>
@@ -312,7 +312,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blackPlayerScore" destination="cja-1N-0iw" id="SHE-Zz-gUC"/>
                         <outlet property="buttonBack" destination="4yd-lo-tSd" id="5xr-Z4-Gj0"/>
                         <outlet property="buttonReset" destination="iqj-mD-xvg" id="PlD-iY-7IU"/>
                         <outlet property="buttonSave" destination="VrE-OF-m9W" id="tjf-jb-RL3"/>
@@ -320,6 +319,7 @@
                         <outlet property="gameCheckers" destination="2Vn-Ma-985" id="Bbn-tb-0vy"/>
                         <outlet property="grayPlayerName" destination="Aew-lM-fKm" id="ZM9-aX-R1d"/>
                         <outlet property="grayPlayerView" destination="TjK-kW-0Bk" id="lba-x9-WSx"/>
+                        <outlet property="greyPlayerScore" destination="cja-1N-0iw" id="nnB-gA-7Ez"/>
                         <outlet property="movePlayerLabel" destination="kPp-OG-Cov" id="o36-wO-HdG"/>
                         <outlet property="scoreLabel" destination="ctD-8x-hSE" id="G00-Gl-6Yv"/>
                         <outlet property="timerLabel" destination="4wR-ka-adO" id="zRh-ef-dqD"/>

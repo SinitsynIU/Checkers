@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftEntryKit
 import GoogleMobileAds
 
 struct BgColor {

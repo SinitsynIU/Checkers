@@ -13,6 +13,11 @@
 		4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342724282E16D600157DA2 /* RemoteConfigureManager.swift */; };
 		4834272C282E16D600157DA2 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342725282E16D600157DA2 /* AdsManager.swift */; };
 		48342734282E28E900157DA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48342733282E28E900157DA2 /* GoogleService-Info.plist */; };
+		483C0BAB2858BC05006847F6 /* CheckersDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 483C0BA92858BC05006847F6 /* CheckersDataBase.xcdatamodeld */; };
+		483C0BAE2858BDBA006847F6 /* CheckersDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C0BAC2858BDB9006847F6 /* CheckersDB+CoreDataProperties.swift */; };
+		483C0BAF2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C0BAD2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift */; };
+		483C0BB12858BEB3006847F6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C0BB02858BEB3006847F6 /* CoreDataManager.swift */; };
+		483C0BB52858CCE6006847F6 /* Checkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C0BB42858CCE6006847F6 /* Checkers.swift */; };
 		4856947927CDD466002B8F8A /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856947827CDD466002B8F8A /* ScoreViewController.swift */; };
 		4856947B27CDD48D002B8F8A /* ScoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4856947A27CDD48D002B8F8A /* ScoreViewController.storyboard */; };
 		4856947E27CDD56E002B8F8A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856947D27CDD56E002B8F8A /* AboutViewController.swift */; };
@@ -46,6 +51,11 @@
 		48342724282E16D600157DA2 /* RemoteConfigureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigureManager.swift; sourceTree = "<group>"; };
 		48342725282E16D600157DA2 /* AdsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		48342733282E28E900157DA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		483C0BAA2858BC05006847F6 /* WeatherDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherDataBase.xcdatamodel; sourceTree = "<group>"; };
+		483C0BAC2858BDB9006847F6 /* CheckersDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CheckersDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		483C0BAD2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CheckersDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		483C0BB02858BEB3006847F6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		483C0BB42858CCE6006847F6 /* Checkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkers.swift; sourceTree = "<group>"; };
 		4856947827CDD466002B8F8A /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		4856947A27CDD48D002B8F8A /* ScoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScoreViewController.storyboard; sourceTree = "<group>"; };
 		4856947D27CDD56E002B8F8A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -102,8 +112,27 @@
 			children = (
 				48342724282E16D600157DA2 /* RemoteConfigureManager.swift */,
 				48342725282E16D600157DA2 /* AdsManager.swift */,
+				483C0BB02858BEB3006847F6 /* CoreDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		483C0BA42858BBA2006847F6 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				483C0BAD2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift */,
+				483C0BAC2858BDB9006847F6 /* CheckersDB+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		483C0BB22858CCA5006847F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				483C0BA42858BBA2006847F6 /* CoreDataModels */,
+				483C0BB42858CCE6006847F6 /* Checkers.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4856947727CDD38D002B8F8A /* Score */ = {
@@ -127,6 +156,7 @@
 		48701D21283F361D00488719 /* Extantions */ = {
 			isa = PBXGroup;
 			children = (
+				48189A8727F9F8A60006C65C /* StringLocalized.swift */,
 				48701D23283F361D00488719 /* UIViewController + CoreKit.swift */,
 			);
 			path = Extantions;
@@ -164,12 +194,14 @@
 				4856947727CDD38D002B8F8A /* Score */,
 				48D6B61E27BD6295002EA2C5 /* Settings */,
 				4856947C27CDD554002B8F8A /* About */,
+				483C0BB22858CCA5006847F6 /* Models */,
 				488A3AF02796728A00ADFC5B /* AppDelegate.swift */,
 				488A3AF22796728A00ADFC5B /* SceneDelegate.swift */,
 				488A3AF92796728B00ADFC5B /* Assets.xcassets */,
 				488A3AFB2796728B00ADFC5B /* LaunchScreen.storyboard */,
 				48342733282E28E900157DA2 /* GoogleService-Info.plist */,
 				488A3AFE2796728B00ADFC5B /* Info.plist */,
+				483C0BA92858BC05006847F6 /* CheckersDataBase.xcdatamodeld */,
 			);
 			path = Checkers;
 			sourceTree = "<group>";
@@ -181,7 +213,6 @@
 				4899AC4B27B24B06000B0631 /* ButtonCustom.swift */,
 				4856948127CDDECE002B8F8A /* ScoreTableViewCell.swift */,
 				4856948227CDDECE002B8F8A /* ScoreTableViewCell.xib */,
-				48189A8727F9F8A60006C65C /* StringLocalized.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -376,18 +407,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				488A3B0527968C9600ADFC5B /* StartGameViewController.swift in Sources */,
+				483C0BB52858CCE6006847F6 /* Checkers.swift in Sources */,
 				488A3AF52796728A00ADFC5B /* LoginViewController.swift in Sources */,
 				488A3AF12796728A00ADFC5B /* AppDelegate.swift in Sources */,
+				483C0BB12858BEB3006847F6 /* CoreDataManager.swift in Sources */,
 				4859B3DE27ABF7230095CC44 /* CheckViewController.swift in Sources */,
 				4834272C282E16D600157DA2 /* AdsManager.swift in Sources */,
 				488A3AF32796728A00ADFC5B /* SceneDelegate.swift in Sources */,
 				4856948327CDDECE002B8F8A /* ScoreTableViewCell.swift in Sources */,
 				48701D28283F361D00488719 /* UIViewController + CoreKit.swift in Sources */,
 				480C1AF027B4EE6B000B87E0 /* SettingsViewController.swift in Sources */,
+				483C0BAB2858BC05006847F6 /* CheckersDataBase.xcdatamodeld in Sources */,
 				4899AC3F27B24717000B0631 /* PlayerViewController.swift in Sources */,
+				483C0BAF2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift in Sources */,
 				4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */,
 				4899AC4C27B24B06000B0631 /* ButtonCustom.swift in Sources */,
 				48189A8827F9F8A60006C65C /* StringLocalized.swift in Sources */,
+				483C0BAE2858BDBA006847F6 /* CheckersDB+CoreDataProperties.swift in Sources */,
 				4856947E27CDD56E002B8F8A /* AboutViewController.swift in Sources */,
 				4856947927CDD466002B8F8A /* ScoreViewController.swift in Sources */,
 			);
@@ -627,6 +663,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		483C0BA92858BC05006847F6 /* CheckersDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				483C0BAA2858BC05006847F6 /* WeatherDataBase.xcdatamodel */,
+			);
+			currentVersion = 483C0BAA2858BC05006847F6 /* WeatherDataBase.xcdatamodel */;
+			path = CheckersDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 488A3AE52796728A00ADFC5B /* Project object */;
 }

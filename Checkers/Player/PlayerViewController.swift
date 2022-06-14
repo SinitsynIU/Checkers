@@ -66,7 +66,6 @@ class PlayerViewController: UIViewController {
         } else {
             view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
         }
-        //vsContentView.isHidden = false
         vsContentView.alpha = 0
         vsContentView.layer.cornerRadius = 30
         vsContentView.layer.borderWidth = 1
@@ -115,7 +114,7 @@ class PlayerViewController: UIViewController {
                     vc.gameLoad()
                 }
             }
-            let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .cancel) { _ in
+            let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive) { _ in
                 UserDefaults.standard.removeObject(forKey: "Checkers")
                 UserDefaults.standard.removeObject(forKey: "secondUserName")
             }

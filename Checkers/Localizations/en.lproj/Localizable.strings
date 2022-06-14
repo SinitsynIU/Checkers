@@ -23,13 +23,16 @@
 "resetButton_text_startGameVC" = "Reset";
 "moveGreyPlayerLabel_text_startGameVC" = "Grey move!";
 "moveWhitePlayerLabel_text_startGameVC" = "White move!";
-"moveNotYourPlayerLabel_text_startGameVC" = "Not your move!";
+//"moveNotYourPlayerLabel_text_startGameVC" = "Not your move!";
 "buttonSaveAlert_message_startGameVC" = "Do you want to save the game?";
 "buttonSaveAlertYes_message_startGameVC" = "Yes";
 "buttonSaveAlertNo_message_startGameVC" = "No";
 "buttonResetAlert_message_startGameVC" = "Do you want to reset the game?";
 // scoreVC
 "clearButton_text_scoreVC" = "Clear";
+"clearButtonAlert_message_scoreVC" = "You want to remove all saved game history?";
+"winnerPlayerTie_text_scoreVC" = "Tie";
+"winnerPlayerWinner_text_scoreVC" = "Winner!";
 // scoreCell
 "timerGame_text_scoreCell" = "Time game";
 // settingsVC

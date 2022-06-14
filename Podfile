@@ -9,7 +9,6 @@ target 'Checkers' do
   pod 'IQKeyboardManagerSwift'
   pod 'LTMorphingLabel'
   pod "GlitchLabel"
-  pod 'SwiftEntryKit'
   pod 'Firebase/Core'
   pod 'Firebase/RemoteConfig'
   pod 'Google-Mobile-Ads-SDK'

@@ -24,6 +24,11 @@ class Checker: NSObject, NSCoding, NSSecureCoding {
     }
 }
 
+enum currentMove: Int {
+    case white = 0
+    case gray = 1
+}
+
 class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var gameCheckers: LTMorphingLabel!
@@ -33,7 +38,7 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var whitePlayerView: UIView!
     @IBOutlet weak var grayPlayerName: UILabel!
-    @IBOutlet weak var blackPlayerScore: UILabel!
+    @IBOutlet weak var greyPlayerScore: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var buttonSave: ButtonCustom!
     @IBOutlet weak var buttonReset: ButtonCustom!
@@ -41,10 +46,11 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var movePlayerLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    var checkers: [Checkers] = []
     var choseChekerPlayer: String?
-    var checkersArray = [UIView]()
+    var scoreWhitePlayer: Int = 0
+    var scoreGreyPlayer: Int = 0
     var viewBoard = UIView()
-   
     var checkersSave: [Checker] = []
     var timer: Timer!
     var image: UIImage?
@@ -57,11 +63,6 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             let sec_string = sec < 10 ? "0\(sec)" : "\(sec)"
             timerLabel.text = " \(min_string):\(sec_string) "
         }
-    }
-    
-    enum currentMove: Int {
-        case white = 0
-        case gray = 1
     }
     
     override func viewDidLoad() {
@@ -94,6 +95,25 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         choseChekerPlayerFunc()
     }
     
+    private func saveData() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let date: String =  dateFormatter.string(from: Date.now)
+    
+        checkers.append(Checkers(nameWhitePlayer: whitePlayerName.text, nameGreyPlayer: grayPlayerName.text, timer: timerLabel.text, scoreGreyPlayer: scoreGreyPlayer, scoreWhitePlayer: scoreWhitePlayer, date: date))
+        
+//        checkers?.scoreWhitePlayer = scoreWhitePlayer
+//        checkers?.scoreGreyPlayer = scoreGreyPlayer
+//        checkers?.nameWhitePlayer = whitePlayerName.text
+//        checkers?.nameGreyPlayer = grayPlayerName.text
+//        checkers?.timer = timerLabel.text
+//        checkers?.date = date
+//
+//        guard let checkers = checkers else { return }
+        CoreDataManager.shared.saveGameInDB(checkers: checkers)
+        
+    }
+    
     private func choseChekerPlayerFunc() {
         guard let playerName1 = UserDefaults.standard.object(forKey: "userName"), let playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
         if choseChekerPlayer == "white" {
@@ -102,7 +122,7 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         if choseChekerPlayer == "gray" {
                 whitePlayerName.text = " \(playerName2) "
-                grayPlayerName.text = " \(playerName2) "
+                grayPlayerName.text = " \(playerName1) "
         }
     }
     
@@ -203,6 +223,13 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func handPanGesture (_ sender: UIPanGestureRecognizer) {
         guard let checker = sender.view, let checkerSquare = checker.superview else { return }
+        let filterTop = viewBoard.subviews.filter{($0.tag == checkerSquare.tag + 7 || $0.tag == checkerSquare.tag + 9)}
+        let filterBottom = viewBoard.subviews.filter{($0.tag == checkerSquare.tag - 7 || $0.tag == checkerSquare.tag - 9)}
+        let filterSevenTop = viewBoard.subviews.filter{($0.tag == checkerSquare.tag + 7)}
+        let filterNineTop = viewBoard.subviews.filter{($0.tag == checkerSquare.tag + 9)}
+        let filterSevenBottom = viewBoard.subviews.filter{($0.tag == checkerSquare.tag - 7)}
+        let filterNineBottom = viewBoard.subviews.filter{($0.tag == checkerSquare.tag - 9)}
+        
         switch sender.state {
         case .began:
             viewBoard.bringSubviewToFront(checkerSquare)
@@ -213,29 +240,122 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         case .ended:
             for view in viewBoard.subviews {
                 if view.frame.contains(sender.location(in: viewBoard)) {
-                    if currentPlayerMove == .white,
-                        checker.backgroundColor == .white,
-                        (view.tag == (checkerSquare.tag + 7) ||
-                         view.tag == (checkerSquare.tag + 9)),
-                         view.backgroundColor != .white,
-                         view.subviews.isEmpty {
+                    
+  //MARK: WhitePlayerMove
+                    if currentPlayerMove == .white, checker.backgroundColor == .white,
+                       (view.tag == (checkerSquare.tag + 7) || view.tag == (checkerSquare.tag + 9)) {
+                        if view.backgroundColor != .white, view.subviews.isEmpty, (filterTop.first(where: {$0.subviews.isEmpty}) != nil) {
                             view.addSubview(checker)
                             currentPlayerMove = .gray
                             movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                    } else {
-                        if currentPlayerMove == .gray,
-                           checker.backgroundColor == .gray,
-                           (view.tag == (checkerSquare.tag - 7) ||
-                            view.tag == (checkerSquare.tag - 9)),
-                            view.backgroundColor != .white,
-                            view.subviews.isEmpty {
-                                view.addSubview(checker)
-                                currentPlayerMove = .white
-                                movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                        } else {
-                            movePlayerLabel.text = "moveNotYourPlayerLabel_text_startGameVC".localized
                         }
-                    }
+                        } else {
+                            if currentPlayerMove == .white, checker.backgroundColor == .white,
+                               (view.tag == (checkerSquare.tag + 9) || view.tag == (checkerSquare.tag + 14)) {
+                                if view.backgroundColor != .white, view.subviews.isEmpty, (filterSevenTop.first(where: {$0.subviews.isEmpty}) == nil), filterSevenTop.first?.subviews.first?.backgroundColor == .gray {
+                                    filterSevenTop.first?.subviews.first?.removeFromSuperview()
+                                    scoreWhitePlayer += 1
+                                    whitePleyerScore.text = "\(scoreWhitePlayer)"
+                                    view.addSubview(checker)
+                                    currentPlayerMove = .gray
+                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                }
+                        } else {
+                            if currentPlayerMove == .white, checker.backgroundColor == .white, (view.tag == (checkerSquare.tag - 9) || view.tag == (checkerSquare.tag - 14)) {
+                                if view.backgroundColor != .white, view.subviews.isEmpty, (filterSevenBottom.first(where: {$0.subviews.isEmpty}) == nil), filterSevenBottom.first?.subviews.first?.backgroundColor == .gray {
+                                        filterSevenBottom.first?.subviews.first?.removeFromSuperview()
+                                        scoreWhitePlayer += 1
+                                        whitePleyerScore.text = "\(scoreWhitePlayer)"
+                                        view.addSubview(checker)
+                                        currentPlayerMove = .gray
+                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                }
+                        } else {
+                            if currentPlayerMove == .white, checker.backgroundColor == .white,
+                               (view.tag == (checkerSquare.tag + 7) || view.tag == (checkerSquare.tag + 18)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty,   (filterNineTop.first(where: {$0.subviews.isEmpty}) == nil), filterNineTop.first?.subviews.first?.backgroundColor == .gray {
+                                            filterNineTop.first?.subviews.first?.removeFromSuperview()
+                                            scoreWhitePlayer += 1
+                                            whitePleyerScore.text = "\(scoreWhitePlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+                            if currentPlayerMove == .white, checker.backgroundColor == .white, (view.tag == (checkerSquare.tag - 7) || view.tag == (checkerSquare.tag - 18)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterNineBottom.first(where: {$0.subviews.isEmpty}) == nil), filterNineBottom.first?.subviews.first?.backgroundColor == .gray {
+                                            filterNineBottom.first?.subviews.first?.removeFromSuperview()
+                                            scoreWhitePlayer += 1
+                                            whitePleyerScore.text = "\(scoreWhitePlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+    //MARK: GreyPlayerMove
+                            if currentPlayerMove == .gray, checker.backgroundColor == .gray,
+                                (view.tag == (checkerSquare.tag - 7) || view.tag == (checkerSquare.tag - 9)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterBottom.first(where: {$0.subviews.isEmpty}) != nil) {
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+                            if currentPlayerMove == .gray, checker.backgroundColor == .gray,
+                                (view.tag == (checkerSquare.tag - 9) || view.tag == (checkerSquare.tag - 14)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterSevenBottom.first(where: {$0.subviews.isEmpty}) == nil), filterSevenBottom.first?.subviews.first?.backgroundColor == .white {
+                                            filterSevenBottom.first?.subviews.first?.removeFromSuperview()
+                                            scoreGreyPlayer += 1
+                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+                            if currentPlayerMove == .gray, checker.backgroundColor == .gray,
+                                (view.tag == (checkerSquare.tag + 9) || view.tag == (checkerSquare.tag + 14)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterSevenTop.first(where: {$0.subviews.isEmpty}) == nil), filterSevenTop.first?.subviews.first?.backgroundColor == .white {
+                                            filterSevenTop.first?.subviews.first?.removeFromSuperview()
+                                            scoreGreyPlayer += 1
+                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+                            if currentPlayerMove == .gray, checker.backgroundColor == .gray,
+                               (view.tag == (checkerSquare.tag - 7) || view.tag == (checkerSquare.tag - 18)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterNineBottom.first(where: {$0.subviews.isEmpty}) == nil), filterNineBottom.first?.subviews.first?.backgroundColor == .white {
+                                            filterNineBottom.first?.subviews.first?.removeFromSuperview()
+                                            scoreGreyPlayer += 1
+                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                    }
+                        } else {
+                            if currentPlayerMove == .gray, checker.backgroundColor == .gray,
+                                (view.tag == (checkerSquare.tag + 7) || view.tag == (checkerSquare.tag + 18)) {
+                                    if view.backgroundColor != .white, view.subviews.isEmpty, (filterNineTop.first(where: {$0.subviews.isEmpty}) == nil), filterNineTop.first?.subviews.first?.backgroundColor == .white {
+                                            filterNineTop.first?.subviews.first?.removeFromSuperview()
+                                            scoreGreyPlayer += 1
+                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                            view.addSubview(checker)
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                    }
+//                        } else {
+//                            movePlayerLabel.text = "moveNotYourPlayerLabel_text_startGameVC".localized
+                        }
+                }
+                }
+                }
+                }
+                }
+                }
+                }
+                }
+                }
                 } else {
                     checker.center = CGPoint(
                                     x: checkerSquare.frame.height / 2,
@@ -286,10 +406,14 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         UserDefaults.standard.set(currentPlayerMove.rawValue, forKey: "playerMove")
         UserDefaults.standard.set(movePlayerLabel.text, forKey: "move")
         UserDefaults.standard.set(choseChekerPlayer, forKey: "chosePlayerCheker")
-        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .cancel, handler: nil)
+        UserDefaults.standard.set(scoreWhitePlayer, forKey: "scoreWhitePlayer")
+        UserDefaults.standard.set(scoreGreyPlayer, forKey: "scoreGreyPlayer")
+        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
         alert.addAction(no)
         alert.addAction(yes)
         present(alert, animated: true, completion: nil)
+        
+        saveData()
     }
     
     @IBAction func buttonResetTapAction(_ sender: Any) {
@@ -302,12 +426,16 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             self.view.addSubview(self.viewBoard)
             self.currentPlayerMove = .white
             self.choseChekerPlayerFunc()
-            self.movePlayerLabel.text =  "moveWhitePlayerLabel_text_startGameVC".localized
+            self.movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
             self.timer.invalidate()
             self.seconds = 0
+            self.scoreGreyPlayer = 0
+            self.scoreWhitePlayer = 0
+            self.whitePleyerScore.text = "\(self.scoreWhitePlayer)"
+            self.greyPlayerScore.text = "\(self.scoreGreyPlayer)"
             self.timerGame()
         }
-        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .cancel, handler: nil)
+        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
         alert.addAction(no)
         alert.addAction(yes)
         present(alert, animated: true, completion: nil)
@@ -328,6 +456,8 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             currentPlayerMove = playerMove
         }
         movePlayerLabel.text = UserDefaults.standard.string(forKey: "move")
+        greyPlayerScore.text = "\(UserDefaults.standard.integer(forKey: "scoreGreyPlayer"))"
+        whitePleyerScore.text = "\(UserDefaults.standard.integer(forKey: "scoreWhitePlayer"))"
         
         if let chosePlayer = UserDefaults.standard.string(forKey: "chosePlayerCheker") {
             guard let  playerName1 = UserDefaults.standard.object(forKey: "userName"), let  playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
@@ -337,7 +467,7 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             if chosePlayer == "gray" {
                 whitePlayerName.text = " \(playerName2) "
-                grayPlayerName.text = " \(playerName2) "
+                grayPlayerName.text = " \(playerName1) "
             }
         }
             
