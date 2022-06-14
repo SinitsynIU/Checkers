@@ -101,15 +101,6 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         let date: String =  dateFormatter.string(from: Date.now)
     
         checkers.append(Checkers(nameWhitePlayer: whitePlayerName.text, nameGreyPlayer: grayPlayerName.text, timer: timerLabel.text, scoreGreyPlayer: scoreGreyPlayer, scoreWhitePlayer: scoreWhitePlayer, date: date))
-        
-//        checkers?.scoreWhitePlayer = scoreWhitePlayer
-//        checkers?.scoreGreyPlayer = scoreGreyPlayer
-//        checkers?.nameWhitePlayer = whitePlayerName.text
-//        checkers?.nameGreyPlayer = grayPlayerName.text
-//        checkers?.timer = timerLabel.text
-//        checkers?.date = date
-//
-//        guard let checkers = checkers else { return }
         CoreDataManager.shared.saveGameInDB(checkers: checkers)
         
     }
