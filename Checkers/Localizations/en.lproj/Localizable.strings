@@ -23,7 +23,7 @@
 "resetButton_text_startGameVC" = "Reset";
 "moveGreyPlayerLabel_text_startGameVC" = "Grey move!";
 "moveWhitePlayerLabel_text_startGameVC" = "White move!";
-//"moveNotYourPlayerLabel_text_startGameVC" = "Not your move!";
+"finishGameAlert_massage_startGameVC" = "is winner!";
 "buttonSaveAlert_message_startGameVC" = "Do you want to save the game?";
 "buttonSaveAlertYes_message_startGameVC" = "Yes";
 "buttonSaveAlertNo_message_startGameVC" = "No";
@@ -33,8 +33,7 @@
 "clearButtonAlert_message_scoreVC" = "You want to remove all saved game history?";
 "winnerPlayerTie_text_scoreVC" = "Tie";
 "winnerPlayerWinner_text_scoreVC" = "Winner!";
-// scoreCell
-"timerGame_text_scoreCell" = "Time game";
+"finishGameAlert_text_winnerPlayerWinner_text_scoreVC" = "Game is finish!";
 // settingsVC
 "choseColorCheckerLabel_text_settingsVC" = "Color your checkers?";
 "startButton_text_settingsVC" = "Start game";

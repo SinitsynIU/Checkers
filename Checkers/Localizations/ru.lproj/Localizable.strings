@@ -21,7 +21,6 @@
 // startGameVC
 "gameCheckers_text_startGameVC" = "ШАШКИ";
 "scoreLabel_text_startGameVC" = "Счет";
-//"moveNotYourPlayerLabel_text_startGameVC" = "Не ваш ход!";
 "backButton_text_startGameVC" = "Назад";
 "saveButton_text_startGameVC" = "Сохранить";
 "resetButton_text_startGameVC" = "Сброс";
@@ -31,13 +30,13 @@
 "buttonSaveAlertYes_message_startGameVC" = "Да";
 "buttonSaveAlertNo_message_startGameVC" = "Нет";
 "buttonResetAlert_message_startGameVC" = "Вы хотите сбросить игру?";
+"finishGameAlert_massage_startGameVC" = "выиграл!";
 // scoreVC
 "clearButton_text_scoreVC" = "Очистить";
 "clearButtonAlert_message_scoreVC" = "Вы хотите удалить все сохраненные истории игр?";
 "winnerPlayerTie_text_scoreVC" = "Ничья";
 "winnerPlayerWinner_text_scoreVC" = "Выиграл!";
-// scoreCell
-"timerGame_text_scoreCell" = "Время игры";
+"finishGameAlert_text_winnerPlayerWinner_text_scoreVC" = "Игра закончена!";
 // settingsVC
 "choseColorCheckerLabel_text_settingsVC" = "Цвет вашей шашки?";
 "startButton_text_settingsVC" = "Начать игру";

@@ -117,6 +117,18 @@ class PlayerViewController: UIViewController {
             let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive) { _ in
                 UserDefaults.standard.removeObject(forKey: "Checkers")
                 UserDefaults.standard.removeObject(forKey: "secondUserName")
+                UserDefaults.standard.removeObject(forKey: "scoreGreyPlayer")
+                UserDefaults.standard.removeObject(forKey: "scoreWhitePlayer")
+                UserDefaults.standard.removeObject(forKey: "Checkers")
+                UserDefaults.standard.removeObject(forKey: "timerGame")
+                UserDefaults.standard.removeObject(forKey: "playerMove")
+                UserDefaults.standard.removeObject(forKey: "move")
+                UserDefaults.standard.removeObject(forKey: "chosePlayerCheker")
+                
+                UIView.animate(withDuration: 0.5){ [weak self] in
+                    guard let self = self else { return }
+                    self.vsContentView.alpha = 1
+                }
             }
             alert.addAction(no)
             alert.addAction(yes)

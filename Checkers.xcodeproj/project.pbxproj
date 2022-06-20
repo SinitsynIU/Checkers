@@ -10,6 +10,8 @@
 		480C1AF027B4EE6B000B87E0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C1AEF27B4EE6B000B87E0 /* SettingsViewController.swift */; };
 		480C1AF227B4EE80000B87E0 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480C1AF127B4EE80000B87E0 /* SettingsViewController.storyboard */; };
 		48189A8827F9F8A60006C65C /* StringLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48189A8727F9F8A60006C65C /* StringLocalized.swift */; };
+		482CD304285AE1D200A2D329 /* MoveLogics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CD303285AE1D200A2D329 /* MoveLogics.swift */; };
+		482CD306285B62A800A2D329 /* LightMoveLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CD305285B62A800A2D329 /* LightMoveLogic.swift */; };
 		4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342724282E16D600157DA2 /* RemoteConfigureManager.swift */; };
 		4834272C282E16D600157DA2 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342725282E16D600157DA2 /* AdsManager.swift */; };
 		48342734282E28E900157DA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48342733282E28E900157DA2 /* GoogleService-Info.plist */; };
@@ -48,6 +50,8 @@
 		480C1AEF27B4EE6B000B87E0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		480C1AF127B4EE80000B87E0 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		48189A8727F9F8A60006C65C /* StringLocalized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalized.swift; sourceTree = "<group>"; };
+		482CD303285AE1D200A2D329 /* MoveLogics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveLogics.swift; sourceTree = "<group>"; };
+		482CD305285B62A800A2D329 /* LightMoveLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightMoveLogic.swift; sourceTree = "<group>"; };
 		48342724282E16D600157DA2 /* RemoteConfigureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigureManager.swift; sourceTree = "<group>"; };
 		48342725282E16D600157DA2 /* AdsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
 		48342733282E28E900157DA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 			children = (
 				48189A8727F9F8A60006C65C /* StringLocalized.swift */,
 				48701D23283F361D00488719 /* UIViewController + CoreKit.swift */,
+				482CD305285B62A800A2D329 /* LightMoveLogic.swift */,
+				482CD303285AE1D200A2D329 /* MoveLogics.swift */,
 			);
 			path = Extantions;
 			sourceTree = "<group>";
@@ -421,7 +427,9 @@
 				4899AC3F27B24717000B0631 /* PlayerViewController.swift in Sources */,
 				483C0BAF2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift in Sources */,
 				4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */,
+				482CD304285AE1D200A2D329 /* MoveLogics.swift in Sources */,
 				4899AC4C27B24B06000B0631 /* ButtonCustom.swift in Sources */,
+				482CD306285B62A800A2D329 /* LightMoveLogic.swift in Sources */,
 				48189A8827F9F8A60006C65C /* StringLocalized.swift in Sources */,
 				483C0BAE2858BDBA006847F6 /* CheckersDB+CoreDataProperties.swift in Sources */,
 				4856947E27CDD56E002B8F8A /* AboutViewController.swift in Sources */,

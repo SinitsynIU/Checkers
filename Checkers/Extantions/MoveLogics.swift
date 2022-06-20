@@ -82,12 +82,19 @@ extension StartGameViewController {
     @objc func longPressGesture (_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began:
+            lightMove(sender)
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut) {
                 sender.view?.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             }
         case .ended:
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut) {
                 sender.view?.transform = .identity
+            }
+            for view in viewBoard.subviews {
+                if view.backgroundColor != .white {
+                    view.backgroundColor = .black
+                    view.layer.borderWidth = 0
+                }
             }
         default: break
         }
@@ -106,7 +113,6 @@ extension StartGameViewController {
         switch sender.state {
         case .began:
             viewBoard.bringSubviewToFront(checkerSquare)
-            lightMove(sender)
         case .changed:
             let translation = sender.translation(in: viewBoard)
             checker.center = CGPoint(x: checker.center.x + translation.x, y: checker.center.y + translation.y)
@@ -123,17 +129,13 @@ extension StartGameViewController {
                             whitePleyerScore.text = "\(scoreWhitePlayer)"
                             gameIsFinish()
                             if checker.backgroundColor == .white && view.tag > 55 {
-                                checker.backgroundColor = .blue
+                                checker.backgroundColor = .brown
                             }
                             view.addSubview(checker)
                             checker.center = CGPoint(
                                             x: checkerSquare.frame.height / 2,
                                             y: checkerSquare.frame.height / 2)
-                            for view in viewBoard.subviews {
-                                if view.backgroundColor != .white {
-                                    view.backgroundColor = .black
-                                    view.layer.borderWidth = 0
-                                if moveGrayChecker(sender, board: viewBoard) == true {
+                                if moveWhiteChecker(sender, board: viewBoard) == true {
                                     currentPlayerMove = .white
                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
                                 } else {
@@ -141,8 +143,6 @@ extension StartGameViewController {
                                     movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                 }
                             }
-                            }
-                        }
                     } else {
                         if checker.backgroundColor == .white, currentPlayerMove == .white,
                            (view.tag == (checkerSquare.tag + 18)) {
@@ -152,17 +152,13 @@ extension StartGameViewController {
                                 whitePleyerScore.text = "\(scoreWhitePlayer)"
                                 gameIsFinish()
                                 if checker.backgroundColor == .white && view.tag > 55 {
-                                    checker.backgroundColor = .blue
+                                    checker.backgroundColor = .brown
                                 }
                                 view.addSubview(checker)
                                 checker.center = CGPoint(
                                                 x: checkerSquare.frame.height / 2,
                                                 y: checkerSquare.frame.height / 2)
-                                for view in viewBoard.subviews {
-                                    if view.backgroundColor != .white {
-                                        view.backgroundColor = .black
-                                        view.layer.borderWidth = 0
-                                if moveGrayChecker(sender, board: viewBoard) == true {
+                                if moveWhiteChecker(sender, board: viewBoard) == true {
                                     currentPlayerMove = .white
                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
                                 } else {
@@ -170,25 +166,17 @@ extension StartGameViewController {
                                     movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                 }
                             }
-                            }
-                            }
                         } else {
                             if checker.backgroundColor == .white, currentPlayerMove == .white,
                                 (view.tag == (checkerSquare.tag + 7) || view.tag == (checkerSquare.tag + 9)) {
                                 if view.subviews.isEmpty, view.backgroundColor != .white, ((filterFourteenBottom.first(where: {$0.subviews.isEmpty}) == nil || filterSevenBottom.first?.subviews.first?.backgroundColor != .gray) || (filterEighteenBottom.first(where: {$0.subviews.isEmpty}) == nil || filterSevenBottom.first?.subviews.first?.backgroundColor != .gray)) {
                                             if checker.backgroundColor == .white && view.tag > 55 {
-                                                checker.backgroundColor = .blue
+                                                checker.backgroundColor = .brown
                                             }
                                             view.addSubview(checker)
                                             checker.center = CGPoint(
                                                     x: checkerSquare.frame.height / 2,
                                                     y: checkerSquare.frame.height / 2)
-                                            for view in viewBoard.subviews {
-                                                if view.backgroundColor != .white {
-                                                    view.backgroundColor = .black
-                                                    view.layer.borderWidth = 0
-                                                }
-                                            }
                                             currentPlayerMove = .gray
                                             movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                         }
@@ -205,18 +193,12 @@ extension StartGameViewController {
                                         checker.center = CGPoint(
                                                         x: checkerSquare.frame.height / 2,
                                                         y: checkerSquare.frame.height / 2)
-                                        for view in viewBoard.subviews {
-                                            if view.backgroundColor != .white {
-                                                view.backgroundColor = .black
-                                                view.layer.borderWidth = 0
-                                                if moveGrayChecker(sender, board: viewBoard) == true {
+                                                if moveWhiteChecker(sender, board: viewBoard) == true {
                                                     currentPlayerMove = .white
                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
                                                 } else {
                                                     currentPlayerMove = .gray
                                                     movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                }
-                                            }
                                         }
                                     }
                                 } else {
@@ -231,18 +213,12 @@ extension StartGameViewController {
                                             checker.center = CGPoint(
                                                             x: checkerSquare.frame.height / 2,
                                                             y: checkerSquare.frame.height / 2)
-                                            for view in viewBoard.subviews {
-                                                if view.backgroundColor != .white {
-                                                    view.backgroundColor = .black
-                                                    view.layer.borderWidth = 0
-                                                    if moveGrayChecker(sender, board: viewBoard) == true {
+                                                    if moveWhiteChecker(sender, board: viewBoard) == true {
                                                         currentPlayerMove = .white
                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
                                                     } else {
                                                         currentPlayerMove = .gray
                                                         movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                    }
-                                                }
                                             }
                                         }
 //  MARK: MOVE GREY FORWARD
@@ -255,24 +231,18 @@ extension StartGameViewController {
                                                         greyPlayerScore.text = "\(scoreGreyPlayer)"
                                                         gameIsFinish()
                                                         if checker.backgroundColor == .gray && view.tag < 8 {
-                                                            checker.backgroundColor = .yellow
+                                                            checker.backgroundColor = .magenta
                                                         }
                                                         view.addSubview(checker)
                                                         checker.center = CGPoint(
                                                                         x: checkerSquare.frame.height / 2,
                                                                         y: checkerSquare.frame.height / 2)
-                                                        for view in viewBoard.subviews {
-                                                            if view.backgroundColor != .white {
-                                                                view.backgroundColor = .black
-                                                                view.layer.borderWidth = 0
-                                                                if moveWhiteChecker(sender, board: viewBoard) == true {
+                                                                if moveGrayChecker(sender, board: viewBoard) == true {
                                                                     currentPlayerMove = .gray
                                                                     movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                                 } else {
                                                                     currentPlayerMove = .white
                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 } else {
@@ -284,24 +254,18 @@ extension StartGameViewController {
                                                             greyPlayerScore.text = "\(scoreGreyPlayer)"
                                                             gameIsFinish()
                                                             if checker.backgroundColor == .gray && view.tag < 8 {
-                                                                checker.backgroundColor = .yellow
+                                                                checker.backgroundColor = .magenta
                                                             }
                                                             view.addSubview(checker)
                                                             checker.center = CGPoint(
                                                                             x: checkerSquare.frame.height / 2,
                                                                             y: checkerSquare.frame.height / 2)
-                                                            for view in viewBoard.subviews {
-                                                                if view.backgroundColor != .white {
-                                                                    view.backgroundColor = .black
-                                                                    view.layer.borderWidth = 0
-                                                                    if moveWhiteChecker(sender, board: viewBoard) == true {
+                                                                    if moveGrayChecker(sender, board: viewBoard) == true {
                                                                         currentPlayerMove = .gray
                                                                         movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                                     } else {
                                                                         currentPlayerMove = .white
                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                    }
-                                                                }
                                                             }
                                                         }
                                                     } else {
@@ -310,21 +274,15 @@ extension StartGameViewController {
                                                            (view.tag == (checkerSquare.tag - 7) || view.tag == (checkerSquare.tag - 9)) {
                                                             if view.subviews.isEmpty, view.backgroundColor != .white {
                                                                 if checker.backgroundColor == .gray && view.tag < 8 {
-                                                                    checker.backgroundColor = .yellow
+                                                                    checker.backgroundColor = .magenta
                                                                 }
                                                                 view.addSubview(checker)
                                                                 checker.center = CGPoint(
                                                                                 x: checkerSquare.frame.height / 2,
                                                                                 y: checkerSquare.frame.height / 2)
-                                                                for view in viewBoard.subviews {
-                                                                    if view.backgroundColor != .white {
-                                                                        view.backgroundColor = .black
-                                                                        view.layer.borderWidth = 0
-                                                                    }
                                                                     currentPlayerMove = .white
                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
                                                                 }
-                                                            }
 //   MARK: MOVE GRAY BACK
                                                     } else {
                                                         if currentPlayerMove == .gray,
@@ -338,18 +296,12 @@ extension StartGameViewController {
                                                                 checker.center = CGPoint(
                                                                                 x: checkerSquare.frame.height / 2,
                                                                                 y: checkerSquare.frame.height / 2)
-                                                                for view in viewBoard.subviews {
-                                                                    if view.backgroundColor != .white {
-                                                                        view.backgroundColor = .black
-                                                                        view.layer.borderWidth = 0
-                                                                        if moveWhiteChecker(sender, board: viewBoard) == true {
+                                                                        if moveGrayChecker(sender, board: viewBoard) == true {
                                                                             currentPlayerMove = .gray
                                                                             movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                        }
-                                                                    }
                                                                 }
                                                             }
                                                         } else {
@@ -364,18 +316,12 @@ extension StartGameViewController {
                                                                     checker.center = CGPoint(
                                                                                     x: checkerSquare.frame.height / 2,
                                                                                     y: checkerSquare.frame.height / 2)
-                                                                    for view in viewBoard.subviews {
-                                                                        if view.backgroundColor != .white {
-                                                                            view.backgroundColor = .black
-                                                                            view.layer.borderWidth = 0
-                                                                            if moveWhiteChecker(sender, board: viewBoard) == true {
+                                                                            if moveGrayChecker(sender, board: viewBoard) == true {
                                                                                 currentPlayerMove = .gray
                                                                                 movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                                             } else {
                                                                                 currentPlayerMove = .white
                                                                                 movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                            }
-                                                                        }
                                                                     }
                                                                 }
                                                             
@@ -383,19 +329,17 @@ extension StartGameViewController {
                                                                 checker.center = CGPoint(
                                                                     x: checkerSquare.frame.height / 2,
                                                                     y: checkerSquare.frame.height / 2)
+                                                                
                                                             }
-                                                            }
-                                                       
                                                         }
+                                                    }
                                                }
                                           }
                                        }
                                     }
                                 }
+                            }
                         }
-                    
-                        }
-                                                            
                     }
                 }
             default: break

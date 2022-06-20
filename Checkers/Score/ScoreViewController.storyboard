@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7t8-4i-TDZ">
-                                <rect key="frame" x="5" y="149" width="404" height="513"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7t8-4i-TDZ">
+                                <rect key="frame" x="5" y="114" width="404" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5U-xd-uFh" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
@@ -44,7 +44,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cn-sV-rpP" customClass="ButtonCustom" customModule="Checkers" customModuleProvider="target">
-                                <rect key="frame" x="107" y="682" width="200" height="50"/>
+                                <rect key="frame" x="107" y="692" width="200" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -68,7 +68,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHm-eA-sSB">
-                                <rect key="frame" x="57" y="79" width="300" height="50"/>
+                                <rect key="frame" x="57" y="54" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="c8E-0W-fHd"/>
                                     <constraint firstAttribute="width" constant="300" id="rly-DJ-Ub5"/>
@@ -90,13 +90,13 @@
                         <constraints>
                             <constraint firstItem="Y9z-rH-RJ8" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="3Ov-Li-1ph"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7t8-4i-TDZ" secondAttribute="trailing" constant="5" id="9gk-tR-XsN"/>
-                            <constraint firstItem="7t8-4i-TDZ" firstAttribute="top" secondItem="pHm-eA-sSB" secondAttribute="bottom" constant="20" id="Jev-pQ-jV9"/>
+                            <constraint firstItem="7t8-4i-TDZ" firstAttribute="top" secondItem="pHm-eA-sSB" secondAttribute="bottom" constant="10" id="Jev-pQ-jV9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y9z-rH-RJ8" secondAttribute="trailing" id="RVV-gA-hlF"/>
                             <constraint firstItem="Y9z-rH-RJ8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TVi-ma-QSe"/>
-                            <constraint firstItem="1cn-sV-rpP" firstAttribute="top" secondItem="7t8-4i-TDZ" secondAttribute="bottom" constant="20" id="Umb-V6-ai7"/>
-                            <constraint firstItem="t5U-xd-uFh" firstAttribute="top" secondItem="1cn-sV-rpP" secondAttribute="bottom" constant="20" id="aZD-af-uz8"/>
+                            <constraint firstItem="1cn-sV-rpP" firstAttribute="top" secondItem="7t8-4i-TDZ" secondAttribute="bottom" constant="10" id="Umb-V6-ai7"/>
+                            <constraint firstItem="t5U-xd-uFh" firstAttribute="top" secondItem="1cn-sV-rpP" secondAttribute="bottom" constant="10" id="aZD-af-uz8"/>
                             <constraint firstItem="7t8-4i-TDZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="caw-Y5-0D3"/>
-                            <constraint firstItem="pHm-eA-sSB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="35" id="dBD-TT-rjc"/>
+                            <constraint firstItem="pHm-eA-sSB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="dBD-TT-rjc"/>
                             <constraint firstItem="Y9z-rH-RJ8" firstAttribute="top" secondItem="t5U-xd-uFh" secondAttribute="bottom" constant="10" id="gI0-Rm-aJZ"/>
                             <constraint firstItem="1cn-sV-rpP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hmC-Ou-bX3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="t5U-xd-uFh" secondAttribute="bottom" constant="60" id="kYu-JG-vP0"/>

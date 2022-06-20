@@ -90,8 +90,10 @@ extension ScoreViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreTableViewCell") as? ScoreTableViewCell else                                                                                  { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreTableViewCell") as? ScoreTableViewCell else                                                                             { return UITableViewCell() }
         
+        cell.selectionStyle = .none
+    
         let checkerSave = checkers[indexPath.row]
         cell.whitePlayerName.text = "\(checkerSave.nameWhitePlayer ?? "")"
         cell.greyPlayerName.text = "\(checkerSave.nameGreyPlayer ?? "")"
@@ -122,6 +124,6 @@ extension ScoreViewController: UITableViewDataSource {
 extension ScoreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140.0
+        return 155.0
     }
 }

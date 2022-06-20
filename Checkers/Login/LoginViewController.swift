@@ -51,6 +51,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserDefaults.standard.removeObject(forKey: "secondUserName")
         UserDefaults.standard.removeObject(forKey: "scoreGreyPlayer")
         UserDefaults.standard.removeObject(forKey: "scoreWhitePlayer")
+        UserDefaults.standard.removeObject(forKey: "Checkers")
+        UserDefaults.standard.removeObject(forKey: "timerGame")
+        UserDefaults.standard.removeObject(forKey: "playerMove")
+        UserDefaults.standard.removeObject(forKey: "move")
+        UserDefaults.standard.removeObject(forKey: "chosePlayerCheker")
     }
     
     @IBAction func buttonDoneAction(_ sender: Any) {

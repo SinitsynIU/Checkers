@@ -10,12 +10,12 @@ import UIKit
 class ScoreTableViewCell: UITableViewCell {
    
     @IBOutlet weak var greyPlayerName: UILabel!
+    @IBOutlet weak var scoreContentView: UIView!
     @IBOutlet weak var whitePlayerName: UILabel!
     @IBOutlet weak var timerGameLabel: UILabel!
     @IBOutlet weak var scoreWhitePlayerLabel: UILabel!
     @IBOutlet weak var winnerWhitePlayer: UILabel!
     @IBOutlet weak var whitePlayerScoreTextLabel: UILabel!
-    @IBOutlet weak var gameTimerTextLabel: UILabel!
     @IBOutlet weak var greyPlayerScoreTextLabel: UILabel!
     @IBOutlet weak var scoreGrayPlayerLabel: UILabel!
     @IBOutlet weak var winnerGrayPlayer: UILabel!
@@ -26,17 +26,18 @@ class ScoreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLocalization()
+        setupUI()
         winnerWhitePlayer.isHidden = true
         winnerGrayPlayer.isHidden = true
     }
     
-    func setupLocalization() {
-        gameTimerTextLabel.text = "timerGame_text_scoreCell".localized
+    private func setupLocalization() {
         greyPlayerScoreTextLabel.text = "scoreLabel_text_startGameVC".localized
         whitePlayerScoreTextLabel.text = "scoreLabel_text_startGameVC".localized
     }
     
-    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    private func setupUI() {
+        scoreContentView.layer.borderWidth = 1
+        scoreContentView.layer.cornerRadius = 30
     }
 }
