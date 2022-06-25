@@ -10,7 +10,7 @@
         <!--Score View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ScoreViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScoreViewController" id="Y6W-OH-hqX" customClass="ScoreViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,6 +104,7 @@
                             <constraint firstItem="pHm-eA-sSB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zSP-wj-lFo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YsK-u8-Z4w"/>
                     <connections>
                         <outlet property="backButton" destination="t5U-xd-uFh" id="16a-gb-vGO"/>
                         <outlet property="bunnerView" destination="Y9z-rH-RJ8" id="aOy-mk-uZd"/>
@@ -124,7 +125,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="63.616071428571423"/>
+            <point key="canvasLocation" x="928.98550724637687" y="63.616071428571423"/>
         </scene>
     </scenes>
 </document>

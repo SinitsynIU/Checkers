@@ -311,6 +311,7 @@
                             <constraint firstItem="Y3T-4p-7eO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="l80-1j-oDr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ewZ-cT-KU1"/>
                     <connections>
                         <outlet property="buttonBack" destination="4yd-lo-tSd" id="5xr-Z4-Gj0"/>
                         <outlet property="buttonReset" destination="iqj-mD-xvg" id="PlD-iY-7IU"/>
@@ -320,7 +321,7 @@
                         <outlet property="grayPlayerName" destination="Aew-lM-fKm" id="ZM9-aX-R1d"/>
                         <outlet property="grayPlayerView" destination="TjK-kW-0Bk" id="lba-x9-WSx"/>
                         <outlet property="greyPlayerScore" destination="cja-1N-0iw" id="nnB-gA-7Ez"/>
-                        <outlet property="movePlayerLabel" destination="kPp-OG-Cov" id="o36-wO-HdG"/>
+                        <outlet property="movePlayerLabel" destination="kPp-OG-Cov" id="tI0-cg-edW"/>
                         <outlet property="scoreLabel" destination="ctD-8x-hSE" id="G00-Gl-6Yv"/>
                         <outlet property="timerLabel" destination="4wR-ka-adO" id="zRh-ef-dqD"/>
                         <outlet property="whitePlayerName" destination="O5o-NB-J3U" id="MW2-sp-Y82"/>
@@ -345,7 +346,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="60.9375"/>
+            <point key="canvasLocation" x="942.02898550724649" y="60.9375"/>
         </scene>
     </scenes>
     <designables>

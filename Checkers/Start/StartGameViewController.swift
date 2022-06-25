@@ -2,33 +2,6 @@
 import UIKit
 import LTMorphingLabel
 
-class Checker: NSObject, NSCoding, NSSecureCoding {
-    static var supportsSecureCoding: Bool = true
-    
-    var color: UIColor
-    var numberCell: Int
-    
-    init(color: UIColor, numberCell: Int) {
-        self.color = color
-        self.numberCell = numberCell
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(color, forKey: "color")
-        coder.encode(numberCell, forKey: "numberCell")
-    }
-    
-    required init?(coder: NSCoder) {
-        self.numberCell = coder.decodeInteger(forKey: "numberCell")
-        self.color = coder.decodeObject(of: UIColor.self, forKey: "color") ?? .white
-    }
-}
-
-enum currentMove: Int {
-    case white = 0
-    case gray = 1
-}
-
 class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var gameCheckers: LTMorphingLabel!
@@ -46,12 +19,27 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var movePlayerLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    enum currentMove: String {
+        case white
+        case gray
+    }
+    
+    private lazy var alertView: AlertView = {
+        let alertView: AlertView = AlertView.loadFromNib()
+        alertView.delegateLeftButton = self
+        alertView.delegateRightButton = self
+        return alertView
+    }()
+    
+    var saveButtonControl: Bool?
+    var resetButtonControl: Bool?
+    
     var checkers: [Checkers] = []
     var choseChekerPlayer: String?
     var scoreWhitePlayer: Int = 0
     var scoreGreyPlayer: Int = 0
     var viewBoard = UIView()
-    var checkersSave: [Checker] = []
+    var checkersSave: [CheckerCodingModel] = []
     var timer: Timer!
     var image: UIImage?
     var currentPlayerMove: currentMove = nil ?? .white
@@ -72,15 +60,55 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         addView()
         setupUI()
+        getUserSettings()
+        choseChekerPlayerFunc()
         setupLocalization()
+        if UserDefaultsSettings.checkerModel == nil {
+            printViewCheckersBoard()
+            timerGame()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if UserDefaultsSettings.checkerModel != nil {
+            gameLoad()
+        }
+    }
+    
+    func setAlert(saveButton: Bool? = nil, winnerName: String? = nil) {
+        view.addSubview(alertView)
+        alertView.center = view.center
+        if saveButton == true {
+            alertView.set(title: "saveAlert_text_startGameVC".localized, body: "buttonStartAlert_message_playerVC".localized, leftButtonTitle: "buttonSaveAlertYes_message_startGameVC".localized, rightButtonTitle: "buttonSaveAlertNo_message_startGameVC".localized)
+        } else if saveButton == false {
+            alertView.set(title: "resetAlert_text_startGameVC".localized, body: "buttonResetAlert_message_startGameVC".localized, leftButtonTitle: "buttonSaveAlertYes_message_startGameVC".localized, rightButtonTitle: "buttonSaveAlertNo_message_startGameVC".localized)
+        } else {
+            alertView.set(title: "finishGameAlert_text_winnerPlayerWinner_text_scoreVC".localized, body: "\(winnerName ?? "")" + " " + "finishGameAlert_massage_startGameVC".localized, leftButtonTitle: "OK")
+        }
+    }
+    
+    func animateIn() {
+        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        alertView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.alertView.alpha = 1
+            self.alertView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.4,
+                       animations: {
+                        self.alertView.alpha = 0
+                        self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }) { (_) in
+           self.alertView.removeFromSuperview()
+        }
     }
     
    private func setupUI() {
-        if UserDefaults.standard.colorForKey(key: "bgColor") == nil {
-            view.backgroundColor = .white
-        } else {
-        view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
-        }
         self.overrideUserInterfaceStyle = .light
         gameCheckers.morphingCharacterDelay = 1.0
         gameCheckers.morphingEffect = .fall
@@ -92,7 +120,19 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         grayPlayerView.layer.cornerRadius = 15
         grayPlayerView.layer.borderWidth = 1
         contentView.layer.cornerRadius = 30
-        choseChekerPlayerFunc()
+    }
+    
+    private func getUserSettings () {
+        if UserDefaultsSettings.choseChackerPlaying == nil {
+            choseChekerPlayer = "white"
+        } else {
+            choseChekerPlayer = UserDefaultsSettings.choseChackerPlaying
+        }
+        if UserDefaultsSettings.backgroundColor == nil {
+            view.backgroundColor = .white
+        } else {
+            view.backgroundColor = UserDefaultsSettings.backgroundColor
+        }
     }
     
     private func saveData() {
@@ -106,14 +146,13 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func choseChekerPlayerFunc() {
-        guard let playerName1 = UserDefaults.standard.object(forKey: "userName"), let playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
         if choseChekerPlayer == "white" {
-                whitePlayerName.text = " \(playerName1) "
-                grayPlayerName.text = " \(playerName2) "
+            whitePlayerName.text = "\(UserDefaultsSettings.firstPlayerName ?? "")"
+            grayPlayerName.text = "\(UserDefaultsSettings.secondPlayerName ?? "")"
         }
         if choseChekerPlayer == "gray" {
-                whitePlayerName.text = " \(playerName2) "
-                grayPlayerName.text = " \(playerName1) "
+                whitePlayerName.text = "\(UserDefaultsSettings.secondPlayerName ?? "")"
+                grayPlayerName.text = "\(UserDefaultsSettings.firstPlayerName ?? "")"
         }
     }
     
@@ -198,55 +237,15 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func buttonSaveTapAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "buttonSaveAlert_message_startGameVC".localized, preferredStyle: .alert)
-        let yes = UIAlertAction(title: "buttonSaveAlertYes_message_startGameVC".localized, style: .default) { _ in
-            self.checkersSave.removeAll()
-            for view in self.viewBoard.subviews {
-                if !view.subviews.isEmpty{
-                    guard let color = view.subviews.first?.backgroundColor else { return }
-                    self.checkersSave.append(Checker(
-                                                color: color, numberCell: view.tag))
-                }
-            }
-            if let data = try? NSKeyedArchiver.archivedData(withRootObject: self.checkersSave, requiringSecureCoding: true) {
-                UserDefaults.standard.set(data, forKey: "Checkers")
-            }
-        }
-        UserDefaults.standard.set(seconds, forKey: "timerGame")
-        UserDefaults.standard.set(currentPlayerMove.rawValue, forKey: "playerMove")
-        UserDefaults.standard.set(movePlayerLabel.text, forKey: "move")
-        UserDefaults.standard.set(choseChekerPlayer, forKey: "chosePlayerCheker")
-        UserDefaults.standard.set(scoreWhitePlayer, forKey: "scoreWhitePlayer")
-        UserDefaults.standard.set(scoreGreyPlayer, forKey: "scoreGreyPlayer")
-        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
+            saveButtonControl = true
+            setAlert(saveButton: true)
+            animateIn()
     }
     
     @IBAction func buttonResetTapAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "buttonResetAlert_message_startGameVC".localized, preferredStyle: .alert)
-        let yes = UIAlertAction(title: "buttonSaveAlertYes_message_startGameVC".localized, style: .default) { _ in
-            for view in self.viewBoard.subviews {
-                view.removeFromSuperview()
-            }
-            self.printViewCheckersBoard()
-            self.view.addSubview(self.viewBoard)
-            self.currentPlayerMove = .white
-            self.choseChekerPlayerFunc()
-            self.movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-            self.timer.invalidate()
-            self.seconds = 0
-            self.scoreGreyPlayer = 0
-            self.scoreWhitePlayer = 0
-            self.whitePleyerScore.text = "\(self.scoreWhitePlayer)"
-            self.greyPlayerScore.text = "\(self.scoreGreyPlayer)"
-            self.timerGame()
-        }
-        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
+        resetButtonControl = true
+        setAlert(saveButton: false)
+        animateIn()
     }
     
     @IBAction func buttonBackTapAction(_ sender: Any) {
@@ -259,29 +258,20 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         for view in self.viewBoard.subviews {
             view.subviews.forEach { $0.removeFromSuperview() }
         }
-        if let i = UserDefaults.standard.value(forKey: "playerMove") {
-            let playerMove = currentMove(rawValue: i as! Int) ?? .gray
-            currentPlayerMove = playerMove
+        currentPlayerMove = currentMove(rawValue: UserDefaultsSettings.currentMove ?? "") ?? .gray
+        movePlayerLabel.text = "\(UserDefaultsSettings.playerMove ?? "White move!")"
+        greyPlayerScore.text = "\(UserDefaultsSettings.scoreSecondPlayer ?? 0)"
+        whitePleyerScore.text = "\(UserDefaultsSettings.scoreFirstPlayer ?? 0)"
+        if UserDefaultsSettings.choseChackerPlaying == "white" {
+            whitePlayerName.text = "\(UserDefaultsSettings.firstPlayerName ?? "")"
+            grayPlayerName.text = "\(UserDefaultsSettings.secondPlayerName ?? "")"
         }
-        movePlayerLabel.text = UserDefaults.standard.string(forKey: "move")
-        greyPlayerScore.text = "\(UserDefaults.standard.integer(forKey: "scoreGreyPlayer"))"
-        whitePleyerScore.text = "\(UserDefaults.standard.integer(forKey: "scoreWhitePlayer"))"
+        if UserDefaultsSettings.choseChackerPlaying == "gray" {
+            whitePlayerName.text = "\(UserDefaultsSettings.secondPlayerName ?? "")"
+            grayPlayerName.text = "\(UserDefaultsSettings.firstPlayerName ?? "")"
+        }
+        self.checkersSave = UserDefaultsSettings.checkerModel ?? []
         
-        if let chosePlayer = UserDefaults.standard.string(forKey: "chosePlayerCheker") {
-            guard let  playerName1 = UserDefaults.standard.object(forKey: "userName"), let  playerName2 = UserDefaults.standard.object(forKey: "secondUserName") else { return }
-            if chosePlayer == "white" {
-                whitePlayerName.text = " \(playerName1) "
-                grayPlayerName.text = " \(playerName2) "
-            }
-            if chosePlayer == "gray" {
-                whitePlayerName.text = " \(playerName2) "
-                grayPlayerName.text = " \(playerName1) "
-            }
-        }
-            
-        if let data = UserDefaults.standard.object(forKey: "Checkers") as? Data { if let checkers = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Checker] {
-            self.checkersSave = checkers }
-        }
         for view in self.viewBoard.subviews {
             if let checker = self.checkersSave.first(where:
                                                     { $0.numberCell == view.tag }) {
@@ -292,18 +282,16 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-        if let timerLoad = UserDefaults.standard.value(forKey: "timerGame") {
-                self.seconds = timerLoad as! Int
-                    if self.timer == nil {
-                        self.timerGame()
-                        return
-                    }
-                    if self.timer.isValid {
-                        self.timer.invalidate()
-                    } else {
-                        self.timerGame()
-                    }
-            }
+        seconds = UserDefaultsSettings.timer ?? 0
+        if timer == nil {
+            timerGame()
+            return
+        }
+        if timer.isValid {
+            timer.invalidate()
+        } else {
+            timerGame()
+        }
     }
     
     func timerGame() {
@@ -318,35 +306,65 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         
         if scoreGreyPlayer == 12 {
             winnerName = grayPlayerName.text
-            finishAlert(winnerName: winnerName ?? "")
+            setAlert(winnerName: winnerName)
+            animateIn()
         }
         if scoreWhitePlayer == 12 {
             winnerName = whitePlayerName.text
-            finishAlert(winnerName: winnerName ?? "")
+            setAlert(winnerName: winnerName)
+            animateIn()
+        }
+    }
+}
+
+extension StartGameViewController: AlertDelegateLeftButton, AlertDelegateRightButton {
+    
+    func leftButtonTapped() {
+        animateOut()
+        if saveButtonControl != nil {
+            checkersSave.removeAll()
+            for view in self.viewBoard.subviews {
+                if !view.subviews.isEmpty{
+                    guard let color = view.subviews.first?.backgroundColor else { return }
+                    checkersSave.append(CheckerCodingModel(color: color, numberCell: view.tag))
+                }
+            }
+            UserDefaultsSettings.checkerModel = checkersSave
+            UserDefaultsSettings.timer = seconds
+            UserDefaultsSettings.currentMove = currentPlayerMove.rawValue
+            UserDefaultsSettings.playerMove = movePlayerLabel.text
+            UserDefaultsSettings.choseChackerPlaying = choseChekerPlayer
+            UserDefaultsSettings.scoreFirstPlayer = scoreWhitePlayer
+            UserDefaultsSettings.scoreSecondPlayer = scoreGreyPlayer
+            saveButtonControl = nil
+        } else if resetButtonControl != nil {
+            for view in viewBoard.subviews {
+                view.removeFromSuperview()
+            }
+            printViewCheckersBoard()
+            view.addSubview(viewBoard)
+            currentPlayerMove = .white
+            choseChekerPlayerFunc()
+            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+            timer.invalidate()
+            seconds = 0
+            scoreGreyPlayer = 0
+            scoreWhitePlayer = 0
+            whitePleyerScore.text = "\(scoreWhitePlayer)"
+            greyPlayerScore.text = "\(scoreGreyPlayer)"
+            timerGame()
+            resetButtonControl = nil
+        } else {
+            animateOut()
+            saveData()
+            timer.invalidate()
+            UserDefaultsSettings.UserDefaultsRemoveGameIsFinish()
+            guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-   private func finishAlert(winnerName: String) {
-       let alert = UIAlertController(title: "finishGameAlert_text_winnerPlayerWinner_text_scoreVC".localized, message: "\(winnerName)" + "finishGameAlert_massage_startGameVC".localized, preferredStyle: .alert)
-       let ok = UIAlertAction(title: "OK", style: .default) { _ in
-           
-           self.saveData()
-           self.timer.invalidate()
-           guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
-           self.navigationController?.pushViewController(viewController: vc, animated: true, completion: {
-               
-               UserDefaults.standard.removeObject(forKey: "secondUserName")
-               UserDefaults.standard.removeObject(forKey: "scoreGreyPlayer")
-               UserDefaults.standard.removeObject(forKey: "scoreWhitePlayer")
-               UserDefaults.standard.removeObject(forKey: "Checkers")
-               UserDefaults.standard.removeObject(forKey: "timerGame")
-               UserDefaults.standard.removeObject(forKey: "playerMove")
-               UserDefaults.standard.removeObject(forKey: "move")
-               UserDefaults.standard.removeObject(forKey: "chosePlayerCheker")
-               
-           })
-       }
-       alert.addAction(ok)
-       present(alert, animated: true, completion: nil)
+    func rightButtonTapped() {
+        animateOut()
     }
 }

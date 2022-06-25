@@ -10,7 +10,7 @@
         <!--About View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AboutViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="Y6W-OH-hqX" customClass="AboutViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,7 @@
                             <constraint firstItem="dV2-Kq-VGf" firstAttribute="top" secondItem="4qR-2w-MNf" secondAttribute="bottom" constant="50" id="zCw-Ef-Go9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="baU-3x-DWg"/>
                     <connections>
                         <outlet property="aboutLabel" destination="4qR-2w-MNf" id="Jhc-Cd-79X"/>
                         <outlet property="backButton" destination="b9s-nc-hE6" id="8iX-Mf-Dre"/>
@@ -99,7 +100,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="63.616071428571423"/>
+            <point key="canvasLocation" x="928.98550724637687" y="63.616071428571423"/>
         </scene>
     </scenes>
     <resources>

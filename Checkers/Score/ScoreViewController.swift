@@ -16,6 +16,13 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    private lazy var alertView: AlertView = {
+        let alertView: AlertView = AlertView.loadFromNib()
+        alertView.delegateLeftButton = self
+        alertView.delegateRightButton = self
+        return alertView
+    }()
+    
     var checkers: [Checkers] = []
     
     override func viewDidLoad() {
@@ -40,6 +47,32 @@ class ScoreViewController: UIViewController {
         getData()
     }
     
+    func setAlert() {
+        view.addSubview(alertView)
+        alertView.center = view.center
+        alertView.set(title: "clearAlert_text_startGameVC".localized, body: "clearButtonAlert_message_scoreVC".localized, leftButtonTitle: "buttonSaveAlertYes_message_startGameVC".localized, rightButtonTitle: "buttonSaveAlertNo_message_startGameVC".localized)
+    }
+    
+    func animateIn() {
+        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        alertView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.alertView.alpha = 1
+            self.alertView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.4,
+                       animations: {
+                        self.alertView.alpha = 0
+                        self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }) { (_) in
+           self.alertView.removeFromSuperview()
+        }
+    }
+    
     private func getData() {
         let checkersDB = CoreDataManager.shared.getFromDB()
         checkers = checkersDB
@@ -53,25 +86,17 @@ class ScoreViewController: UIViewController {
     
     private func setupUI() {
         self.overrideUserInterfaceStyle = .light
-        if UserDefaults.standard.colorForKey(key: "bgColor") == nil {
+        if UserDefaults.standard.colorForKey(key: "backgroundColor") == nil {
             view.backgroundColor = .white
         } else {
-        view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
+            view.backgroundColor = UserDefaultsSettings.backgroundColor
         }
         clearButton.isHidden = true
     }
     
     @IBAction func buttonClearAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "clearButtonAlert_message_scoreVC".localized, preferredStyle: .alert)
-        let yes = UIAlertAction(title: "buttonSaveAlertYes_message_startGameVC".localized, style: .default) { _ in
-            self.checkers.removeAll()
-            CoreDataManager.shared.deleteAllInDB()
-            self.tableView.reloadData()
-        }
-        let no = UIAlertAction(title: "buttonSaveAlertNo_message_startGameVC".localized, style: .destructive, handler: nil)
-        alert.addAction(no)
-        alert.addAction(yes)
-        present(alert, animated: true, completion: nil)
+        setAlert()
+        animateIn()
     }
     
     @IBAction func buttonBackAction(_ sender: Any) {
@@ -125,5 +150,19 @@ extension ScoreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 155.0
+    }
+}
+
+extension ScoreViewController: AlertDelegateRightButton, AlertDelegateLeftButton {
+    
+    func leftButtonTapped() {
+        animateOut()
+        self.checkers.removeAll()
+        CoreDataManager.shared.deleteAllInDB()
+        self.tableView.reloadData()
+    }
+    
+    func rightButtonTapped() {
+        animateOut()
     }
 }

@@ -5,6 +5,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var imageViewPlayer: UIImageView!
     @IBOutlet weak var lableHello: UILabel!
+    @IBOutlet weak var editProfileView: UIView!
     @IBOutlet weak var imageViewCheckers: UIImageView!
     @IBOutlet weak var buttonDone: UIButton!
     @IBOutlet weak var textFieldName: UITextField!
@@ -17,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setupUI()
         setupAction()
-        userDefaultsRemove()
+        UserDefaultsSettings.UserDefaultsRemoveAll()
         scrollView.delegate = self
         textFieldName.delegate = self
     }
@@ -30,6 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         buttonDone.layer.cornerRadius = 15
         imageViewPlayer.layer.cornerRadius = 75
         buttonDone.isEnabled = false
+        editProfileView.layer.cornerRadius = 10
     }
     
     func setupAction () {
@@ -44,27 +46,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func userDefaultsRemove() {
-        UserDefaults.standard.removeObject(forKey: "userName")
-        UserDefaults.standard.removeObject(forKey: "avatarImageView")
-        UserDefaults.standard.removeObject(forKey: "bgColorView")
-        UserDefaults.standard.removeObject(forKey: "secondUserName")
-        UserDefaults.standard.removeObject(forKey: "scoreGreyPlayer")
-        UserDefaults.standard.removeObject(forKey: "scoreWhitePlayer")
-        UserDefaults.standard.removeObject(forKey: "Checkers")
-        UserDefaults.standard.removeObject(forKey: "timerGame")
-        UserDefaults.standard.removeObject(forKey: "playerMove")
-        UserDefaults.standard.removeObject(forKey: "move")
-        UserDefaults.standard.removeObject(forKey: "chosePlayerCheker")
-    }
-    
     @IBAction func buttonDoneAction(_ sender: Any) {
         guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
             navigationController?.pushViewController(vc, animated: true)
-            UserDefaults.standard.set(textFieldName?.text ?? "", forKey: "userName")
-            if let dataImageAv = self.image?.jpegData(compressionQuality: 0.96) {
-                UserDefaults.standard.set(dataImageAv, forKey: "avatarImageView")
-            }
+        UserDefaultsSettings.firstPlayerName = textFieldName?.text ?? ""
+        UserDefaultsSettings.avatar = image
     }
     
     @IBAction func buttonImageChangeAction(_ sender: Any) {

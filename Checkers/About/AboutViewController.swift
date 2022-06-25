@@ -24,10 +24,10 @@ class AboutViewController: UIViewController {
     
     private func setupUI() {
         self.overrideUserInterfaceStyle = .light
-        if UserDefaults.standard.colorForKey(key: "bgColor") == nil {
+        if UserDefaultsSettings.backgroundColor == nil {
             view.backgroundColor = .white
         } else {
-        view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
+            view.backgroundColor = UserDefaultsSettings.backgroundColor
         }
     }
     

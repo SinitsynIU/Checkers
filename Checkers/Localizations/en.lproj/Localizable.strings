@@ -7,7 +7,6 @@
 */
 // setVC
 "settingsLabel_text_setVC" = "Settings";
-"changeAvatarLabel_text_setVC" = "Change avatar";
 "changeLangLabel_text_setVC" = "Change language";
 "changeBgColorLabel_text_setVC" = "Change background color";
 "saveButton_text_setVC" = "Save";
@@ -20,6 +19,7 @@
 // startGameVC
 "gameCheckers_text_startGameVC" = "CHECKERS";
 "scoreLabel_text_startGameVC" = "Score";
+"saveAlert_text_startGameVC" = "Save?";
 "resetButton_text_startGameVC" = "Reset";
 "moveGreyPlayerLabel_text_startGameVC" = "Grey move!";
 "moveWhitePlayerLabel_text_startGameVC" = "White move!";
@@ -51,3 +51,8 @@
 "purple_arrayColors"= "Purple";
 // playerVC
 "buttonStartAlert_message_playerVC" = "Do you want to download the saved game?";
+"buttonStartAlertLoad_message_playerVC" = "Load?";
+"resetAlert_text_startGameVC" = "Reset?";
+"clearAlert_text_startGameVC" = "Clear?";
+"titelAlert_text_settingVC" = "Save settings!";
+"secondPlayerTextFieldplaceholder_text_alertView" = "Enter name second player";

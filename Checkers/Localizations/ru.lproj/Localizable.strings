@@ -7,7 +7,6 @@
 */
 // SetVC
 "settingsLabel_text_setVC" = "Настройки";
-"changeAvatarLabel_text_setVC" = "Изменить аватар";
 "changeLangLabel_text_setVC" = "Изменить язык";
 "changeBgColorLabel_text_setVC" = "Bзменить цвет фона";
 "saveButton_text_setVC" = "Сохранить";
@@ -17,12 +16,10 @@
 // aboutVC
 "aboutLabel_text_aboutVC" = "О игре";
 "infoGameLabel_text_aboutVC" = "Эта игра разработана Ильей Синицыным, TMS-15 iOs";
-"backButton_text_aboutVC" = "Назад";
 // startGameVC
 "gameCheckers_text_startGameVC" = "ШАШКИ";
 "scoreLabel_text_startGameVC" = "Счет";
-"backButton_text_startGameVC" = "Назад";
-"saveButton_text_startGameVC" = "Сохранить";
+"saveAlert_text_startGameVC" = "Сохранить?";
 "resetButton_text_startGameVC" = "Сброс";
 "moveGreyPlayerLabel_text_startGameVC" = "Ходят серые!";
 "moveWhitePlayerLabel_text_startGameVC" = "Ходят белые!";
@@ -54,3 +51,8 @@
 "purple_arrayColors"= "Фиолетовый";
 // playerVC
 "buttonStartAlert_message_playerVC" = "Вы хотите загрузить сохраненную игру?";
+"buttonStartAlertLoad_message_playerVC" = "Загрузить?";
+"resetAlert_text_startGameVC" = "Сброс?";
+"clearAlert_text_startGameVC" = "Очистить?";
+"titelAlert_text_settingVC" = "Сохранение настроек!";
+"secondPlayerTextFieldplaceholder_text_alertView" = "Введите имя второго игрока";

@@ -18,8 +18,10 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var bunnerView: GADBannerView!
     @IBOutlet weak var avButton: UIButton!
     @IBOutlet weak var settingsLabel: UILabel!
-    @IBOutlet weak var changeAvatarLabel: UILabel!
+    @IBOutlet weak var usaMarkImageView: UIImageView!
+    @IBOutlet weak var russianMarkImageView: UIImageView!
     @IBOutlet weak var changeLangLabel: UILabel!
+    @IBOutlet weak var editProfileView: UIView!
     @IBOutlet weak var enLangButton: UIButton!
     @IBOutlet weak var ruLangButton: UIButton!
     @IBOutlet weak var changeBgColorLabel: UILabel!
@@ -29,9 +31,15 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var saveButton: ButtonCustom!
     @IBOutlet weak var backButton: ButtonCustom!
     
+    private lazy var alertView: AlertView = {
+        let alertView: AlertView = AlertView.loadFromNib()
+        alertView.delegateLeftButton = self
+        return alertView
+    }()
+    
     var langCode = ["en", "ru"]
     var imageAv: UIImage?
-    var language: String = "en"
+    var language: String?
     var colors: [BgColor] = [
         BgColor(color: .white, title: "white_arrayColors"),
         BgColor(color: .green, title: "green_arrayColors"),
@@ -46,13 +54,39 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLocalization()
         setupUI()
         changePlayerNameTextField.delegate = self
         bgColorPicker.delegate = self
         bgColorPicker.dataSource = self
-        imageAvViewLoad()
+        setupLocalization()
+        getUserSettings()
         AdsManager.shared.setupBunner(bannerView: bunnerView, viewController: self)
+    }
+    
+    func setAlert() {
+        view.addSubview(alertView)
+        alertView.center = view.center
+        alertView.set(title: "titelAlert_text_settingVC".localized, body: "buttonSaveAlert_message_setVC".localized, leftButtonTitle: "OK")
+    }
+    
+    func animateIn() {
+        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        alertView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.alertView.alpha = 1
+            self.alertView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.4,
+                       animations: {
+                        self.alertView.alpha = 0
+                        self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }) { (_) in
+           self.alertView.removeFromSuperview()
+        }
     }
     
     private func setupUI() {
@@ -64,57 +98,45 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         enLangButton.layer.borderWidth = 1
         ruLangButton.layer.cornerRadius = 15
         ruLangButton.layer.borderWidth = 1
-        if UserDefaults.standard.colorForKey(key: "bgColor") == nil {
-            view.backgroundColor = .white
-        } else {
-        view.backgroundColor = UserDefaults.standard.colorForKey(key: "bgColor")
-        }
-        if UserDefaults.standard.colorForKey(key: "enButtonColor") == nil {
-            enLangButton.backgroundColor = .lightGray
-        } else {
-            enLangButton.backgroundColor = UserDefaults.standard.colorForKey(key: "enButtonColor")
-        }
-        if UserDefaults.standard.colorForKey(key: "ruButtonColor") == nil {
-            ruLangButton.backgroundColor = .lightGray
-        } else {
-            ruLangButton.backgroundColor = UserDefaults.standard.colorForKey(key: "ruButtonColor")
-        }
+        editProfileView.layer.cornerRadius = 10
     }
     
     private func setupLocalization() {
         settingsLabel.text = "settingsLabel_text_setVC".localized
-        changeAvatarLabel.text = "changeAvatarLabel_text_setVC".localized
-        changeLangLabel.text = "changeAvatarLabel_text_setVC".localized
+        changeLangLabel.text = "changeLangLabel_text_setVC".localized
         changeBgColorLabel.text = "changeBgColorLabel_text_setVC".localized
         saveButton.text = "saveButton_text_setVC".localized
         backButton.text = "backButton_text_setVC".localized
         changePlayerNameTextField.placeholder = "changePlayerNameTextField_placeholder_setVC".localized
     }
     
-    private func imageAvViewLoad () {
-        if let dataImageAv = UserDefaults.standard.data(forKey: "avatarImageView") {
-            return self.avatarView.image = UIImage(data: dataImageAv)
+    private func getUserSettings () {
+        if UserDefaultsSettings.avatar == nil {
+            avatarView.image = UIImage(systemName: "person.circle")
+        } else {
+            avatarView.image = UserDefaultsSettings.avatar
+        }
+        if UserDefaultsSettings.backgroundColor == nil {
+            view.backgroundColor = .white
+        } else {
+            view.backgroundColor = UserDefaultsSettings.backgroundColor
+        }
+        
+        if UserDefaultsSettings.language == nil {
+            usaMarkImageView.isHidden = false
+            russianMarkImageView.isHidden = true
+        } else if UserDefaultsSettings.language == "en" {
+            usaMarkImageView.isHidden = false
+            russianMarkImageView.isHidden = true
+        } else {
+            usaMarkImageView.isHidden = true
+            russianMarkImageView.isHidden = false
         }
     }
     
     @IBAction func buttonSaveAction(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "buttonSaveAlert_message_setVC".localized, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ок", style: .default) { _ in
-            if let dataImageAv = self.imageAv?.jpegData(compressionQuality: 0.96) {
-                UserDefaults.standard.set(dataImageAv, forKey: "avatarImageView")
-            }
-            UserDefaults.standard.setColor(color: self.view.backgroundColor , forKey: "bgColor")
-            UserDefaults.standard.set(self.language, forKey: "language")
-            if self.changePlayerNameTextField?.text != nil ?? "" {
-            UserDefaults.standard.set(self.changePlayerNameTextField?.text ?? "", forKey: "userName")
-            }
-            UserDefaults.standard.setColor(color: self.enLangButton.backgroundColor, forKey: "enButtonColor")
-            UserDefaults.standard.setColor(color: self.ruLangButton.backgroundColor, forKey: "ruButtonColor")
-            self.setupLocalization()
-            self.bgColorPicker.reloadAllComponents()
-        }
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
+        setAlert()
+        animateIn()
     }
     
     @IBAction func buttonBackAction(_ sender: Any) {
@@ -133,12 +155,11 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     @IBAction func changeLanguage(_ sender: UIButton) {
         language = langCode[sender.tag]
         if sender.tag == 0 {
-            enLangButton.backgroundColor = .orange
-            ruLangButton.backgroundColor = .lightGray
-        }
-        if sender.tag == 1 {
-            ruLangButton.backgroundColor = .orange
-            enLangButton.backgroundColor = .lightGray
+            usaMarkImageView.isHidden = false
+            russianMarkImageView.isHidden = true
+        } else {
+            usaMarkImageView.isHidden = true
+            russianMarkImageView.isHidden = false
         }
     }
 }
@@ -170,32 +191,20 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UIPickerViewD
     }
 }
 
-extension UserDefaults {
+extension SettingsViewController: AlertDelegateLeftButton {
     
-  func colorForKey(key: String) -> UIColor? {
-    var colorReturnded: UIColor?
-    if let colorData = data(forKey: key) {
-      do {
-        if let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
-          colorReturnded = color
+    func leftButtonTapped() {
+        animateOut()
+        if imageAv != nil {
+            UserDefaultsSettings.avatar = imageAv
         }
-      } catch {
-        print("Error UserDefaults")
-      }
+        UserDefaultsSettings.backgroundColor = view.backgroundColor
+        UserDefaultsSettings.language = language
+        if changePlayerNameTextField?.text != "" {
+            UserDefaultsSettings.firstPlayerName = changePlayerNameTextField?.text ?? ""
+        }
+        setupLocalization()
+        getUserSettings()
+        bgColorPicker.reloadAllComponents()
     }
-    return colorReturnded
-  }
-  
-  func setColor(color: UIColor?, forKey key: String) {
-    var colorData: NSData?
-    if let color = color {
-      do {
-        let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
-        colorData = data
-      } catch {
-        print("Error UserDefaults")
-      }
-    }
-    set(colorData, forKey: key)
-  }
 }

@@ -48,7 +48,7 @@ class CheckViewController: UIViewController {
     }
     
     private func playerNameChek() {
-        if UserDefaults.standard.object(forKey: "userName") != nil {
+        if UserDefaults.standard.object(forKey: "firstPlayerName") != nil {
             guard let vc = PlayerViewController.getInstanceViewController as? PlayerViewController else { return }
             navigationController?.pushViewController(vc, animated: true)
         } else {

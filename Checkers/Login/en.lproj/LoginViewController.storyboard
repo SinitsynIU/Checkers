@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Checkers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,24 @@
                                                     <constraint firstAttribute="height" constant="150" id="mZz-go-1EM"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vv-kg-URb">
+                                                <rect key="frame" x="581" y="240" width="80" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmI-pw-Vuw">
+                                                        <rect key="frame" x="25.5" y="-0.5" width="29" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="vmI-pw-Vuw" firstAttribute="centerY" secondItem="8vv-kg-URb" secondAttribute="centerY" id="NMD-tk-gLa"/>
+                                                    <constraint firstAttribute="width" constant="80" id="VAD-Yg-cOp"/>
+                                                    <constraint firstItem="vmI-pw-Vuw" firstAttribute="centerX" secondItem="8vv-kg-URb" secondAttribute="centerX" id="bl4-BS-y9Z"/>
+                                                    <constraint firstAttribute="height" constant="20" id="oLC-dZ-lEM"/>
+                                                </constraints>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQg-ku-mqe">
                                                 <rect key="frame" x="546" y="104.5" width="150" height="150"/>
                                                 <constraints>
@@ -71,7 +89,7 @@
                                                             <constraint firstAttribute="width" constant="300" id="SeI-4d-zmf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,6 +139,7 @@
                                             <constraint firstItem="BN8-v8-bQ1" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="1.5" id="6Sv-Ob-j68"/>
                                             <constraint firstItem="sQg-ku-mqe" firstAttribute="top" secondItem="Mlx-m3-giO" secondAttribute="top" constant="104.5" id="8EK-TF-yl3"/>
                                             <constraint firstItem="U6g-BC-cAl" firstAttribute="top" secondItem="Llf-lG-UNo" secondAttribute="bottom" constant="83.5" id="BDh-6d-egC"/>
+                                            <constraint firstItem="8vv-kg-URb" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="1.5" id="Jjd-R8-6g3"/>
                                             <constraint firstItem="RF8-zp-VWg" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="0.5" id="JoC-bS-q0E"/>
                                             <constraint firstItem="Llf-lG-UNo" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="1.5" id="K6j-Gb-EmT"/>
                                             <constraint firstItem="aiP-e2-DTD" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="0.5" id="Ocl-Ex-BiH"/>
@@ -128,6 +147,7 @@
                                             <constraint firstItem="RF8-zp-VWg" firstAttribute="centerY" secondItem="Mlx-m3-giO" secondAttribute="centerY" id="RI3-Gt-v6r"/>
                                             <constraint firstItem="aiP-e2-DTD" firstAttribute="top" secondItem="Mlx-m3-giO" secondAttribute="top" constant="158" id="pNL-oc-4or"/>
                                             <constraint firstItem="BN8-v8-bQ1" firstAttribute="top" secondItem="U6g-BC-cAl" secondAttribute="bottom" constant="320" id="rW0-lF-UZc"/>
+                                            <constraint firstItem="8vv-kg-URb" firstAttribute="top" secondItem="Mlx-m3-giO" secondAttribute="top" constant="240" id="tVW-Ow-d75"/>
                                             <constraint firstItem="U6g-BC-cAl" firstAttribute="centerX" secondItem="Mlx-m3-giO" secondAttribute="centerX" multiplier="1.5" id="umn-ml-VCE"/>
                                             <constraint firstItem="U6g-BC-cAl" firstAttribute="top" secondItem="sQg-ku-mqe" secondAttribute="bottom" constant="83.5" id="xBM-uy-3M5"/>
                                         </constraints>
@@ -168,6 +188,7 @@
                     <navigationItem key="navigationItem" id="Fht-vf-KDi"/>
                     <connections>
                         <outlet property="buttonDone" destination="BN8-v8-bQ1" id="8Ig-0Q-G6e"/>
+                        <outlet property="editProfileView" destination="8vv-kg-URb" id="Z5e-Aq-RJ7"/>
                         <outlet property="imageViewCheckers" destination="RF8-zp-VWg" id="ffb-oO-sz3"/>
                         <outlet property="imageViewPlayer" destination="Llf-lG-UNo" id="c8I-8J-KrT"/>
                         <outlet property="lableHello" destination="aiP-e2-DTD" id="M2h-ho-8FE"/>
@@ -178,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3657.971014492754" y="64.955357142857139"/>
+            <point key="canvasLocation" x="4568.115942028986" y="64.955357142857139"/>
         </scene>
     </scenes>
     <designables>
@@ -190,6 +211,9 @@
         <image name="bg" width="4480" height="6720"/>
         <image name="checkers" width="256" height="256"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
