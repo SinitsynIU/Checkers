@@ -46,6 +46,8 @@
 		48A2C456286618C50066E14D /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2C455286618C50066E14D /* Nib.swift */; };
 		48A2C459286619AD0066E14D /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48A2C457286619AD0066E14D /* AlertView.xib */; };
 		48A2C45A286619AD0066E14D /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2C458286619AD0066E14D /* AlertView.swift */; };
+		48A2C45C2868BF6C0066E14D /* CanStepLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2C45B2868BF6C0066E14D /* CanStepLogic.swift */; };
+		48A2C45E2868BF7D0066E14D /* QueenStepLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2C45D2868BF7D0066E14D /* QueenStepLogic.swift */; };
 		48DBAECE27F3956A0035222E /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 48DBAECC27F3956A0035222E /* ru.lproj */; };
 		48DBAECF27F3956A0035222E /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 48DBAECD27F3956A0035222E /* en.lproj */; };
 		611FC25D2279CF0075DF8A45 /* Pods_Checkers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6679F9F44BDBC86DF9D6C14B /* Pods_Checkers.framework */; };
@@ -92,6 +94,8 @@
 		48A2C455286618C50066E14D /* Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		48A2C457286619AD0066E14D /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		48A2C458286619AD0066E14D /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		48A2C45B2868BF6C0066E14D /* CanStepLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanStepLogic.swift; sourceTree = "<group>"; };
+		48A2C45D2868BF7D0066E14D /* QueenStepLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenStepLogic.swift; sourceTree = "<group>"; };
 		48DBAECC27F3956A0035222E /* ru.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ru.lproj; sourceTree = "<group>"; };
 		48DBAECD27F3956A0035222E /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		48EBA91127F449A500DFB099 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -172,11 +176,8 @@
 			children = (
 				48189A8727F9F8A60006C65C /* StringLocalized.swift */,
 				48701D23283F361D00488719 /* UIViewController + CoreKit.swift */,
-				482CD305285B62A800A2D329 /* LightMoveLogic.swift */,
-				482CD303285AE1D200A2D329 /* MoveLogics.swift */,
 				48A2C4512864A0610066E14D /* UserDefaultsSettings.swift */,
 				48A2C455286618C50066E14D /* Nib.swift */,
-				48A2C4532864C1B00066E14D /* CheckerCodingModel.swift */,
 			);
 			path = Extantions;
 			sourceTree = "<group>";
@@ -250,6 +251,11 @@
 		48D6B61C27BD621C002EA2C5 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				48A2C45B2868BF6C0066E14D /* CanStepLogic.swift */,
+				48A2C45D2868BF7D0066E14D /* QueenStepLogic.swift */,
+				48A2C4532864C1B00066E14D /* CheckerCodingModel.swift */,
+				482CD303285AE1D200A2D329 /* MoveLogics.swift */,
+				482CD305285B62A800A2D329 /* LightMoveLogic.swift */,
 				488A3B0427968C9600ADFC5B /* StartGameViewController.swift */,
 				4859B3D327ABA74C0095CC44 /* StartGameViewController.storyboard */,
 			);
@@ -438,11 +444,13 @@
 				488A3AF32796728A00ADFC5B /* SceneDelegate.swift in Sources */,
 				4856948327CDDECE002B8F8A /* ScoreTableViewCell.swift in Sources */,
 				48A2C4542864C1B00066E14D /* CheckerCodingModel.swift in Sources */,
+				48A2C45C2868BF6C0066E14D /* CanStepLogic.swift in Sources */,
 				48701D28283F361D00488719 /* UIViewController + CoreKit.swift in Sources */,
 				48A2C456286618C50066E14D /* Nib.swift in Sources */,
 				480C1AF027B4EE6B000B87E0 /* SettingsViewController.swift in Sources */,
 				483C0BAB2858BC05006847F6 /* CheckersDataBase.xcdatamodeld in Sources */,
 				4899AC3F27B24717000B0631 /* PlayerViewController.swift in Sources */,
+				48A2C45E2868BF7D0066E14D /* QueenStepLogic.swift in Sources */,
 				48A2C4522864A0610066E14D /* UserDefaultsSettings.swift in Sources */,
 				483C0BAF2858BDBA006847F6 /* CheckersDB+CoreDataClass.swift in Sources */,
 				4834272B282E16D600157DA2 /* RemoteConfigureManager.swift in Sources */,

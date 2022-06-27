@@ -1,5 +1,5 @@
 //
-//  Logics.swift
+//  LightMoveLogic.swift
 //  Checkers
 //
 //  Created by Илья Синицын on 16.06.2022.

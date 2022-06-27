@@ -1,5 +1,5 @@
 //
-//  Checkers.swift
+//  CheckerCodingModel.swift
 //  Checkers
 //
 //  Created by Илья Синицын on 23.06.2022.

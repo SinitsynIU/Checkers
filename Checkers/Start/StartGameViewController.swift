@@ -45,13 +45,23 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
     var currentPlayerMove: currentMove = nil ?? .white
     var seconds: Int = 0 {
         didSet {
-            let min = Int(Double(seconds) / 60.0)
-            let sec = Int(Double(seconds) - (Double(min) * 60.0))
+            let hour = Int(seconds / 3600)
+            let min = Int((seconds / 60) % 60)
+            let sec = Int(seconds % 60)
             let min_string = min < 10 ? "0\(min)" : "\(min)"
             let sec_string = sec < 10 ? "0\(sec)" : "\(sec)"
-            timerLabel.text = " \(min_string):\(sec_string) "
+            let hour_string = hour < 10 ? "0\(hour)" : "\(hour)"
+            if hour == 0 {
+                timerLabel.text = " \(min_string):\(sec_string) "
+            } else {
+                timerLabel.text = " \(hour_string):\(min_string):\(sec_string) "
+            }
         }
     }
+    var arrayOfPossibleStepsGray = [Int]()
+    var arrayOfPossibleStepsWhite = [Int]()
+    var arrayOfPossibleStepsQueenBlue = [Int]()
+    var arrayOfPossibleStepsQueenRed = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +74,6 @@ class StartGameViewController: UIViewController, UIGestureRecognizerDelegate {
         choseChekerPlayerFunc()
         setupLocalization()
         if UserDefaultsSettings.checkerModel == nil {
-            printViewCheckersBoard()
             timerGame()
         }
     }

@@ -1,9 +1,8 @@
 //
 //  AlertView.swift
-//  PrettyAlert
+//  Checkers
 //
-//  Created by Алексей Пархоменко on 08/04/2019.
-//  Copyright © 2019 Алексей Пархоменко. All rights reserved.
+//  Created by Илья Синицын on 23.06.2022.
 //
 
 import UIKit
