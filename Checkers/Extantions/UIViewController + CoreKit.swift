@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIViewController {
+    
     static var getInstanceViewController: UIViewController? {
         return UIStoryboard(name: String(describing: self), bundle: nil).instantiateInitialViewController()
     }

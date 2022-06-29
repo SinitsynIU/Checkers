@@ -93,7 +93,7 @@ extension StartGameViewController {
                     if checker.backgroundColor == .red, view.tag == (checkerSquare.tag + 42) {
                         if view.subviews.isEmpty, view.backgroundColor == .black, ((sevenTop.first?.subviews.first?.backgroundColor == .gray || sevenTop.first?.subviews.first?.backgroundColor == .blue) && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenTop.first?.subviews.first?.backgroundColor == .gray || fourteenTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneTop.first?.subviews.first?.backgroundColor == .gray || twentyOneTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyEightTop.first?.subviews.first?.backgroundColor == .gray || twentyEightTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtyFiveTop.first?.subviews.first?.backgroundColor == .gray || thirtyFiveTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil) {
                             takeStep = true
-                                                                }
+                       }
                     } else {
                         if checker.backgroundColor == .red, view.tag == (checkerSquare.tag + 49) {
                             if view.subviews.isEmpty, view.backgroundColor == .black, ((sevenTop.first?.subviews.first?.backgroundColor == .gray || sevenTop.first?.subviews.first?.backgroundColor == .blue) && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoTop.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenTop.first?.subviews.first?.backgroundColor == .gray || fourteenTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoTop.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneTop.first?.subviews.first?.backgroundColor == .gray || twentyOneTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoTop.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyEightTop.first?.subviews.first?.backgroundColor == .gray || twentyEightTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoTop.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtyFiveTop.first?.subviews.first?.backgroundColor == .gray || thirtyFiveTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoTop.first(where: {$0.subviews.isEmpty}) != nil) || ((fortyTwoTop.first?.subviews.first?.backgroundColor == .gray || fortyTwoTop.first?.subviews.first?.backgroundColor == .blue) && sevenTop.first(where: {$0.subviews.isEmpty}) != nil && fourteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentyOneTop.first(where: {$0.subviews.isEmpty}) != nil && twentyEightTop.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) {
@@ -581,7 +581,7 @@ extension StartGameViewController {
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
+                                                                        }
                                                                     }
                                                                 }
                                                                 canStepGray(sender, board: viewBoard)
@@ -614,7 +614,7 @@ extension StartGameViewController {
                                                                             } else {
                                                                                 currentPlayerMove = .white
                                                                                 movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                    }
+                                                                            }
                                                                         }
                                                                     }
                                                                     canStepGray(sender, board: viewBoard)
@@ -644,31 +644,7 @@ extension StartGameViewController {
                                                                         canStepWhite(sender, board: viewBoard)
                                                                         canStepQueenBlue(sender, board: viewBoard)
                                                                         canStepQueenRed(sender, board: viewBoard)
-                                                                    } else {
-//                                                                        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-//                                                                            checker.center = CGPoint(
-//                                                                                            x: checkerSquare.frame.height / 2,
-//                                                                                            y: checkerSquare.frame.height / 2)
-//                                                                        }
-//                                                                        for view in viewBoard.subviews {
-//                                                                            if view.backgroundColor != .white {
-//                                                                                view.backgroundColor = .black
-//                                                                                view.layer.borderWidth = 0
-//                                                                            }
-//                                                                        }
                                                                     }
-                                                                } else {
-//                                                                    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-//                                                                        checker.center = CGPoint(
-//                                                                                        x: checkerSquare.frame.height / 2,
-//                                                                                        y: checkerSquare.frame.height / 2)
-//                                                                    }
-//                                                                    for view in viewBoard.subviews {
-//                                                                        if view.backgroundColor != .white {
-//                                                                            view.backgroundColor = .black
-//                                                                            view.layer.borderWidth = 0
-//                                                                        }
-//                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -680,11 +656,9 @@ extension StartGameViewController {
                                 }
                             }
                         } else {
-//                            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-                                checker.center = CGPoint(
+                            checker.center = CGPoint(
                                                 x: checkerSquare.frame.height / 2,
                                                 y: checkerSquare.frame.height / 2)
-//                            }
                        }
             }
             default: break

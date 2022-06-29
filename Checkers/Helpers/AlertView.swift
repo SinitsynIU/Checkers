@@ -62,18 +62,6 @@ class AlertView: UIView {
         }
     }
     
-//    func setupAction () {
-//        secondPlayerNameTextField.addTarget(self, action: #selector(textFieldNameChangeAction), for: .editingChanged)
-//    }
-//
-//    @objc func textFieldNameChangeAction () {
-//        if secondPlayerNameTextField.text != nil && (secondPlayerNameTextField.text?.count ?? 0) > 0 {
-//            leftButton.isEnabled = true
-//        } else {
-//            leftButton.isEnabled = false
-//        }
-//    }
-    
     @IBAction func leftButtonTapped(_ sender: Any) {
         delegateLeftButton?.leftButtonTapped()
     }

@@ -11,5 +11,4 @@ import CoreData
 
 @objc(CheckersDB)
 public class CheckersDB: NSManagedObject {
-
 }

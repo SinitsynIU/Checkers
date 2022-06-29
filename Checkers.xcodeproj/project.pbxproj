@@ -231,8 +231,8 @@
 			children = (
 				48A2C458286619AD0066E14D /* AlertView.swift */,
 				48A2C457286619AD0066E14D /* AlertView.xib */,
-				4899AC4927B24A34000B0631 /* ButtonCustom.xib */,
 				4899AC4B27B24B06000B0631 /* ButtonCustom.swift */,
+				4899AC4927B24A34000B0631 /* ButtonCustom.xib */,
 				4856948127CDDECE002B8F8A /* ScoreTableViewCell.swift */,
 				4856948227CDDECE002B8F8A /* ScoreTableViewCell.xib */,
 			);

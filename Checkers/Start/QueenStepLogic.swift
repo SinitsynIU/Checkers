@@ -1225,60 +1225,60 @@ extension StartGameViewController {
                 } else {
                     if (arrayOfPossibleStepsWhite.contains(checkerSquare.tag) || arrayOfPossibleStepsWhite.isEmpty), (arrayOfPossibleStepsQueenRed.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenRed.isEmpty), checker.backgroundColor == .red, currentPlayerMove == .white, view.tag == (checkerSquare.tag - 54) {
                         if view.subviews.isEmpty, view.backgroundColor != .white, ((nineBottom.first?.subviews.first?.backgroundColor == .gray || nineBottom.first?.subviews.first?.backgroundColor == .blue) && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((eighteenBottom.first?.subviews.first?.backgroundColor == .gray || eighteenBottom.first?.subviews.first?.backgroundColor == .blue) && nineBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentySevenBottom.first?.subviews.first?.backgroundColor == .gray || twentySevenBottom.first?.subviews.first?.backgroundColor == .blue) && nineBottom.first(where: {$0.subviews.isEmpty}) != nil && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtySixBottom.first?.subviews.first?.backgroundColor == .gray || thirtySixBottom.first?.subviews.first?.backgroundColor == .blue) && nineBottom.first(where: {$0.subviews.isEmpty}) != nil && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fortyFiveBottom.first?.subviews.first?.backgroundColor == .gray || fortyFiveBottom.first?.subviews.first?.backgroundColor == .blue) && nineBottom.first(where: {$0.subviews.isEmpty}) != nil && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil) {
-                                                                                            nineBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            eighteenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            twentySevenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            thirtySixBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            fortyFiveBottom.first?.subviews.first?.removeFromSuperview()
-                            scoreWhitePlayer += 1
-                            whitePleyerScore.text = "\(scoreWhitePlayer)"
-                            gameIsFinish()
-                                                                                            view.addSubview(checker)
-                            checker.center = CGPoint(
+                                nineBottom.first?.subviews.first?.removeFromSuperview()
+                                eighteenBottom.first?.subviews.first?.removeFromSuperview()
+                                twentySevenBottom.first?.subviews.first?.removeFromSuperview()
+                                thirtySixBottom.first?.subviews.first?.removeFromSuperview()
+                                fortyFiveBottom.first?.subviews.first?.removeFromSuperview()
+                                scoreWhitePlayer += 1
+                                whitePleyerScore.text = "\(scoreWhitePlayer)"
+                                gameIsFinish()
+                                view.addSubview(checker)
+                                checker.center = CGPoint(
                                                 x: checkerSquare.frame.height / 2,
                                                 y: checkerSquare.frame.height / 2)
-                                                                                            for view in board.subviews {
-                                                                                                if view.backgroundColor != .white {
-                                                                                                    view.backgroundColor = .black
-                                                                                                    view.layer.borderWidth = 0
-                                                                                                    if moveWhiteChecker(sender, board: viewBoard) == true {
-                                                                                                        currentPlayerMove = .white
-                                                                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                                    } else {
-                                                                                                        currentPlayerMove = .gray
-                                                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                    }
-                                                                                                }
-                                                                                            }
-                            canStepGray(sender, board: board)
-                            canStepWhite(sender, board: board)
-                            canStepQueenBlue(sender, board: board)
-                            canStepQueenRed(sender, board: board)
-                                                                                        } else {
-                                                                                            if view.subviews.isEmpty, view.backgroundColor != .white, nineBottom.first(where: {$0.subviews.isEmpty}) != nil && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil {
-                                                                                                view.addSubview(checker)
-                                                                                                checker.center = CGPoint(
-                                                                                                                    x: checkerSquare.frame.height / 2,
-                                                                                                                    y: checkerSquare.frame.height / 2)
-                                                                                                for view in board.subviews {
-                                                                                                    if moveWhiteChecker(sender, board: viewBoard) == true {
-                                                                                                        currentPlayerMove = .white
-                                                                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                                    } else {
-                                                                                                        currentPlayerMove = .gray
-                                                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                    }
-                                                                                                    if view.backgroundColor != .white {
-                                                                                                        view.backgroundColor = .black
-                                                                                                        view.layer.borderWidth = 0
-                                                                                                    }
-                                                                                                }
-                                                                                                canStepGray(sender, board: board)
-                                                                                                canStepWhite(sender, board: board)
-                                                                                                canStepQueenBlue(sender, board: board)
-                                                                                                canStepQueenRed(sender, board: board)
-                                                                                            }
-                                                                                        }
+                                for view in board.subviews {
+                                    if view.backgroundColor != .white {
+                                        view.backgroundColor = .black
+                                        view.layer.borderWidth = 0
+                                        if moveWhiteChecker(sender, board: viewBoard) == true {
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                        } else {
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                        }
+                                    }
+                                }
+                                canStepGray(sender, board: board)
+                                canStepWhite(sender, board: board)
+                                canStepQueenBlue(sender, board: board)
+                                canStepQueenRed(sender, board: board)
+                            } else {
+                                if view.subviews.isEmpty, view.backgroundColor != .white, nineBottom.first(where: {$0.subviews.isEmpty}) != nil && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentySevenBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil {
+                                    view.addSubview(checker)
+                                    checker.center = CGPoint(
+                                                        x: checkerSquare.frame.height / 2,
+                                                        y: checkerSquare.frame.height / 2)
+                                    for view in board.subviews {
+                                        if moveWhiteChecker(sender, board: viewBoard) == true {
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                        } else {
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                        }
+                                        if view.backgroundColor != .white {
+                                            view.backgroundColor = .black
+                                            view.layer.borderWidth = 0
+                                        }
+                                    }
+                                    canStepGray(sender, board: board)
+                                    canStepWhite(sender, board: board)
+                                    canStepQueenBlue(sender, board: board)
+                                    canStepQueenRed(sender, board: board)
+                                }
+                            }
 //  MARK: Step Blue FORWARD
             } else {
                 if arrayOfPossibleStepsQueenBlue.isEmpty, arrayOfPossibleStepsQueenBlue.isEmpty, checker.backgroundColor == .blue, currentPlayerMove == .gray, (view.tag == (checkerSquare.tag + 7) || view.tag == (checkerSquare.tag + 9)) {
@@ -1346,7 +1346,7 @@ extension StartGameViewController {
                                         } else {
                                             currentPlayerMove = .white
                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                }
+                                        }
                                     }
                                     canStepGray(sender, board: board)
                                     canStepWhite(sender, board: board)
@@ -1376,7 +1376,7 @@ extension StartGameViewController {
                                         } else {
                                             currentPlayerMove = .white
                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                }
+                                        }
                                     }
                                     canStepGray(sender, board: board)
                                     canStepWhite(sender, board: board)
@@ -1399,7 +1399,7 @@ extension StartGameViewController {
                                             } else {
                                                 currentPlayerMove = .white
                                                 movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                    }
+                                            }
                                         }
                                         canStepGray(sender, board: board)
                                         canStepWhite(sender, board: board)
@@ -1430,7 +1430,7 @@ extension StartGameViewController {
                                                             } else {
                                                                 currentPlayerMove = .white
                                                                 movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                    }
+                                                            }
                                                         }
                                                         canStepGray(sender, board: board)
                                                         canStepWhite(sender, board: board)
@@ -1453,7 +1453,7 @@ extension StartGameViewController {
                                                                 } else {
                                                                     currentPlayerMove = .white
                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                        }
+                                                                }
                                                             }
                                                             canStepGray(sender, board: board)
                                                             canStepWhite(sender, board: board)
@@ -1484,7 +1484,7 @@ extension StartGameViewController {
                                                                 } else {
                                                                     currentPlayerMove = .white
                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                        }
+                                                                }
                                                             }
                                                         }
                                                         canStepGray(sender, board: board)
@@ -1504,7 +1504,7 @@ extension StartGameViewController {
                                                                 } else {
                                                                     currentPlayerMove = .white
                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                        }
+                                                                }
                                                                 if view.backgroundColor != .white {
                                                                     view.backgroundColor = .black
                                                                     view.layer.borderWidth = 0
@@ -1538,7 +1538,7 @@ extension StartGameViewController {
                                                                     } else {
                                                                         currentPlayerMove = .white
                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                            }
+                                                                    }
                                                                 }
                                                             }
                                                             canStepGray(sender, board: board)
@@ -1558,7 +1558,7 @@ extension StartGameViewController {
                                                                     } else {
                                                                         currentPlayerMove = .white
                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                            }
+                                                                    }
                                                                     if view.backgroundColor != .white {
                                                                         view.backgroundColor = .black
                                                                         view.layer.borderWidth = 0
@@ -1593,7 +1593,7 @@ extension StartGameViewController {
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
+                                                                        }
                                                                     }
                                                                 }
                                                                 canStepGray(sender, board: board)
@@ -1613,7 +1613,7 @@ extension StartGameViewController {
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
+                                                                        }
                                                                         if view.backgroundColor != .white {
                                                                             view.backgroundColor = .black
                                                                             view.layer.borderWidth = 0
@@ -1649,7 +1649,7 @@ extension StartGameViewController {
                                                     } else {
                                                         currentPlayerMove = .white
                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                            }
+                                                    }
                                                 }
                                             }
                                             canStepGray(sender, board: board)
@@ -1669,19 +1669,19 @@ extension StartGameViewController {
                                                     } else {
                                                         currentPlayerMove = .white
                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                            }
+                                                    }
                                                       if view.backgroundColor != .white {
                                                          view.backgroundColor = .black
                                                          view.layer.borderWidth = 0
                                                    }
                                               }
-                                            canStepGray(sender, board: board)
-                                            canStepWhite(sender, board: board)
-                                            canStepQueenBlue(sender, board: board)
-                                            canStepQueenRed(sender, board: board)
-                                            }
+                                             canStepGray(sender, board: board)
+                                             canStepWhite(sender, board: board)
+                                             canStepQueenBlue(sender, board: board)
+                                             canStepQueenRed(sender, board: board)
                                         }
-                                        } else {
+                                    }
+                                } else {
                                            if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty),  checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag + 54) {
                                                 if view.subviews.isEmpty, view.backgroundColor != .white, ((nineTop.first?.subviews.first?.backgroundColor == .white || nineTop.first?.subviews.first?.backgroundColor == .red) && eighteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentySevenTop.first(where: {$0.subviews.isEmpty}) != nil && thirtySixTop.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((eighteenTop.first?.subviews.first?.backgroundColor == .white || eighteenTop.first?.subviews.first?.backgroundColor == .red) && nineTop.first(where: {$0.subviews.isEmpty}) != nil && twentySevenTop.first(where: {$0.subviews.isEmpty}) != nil && thirtySixTop.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((twentySevenTop.first?.subviews.first?.backgroundColor == .white || twentySevenTop.first?.subviews.first?.backgroundColor == .red) && nineTop.first(where: {$0.subviews.isEmpty}) != nil && eighteenTop.first(where: {$0.subviews.isEmpty}) != nil && thirtySixTop.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtySixTop.first?.subviews.first?.backgroundColor == .white || thirtySixTop.first?.subviews.first?.backgroundColor == .red) && nineTop.first(where: {$0.subviews.isEmpty}) != nil && eighteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentySevenTop.first(where: {$0.subviews.isEmpty}) != nil && thirtySixTop.first(where: {$0.subviews.isEmpty}) != nil && fortyFiveTop.first(where: {$0.subviews.isEmpty}) != nil) || ((fortyFiveTop.first?.subviews.first?.backgroundColor == .white || fortyFiveTop.first?.subviews.first?.backgroundColor == .red) && nineTop.first(where: {$0.subviews.isEmpty}) != nil && eighteenTop.first(where: {$0.subviews.isEmpty}) != nil && twentySevenTop.first(where: {$0.subviews.isEmpty}) != nil && thirtySixTop.first(where: {$0.subviews.isEmpty}) != nil) {
                                                     nineTop.first?.subviews.first?.removeFromSuperview()
@@ -1813,7 +1813,7 @@ extension StartGameViewController {
                                                                     } else {
                                                                         currentPlayerMove = .white
                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                            }
+                                                                    }
                                                                 }
                                                             }
                                                             canStepGray(sender, board: board)
@@ -1833,7 +1833,7 @@ extension StartGameViewController {
                                                                     } else {
                                                                         currentPlayerMove = .white
                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                            }
+                                                                    }
                                                                     if view.backgroundColor != .white {
                                                                         view.backgroundColor = .black
                                                                         view.layer.borderWidth = 0
@@ -1870,7 +1870,7 @@ extension StartGameViewController {
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
+                                                                        }
                                                                     }
                                                                 }
                                                                 canStepGray(sender, board: board)
@@ -1890,7 +1890,7 @@ extension StartGameViewController {
                                                                         } else {
                                                                             currentPlayerMove = .white
                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                }
+                                                                        }
                                                                         if view.backgroundColor != .white {
                                                                             view.backgroundColor = .black
                                                                             view.layer.borderWidth = 0
@@ -1928,7 +1928,7 @@ extension StartGameViewController {
                                                                             } else {
                                                                                 currentPlayerMove = .white
                                                                                 movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                    }
+                                                                            }
                                                                         }
                                                                     }
                                                                     canStepGray(sender, board: board)
@@ -1946,21 +1946,21 @@ extension StartGameViewController {
                                                             currentPlayerMove = .gray
                                                             movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                         } else {
-                                                                                currentPlayerMove = .white
-                                                                                movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                    }
-                                                                        }
-                                                                    }
-                                                                }
+                                                            currentPlayerMove = .white
+                                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                        }
+                                                }
+                                            }
+                            }
 //   MARK: Step Blue BACK
                         } else {
                             if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 14) {
                                 if view.subviews.isEmpty, view.backgroundColor != .white, (sevenBottom.first?.subviews.first?.backgroundColor == .white || sevenBottom.first?.subviews.first?.backgroundColor == .red) {
-                                                                        sevenBottom.first?.subviews.first?.removeFromSuperview()
+                                    sevenBottom.first?.subviews.first?.removeFromSuperview()
                                     scoreGreyPlayer += 1
                                     greyPlayerScore.text = "\(scoreGreyPlayer)"
                                     gameIsFinish()
-                                                                        view.addSubview(checker)
+                                    view.addSubview(checker)
                                     checker.center = CGPoint(
                                                         x: checkerSquare.frame.height / 2,
                                                         y: checkerSquare.frame.height / 2)
@@ -1974,13 +1974,13 @@ extension StartGameViewController {
                                                                                 } else {
                                                                                     currentPlayerMove = .white
                                                                                     movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                        }
+                                                                                }
                                                                             }
                                                                         }
-                                    canStepGray(sender, board: board)
-                                    canStepWhite(sender, board: board)
-                                    canStepQueenBlue(sender, board: board)
-                                    canStepQueenRed(sender, board: board)
+                                                                        canStepGray(sender, board: board)
+                                                                        canStepWhite(sender, board: board)
+                                                                        canStepQueenBlue(sender, board: board)
+                                                                        canStepQueenRed(sender, board: board)
                                                                     } else {
                                                                         if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil {
                                                                             view.addSubview(checker)
@@ -1997,7 +1997,7 @@ extension StartGameViewController {
                                                                                     } else {
                                                                                         currentPlayerMove = .white
                                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                            }
+                                                                                    }
                                                                                 }
                                                                             }
                                                                             canStepGray(sender, board: board)
@@ -2009,11 +2009,11 @@ extension StartGameViewController {
                 } else {
                     if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 18) {
                         if view.subviews.isEmpty, view.backgroundColor != .white, nineBottom.first?.subviews.first?.backgroundColor == .gray || nineBottom.first?.subviews.first?.backgroundColor == .blue {
-                                                                            nineBottom.first?.subviews.first?.removeFromSuperview()
+                            nineBottom.first?.subviews.first?.removeFromSuperview()
                             scoreGreyPlayer += 1
                             greyPlayerScore.text = "\(scoreGreyPlayer)"
                             gameIsFinish()
-                                                                            view.addSubview(checker)
+                            view.addSubview(checker)
                             checker.center = CGPoint(
                                                 x: checkerSquare.frame.height / 2,
                                                 y: checkerSquare.frame.height / 2)
@@ -2027,13 +2027,13 @@ extension StartGameViewController {
                                                                                     } else {
                                                                                         currentPlayerMove = .white
                                                                                         movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                            }
+                                                                                    }
                                                                                 }
                                                                             }
-                            canStepGray(sender, board: board)
-                            canStepWhite(sender, board: board)
-                            canStepQueenBlue(sender, board: board)
-                            canStepQueenRed(sender, board: board)
+                                                                            canStepGray(sender, board: board)
+                                                                            canStepWhite(sender, board: board)
+                                                                            canStepQueenBlue(sender, board: board)
+                                                                            canStepQueenRed(sender, board: board)
                                                                         } else {
                                                                             if view.subviews.isEmpty, view.backgroundColor != .white, nineBottom.first(where: {$0.subviews.isEmpty}) != nil {
                                                                                 view.addSubview(checker)
@@ -2050,7 +2050,7 @@ extension StartGameViewController {
                                                                                         } else {
                                                                                             currentPlayerMove = .white
                                                                                             movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                }
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                                 canStepGray(sender, board: board)
@@ -2081,38 +2081,38 @@ extension StartGameViewController {
                                                  } else {
                                                      currentPlayerMove = .white
                                                      movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                         }
+                                                 }
                                                 }
                                             }
-                                    canStepGray(sender, board: board)
-                                    canStepWhite(sender, board: board)
-                                    canStepQueenBlue(sender, board: board)
-                                    canStepQueenRed(sender, board: board)
+                                            canStepGray(sender, board: board)
+                                            canStepWhite(sender, board: board)
+                                            canStepQueenBlue(sender, board: board)
+                                            canStepQueenRed(sender, board: board)
                                         } else {
                                            if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil {
                                                view.addSubview(checker)
                                                checker.center = CGPoint(
                                                                    x: checkerSquare.frame.height / 2,
                                                                    y: checkerSquare.frame.height / 2)
-                                                      for view in board.subviews {
+                                                    for view in board.subviews {
                                                           if moveGrayChecker(sender, board: viewBoard) == true {
                                                               currentPlayerMove = .gray
                                                               movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
                                                           } else {
                                                               currentPlayerMove = .white
                                                               movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                  }
+                                                          }
                                                           if view.backgroundColor != .white {
                                                              view.backgroundColor = .black
                                                              view.layer.borderWidth = 0
                                                           }
                                                     }
-                                               canStepGray(sender, board: board)
-                                               canStepWhite(sender, board: board)
-                                               canStepQueenBlue(sender, board: board)
-                                               canStepQueenRed(sender, board: board)
-                                                                                }
-                                                                            }
+                                                   canStepGray(sender, board: board)
+                                                   canStepWhite(sender, board: board)
+                                                   canStepQueenBlue(sender, board: board)
+                                                   canStepQueenRed(sender, board: board)
+                                                }
+                                        }
                      } else {
                          if  (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .red, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 28) {
                              if view.subviews.isEmpty, view.backgroundColor != .white, ((sevenBottom.first?.subviews.first?.backgroundColor == .white || sevenBottom.first?.subviews.first?.backgroundColor == .red) && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenBottom.first?.subviews.first?.backgroundColor == .white || fourteenBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneBottom.first?.subviews.first?.backgroundColor == .white || twentyOneBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil) {
@@ -2126,7 +2126,7 @@ extension StartGameViewController {
                                  checker.center = CGPoint(
                                                      x: checkerSquare.frame.height / 2,
                                                      y: checkerSquare.frame.height / 2)
-                                     for view in board.subviews {
+                                for view in board.subviews {
                                       if view.backgroundColor != .white {
                                          view.backgroundColor = .black
                                          view.layer.borderWidth = 0
@@ -2136,8 +2136,8 @@ extension StartGameViewController {
                                           } else {
                                               currentPlayerMove = .white
                                               movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                  }
-                                   }
+                                          }
+                                      }
                                 }
                                  canStepGray(sender, board: board)
                                  canStepWhite(sender, board: board)
@@ -2149,26 +2149,26 @@ extension StartGameViewController {
                                     checker.center = CGPoint(
                                                         x: checkerSquare.frame.height / 2,
                                                         y: checkerSquare.frame.height / 2)
-                                                                                        for view in board.subviews {
-                                                                                            if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                currentPlayerMove = .gray
-                                                                                                movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                            } else {
-                                                                                                currentPlayerMove = .white
-                                                                                                movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                    }
-                                                                                            if view.backgroundColor != .white {
-                                                                                                view.backgroundColor = .black
-                                                                                                view.layer.borderWidth = 0
-                                                                                            }
-                                                                                        }
+                                    for view in board.subviews {
+                                        if moveGrayChecker(sender, board: viewBoard) == true {
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                        } else {
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                        }
+                                        if view.backgroundColor != .white {
+                                            view.backgroundColor = .black
+                                            view.layer.borderWidth = 0
+                                        }
+                                    }
                                     canStepGray(sender, board: board)
                                     canStepWhite(sender, board: board)
                                     canStepQueenBlue(sender, board: board)
                                     canStepQueenRed(sender, board: board)
-                                                                                    }
-                                                                                }
-                                } else {
+                                    }
+                                }
+                            } else {
                                    if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 35) {
                                        if view.subviews.isEmpty, view.backgroundColor != .white, ((sevenBottom.first?.subviews.first?.backgroundColor == .white || sevenBottom.first?.subviews.first?.backgroundColor == .red) && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenBottom.first?.subviews.first?.backgroundColor == .white || fourteenBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneBottom.first?.subviews.first?.backgroundColor == .white || twentyOneBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyEightBottom.first?.subviews.first?.backgroundColor == .white || twentyEightBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil) {
                                            sevenBottom.first?.subviews.first?.removeFromSuperview()
@@ -2178,167 +2178,167 @@ extension StartGameViewController {
                                            scoreGreyPlayer += 1
                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
                                            gameIsFinish()
-                                                                                        view.addSubview(checker)
+                                           view.addSubview(checker)
                                            checker.center = CGPoint(
                                                                x: checkerSquare.frame.height / 2,
                                                                y: checkerSquare.frame.height / 2)
-                                                                                        for view in board.subviews {
-                                                                                            if view.backgroundColor != .white {
-                                                                                                view.backgroundColor = .black
-                                                                                                view.layer.borderWidth = 0
-                                                                                                if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                    currentPlayerMove = .gray
-                                                                                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                } else {
-                                                                                                    currentPlayerMove = .white
-                                                                                                    movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                        }
-                                                                                            }
-                                                                                        }
+                                            for view in board.subviews {
+                                                if view.backgroundColor != .white {
+                                                    view.backgroundColor = .black
+                                                    view.layer.borderWidth = 0
+                                                    if moveGrayChecker(sender, board: viewBoard) == true {
+                                                        currentPlayerMove = .gray
+                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                                    } else {
+                                                        currentPlayerMove = .white
+                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                    }
+                                                }
+                                            }
                                            canStepGray(sender, board: board)
                                            canStepWhite(sender, board: board)
                                            canStepQueenBlue(sender, board: board)
                                            canStepQueenRed(sender, board: board)
                                     } else {
                                         if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil {
-                                                                                            view.addSubview(checker)
+                                            view.addSubview(checker)
                                             checker.center = CGPoint(
                                                                 x: checkerSquare.frame.height / 2,
                                                                 y: checkerSquare.frame.height / 2)
-                                                                                            for view in board.subviews {
-                                                                                                if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                    currentPlayerMove = .gray
-                                                                                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                } else {
-                                                                                                    currentPlayerMove = .white
-                                                                                                    movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                        }
-                                                                                                if view.backgroundColor != .white {
-                                                                                                    view.backgroundColor = .black
-                                                                                                    view.layer.borderWidth = 0
-                                                                                                }
-                                                                                            }
+                                            for view in board.subviews {
+                                                if moveGrayChecker(sender, board: viewBoard) == true {
+                                                    currentPlayerMove = .gray
+                                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                                } else {
+                                                    currentPlayerMove = .white
+                                                    movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                }
+                                                if view.backgroundColor != .white {
+                                                    view.backgroundColor = .black
+                                                    view.layer.borderWidth = 0
+                                                }
+                                            }
                                             canStepGray(sender, board: board)
                                             canStepWhite(sender, board: board)
                                             canStepQueenBlue(sender, board: board)
                                             canStepQueenRed(sender, board: board)
-                                                                                        }
-                                                                                    }
+                                            }
+                                        }
                                 } else {
                                     if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 42) {
                                         if view.subviews.isEmpty, view.backgroundColor != .white, ((sevenBottom.first?.subviews.first?.backgroundColor == .white || sevenBottom.first?.subviews.first?.backgroundColor == .red) && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenBottom.first?.subviews.first?.backgroundColor == .white || fourteenBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneBottom.first?.subviews.first?.backgroundColor == .white || twentyOneBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyEightBottom.first?.subviews.first?.backgroundColor == .white || twentyEightBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtyFiveBottom.first?.subviews.first?.backgroundColor == .white || thirtyFiveBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil) {
-                                                                                            sevenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            fourteenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            twentyOneBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            twentyEightBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                            thirtyFiveBottom.first?.subviews.first?.removeFromSuperview()
-                                            scoreGreyPlayer += 1
-                                            greyPlayerScore.text = "\(scoreGreyPlayer)"
-                                            gameIsFinish()
-                                                                                            view.addSubview(checker)
-                                            checker.center = CGPoint(
+                                                sevenBottom.first?.subviews.first?.removeFromSuperview()
+                                                fourteenBottom.first?.subviews.first?.removeFromSuperview()
+                                                twentyOneBottom.first?.subviews.first?.removeFromSuperview()
+                                                twentyEightBottom.first?.subviews.first?.removeFromSuperview()
+                                                thirtyFiveBottom.first?.subviews.first?.removeFromSuperview()
+                                                scoreGreyPlayer += 1
+                                                greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                                gameIsFinish()
+                                                view.addSubview(checker)
+                                                checker.center = CGPoint(
                                                                 x: checkerSquare.frame.height / 2,
                                                                 y: checkerSquare.frame.height / 2)
-                                                                                            for view in board.subviews {
-                                                                                                if view.backgroundColor != .white {
-                                                                                                    view.backgroundColor = .black
-                                                                                                    view.layer.borderWidth = 0
-                                                                                                    if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                        currentPlayerMove = .gray
-                                                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                    } else {
-                                                                                                        currentPlayerMove = .white
-                                                                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                            }
-                                                                                                }
-                                                                                            }
-                                            canStepGray(sender, board: board)
-                                            canStepWhite(sender, board: board)
-                                            canStepQueenBlue(sender, board: board)
-                                            canStepQueenRed(sender, board: board)
+                                                for view in board.subviews {
+                                                    if view.backgroundColor != .white {
+                                                        view.backgroundColor = .black
+                                                        view.layer.borderWidth = 0
+                                                        if moveGrayChecker(sender, board: viewBoard) == true {
+                                                            currentPlayerMove = .gray
+                                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                                        } else {
+                                                            currentPlayerMove = .white
+                                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                        }
+                                                    }
+                                                }
+                                                canStepGray(sender, board: board)
+                                                canStepWhite(sender, board: board)
+                                                canStepQueenBlue(sender, board: board)
+                                                canStepQueenRed(sender, board: board)
                             } else {
                                 if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil {
                                     view.addSubview(checker)
                                     checker.center = CGPoint(
                                                         x: checkerSquare.frame.height / 2,
                                                         y: checkerSquare.frame.height / 2)
-                                                                                                for view in board.subviews {
-                                                                                                    if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                        currentPlayerMove = .gray
-                                                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                    } else {
-                                                                                                        currentPlayerMove = .white
-                                                                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                            }
-                                                                                                    if view.backgroundColor != .white {
-                                                                                                        view.backgroundColor = .black
-                                                                                                        view.layer.borderWidth = 0
-                                                                                                    }
-                                                                                                }
+                                    for view in board.subviews {
+                                        if moveGrayChecker(sender, board: viewBoard) == true {
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                        } else {
+                                            currentPlayerMove = .white
+                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                        }
+                                        if view.backgroundColor != .white {
+                                            view.backgroundColor = .black
+                                            view.layer.borderWidth = 0
+                                        }
+                                    }
                                     canStepGray(sender, board: board)
                                     canStepWhite(sender, board: board)
                                     canStepQueenBlue(sender, board: board)
                                     canStepQueenRed(sender, board: board)
-                                                                                            }
-                                                                                        }
-                                } else {
+                                    }
+                                }
+                            } else {
                                     if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 49) {
                                          if view.subviews.isEmpty, view.backgroundColor != .white, ((sevenBottom.first?.subviews.first?.backgroundColor == .white || sevenBottom.first?.subviews.first?.backgroundColor == .red) && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fourteenBottom.first?.subviews.first?.backgroundColor == .white || fourteenBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyOneBottom.first?.subviews.first?.backgroundColor == .white || twentyOneBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((twentyEightBottom.first?.subviews.first?.backgroundColor == .white || twentyEightBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((thirtyFiveBottom.first?.subviews.first?.backgroundColor == .white || thirtyFiveBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((fortyTwoBottom.first?.subviews.first?.backgroundColor == .white || fortyTwoBottom.first?.subviews.first?.backgroundColor == .red) && sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil) {
-                                                                                                sevenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                                fourteenBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                                twentyOneBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                                twentyEightBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                                thirtyFiveBottom.first?.subviews.first?.removeFromSuperview()
-                                                                                                fortyTwoBottom.first?.subviews.first?.removeFromSuperview()
-                                             scoreGreyPlayer += 1
-                                             greyPlayerScore.text = "\(scoreGreyPlayer)"
-                                             gameIsFinish()
-                                                                                                view.addSubview(checker)
-                                             checker.center = CGPoint(
+                                                sevenBottom.first?.subviews.first?.removeFromSuperview()
+                                                fourteenBottom.first?.subviews.first?.removeFromSuperview()
+                                                twentyOneBottom.first?.subviews.first?.removeFromSuperview()
+                                                twentyEightBottom.first?.subviews.first?.removeFromSuperview()
+                                                thirtyFiveBottom.first?.subviews.first?.removeFromSuperview()
+                                                fortyTwoBottom.first?.subviews.first?.removeFromSuperview()
+                                                scoreGreyPlayer += 1
+                                                greyPlayerScore.text = "\(scoreGreyPlayer)"
+                                                gameIsFinish()
+                                                view.addSubview(checker)
+                                                checker.center = CGPoint(
                                                                  x: checkerSquare.frame.height / 2,
                                                                  y: checkerSquare.frame.height / 2)
-                                                                                                for view in board.subviews {
-                                                                                                    if view.backgroundColor != .white {
-                                                                                                        view.backgroundColor = .black
-                                                                                                        view.layer.borderWidth = 0
-                                                                                                        if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                                                            currentPlayerMove = .gray
-                                                                                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                                                        } else {
-                                                                                                            currentPlayerMove = .white
-                                                                                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                                                }
-                                                                                                    }
-                                                                                                }
-                                             canStepGray(sender, board: board)
-                                             canStepWhite(sender, board: board)
-                                             canStepQueenBlue(sender, board: board)
-                                             canStepQueenRed(sender, board: board)
-                                                                                            } else {
-                                                                                                if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil {
-                                                                view.addSubview(checker)
-                                                            checker.center = CGPoint(
-                                                                        x: checkerSquare.frame.height / 2,
-                                                                        y: checkerSquare.frame.height / 2)
-                                                                            for view in board.subviews {
-                                                                        if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                        currentPlayerMove = .gray
-                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                    } else {
-                                                                    currentPlayerMove = .white
-                                                                movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                                    }
-                                                                                                        if view.backgroundColor != .white {
-                                                                                                            view.backgroundColor = .black
-                                                                                                            view.layer.borderWidth = 0
-                                                                                                        }
-                                                                                                    }
-                                                                                                    canStepGray(sender, board: board)
-                                                                                                    canStepWhite(sender, board: board)
-                                                                                                    canStepQueenBlue(sender, board: board)
-                                                                                                    canStepQueenRed(sender, board: board)
-                                                                                                }
-                                                                                            }
+                                                for view in board.subviews {
+                                                    if view.backgroundColor != .white {
+                                                        view.backgroundColor = .black
+                                                        view.layer.borderWidth = 0
+                                                        if moveGrayChecker(sender, board: viewBoard) == true {
+                                                            currentPlayerMove = .gray
+                                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                                        } else {
+                                                            currentPlayerMove = .white
+                                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                        }
+                                                    }
+                                                }
+                                                 canStepGray(sender, board: board)
+                                                 canStepWhite(sender, board: board)
+                                                 canStepQueenBlue(sender, board: board)
+                                                 canStepQueenRed(sender, board: board)
+                                            } else {
+                                                if view.subviews.isEmpty, view.backgroundColor != .white, sevenBottom.first(where: {$0.subviews.isEmpty}) != nil && fourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyOneBottom.first(where: {$0.subviews.isEmpty}) != nil && twentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil && thirtyFiveBottom.first(where: {$0.subviews.isEmpty}) != nil && fortyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil {
+                                                        view.addSubview(checker)
+                                                        checker.center = CGPoint(
+                                                                    x: checkerSquare.frame.height / 2,
+                                                                    y: checkerSquare.frame.height / 2)
+                                                        for view in board.subviews {
+                                                            if moveGrayChecker(sender, board: viewBoard) == true {
+                                                                currentPlayerMove = .gray
+                                                                movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                                            } else {
+                                                            currentPlayerMove = .white
+                                                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                                            }
+                                                            if view.backgroundColor != .white {
+                                                                view.backgroundColor = .black
+                                                                view.layer.borderWidth = 0
+                                                            }
+                                                        }
+                                                        canStepGray(sender, board: board)
+                                                        canStepWhite(sender, board: board)
+                                                        canStepQueenBlue(sender, board: board)
+                                                        canStepQueenRed(sender, board: board)
+                                                    }
+                                                }
     } else {
         if (arrayOfPossibleStepsGray.contains(checkerSquare.tag) || arrayOfPossibleStepsGray.isEmpty), (arrayOfPossibleStepsQueenBlue.contains(checkerSquare.tag) || arrayOfPossibleStepsQueenBlue.isEmpty), checker.backgroundColor == .blue, currentPlayerMove == .gray, view.tag == (checkerSquare.tag - 27) {
              if view.subviews.isEmpty, view.backgroundColor != .white, ((nineBottom.first?.subviews.first?.backgroundColor == .white || nineBottom.first?.subviews.first?.backgroundColor == .red) && eighteenBottom.first(where: {$0.subviews.isEmpty}) != nil) || ((eighteenBottom.first?.subviews.first?.backgroundColor == .white || eighteenBottom.first?.subviews.first?.backgroundColor == .red) && nineBottom.first(where: {$0.subviews.isEmpty}) != nil)  {
@@ -2361,7 +2361,7 @@ extension StartGameViewController {
                          } else {
                              currentPlayerMove = .white
                              movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                 }
+                         }
                      }
                  }
                  canStepGray(sender, board: board)
@@ -2374,14 +2374,14 @@ extension StartGameViewController {
                 checker.center = CGPoint(
                                     x: checkerSquare.frame.height / 2,
                                     y: checkerSquare.frame.height / 2)
-                    for view in board.subviews {
-                        if moveGrayChecker(sender, board: viewBoard) == true {
-                            currentPlayerMove = .gray
-                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                        } else {
-                            currentPlayerMove = .white
-                            movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                }
+                for view in board.subviews {
+                    if moveGrayChecker(sender, board: viewBoard) == true {
+                        currentPlayerMove = .gray
+                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                    } else {
+                        currentPlayerMove = .white
+                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                    }
                     if view.backgroundColor != .white {
                        view.backgroundColor = .black
                        view.layer.borderWidth = 0
@@ -2416,9 +2416,9 @@ extension StartGameViewController {
                           } else {
                               currentPlayerMove = .white
                               movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                  }
+                          }
+                      }
                     }
-                }
                   canStepGray(sender, board: board)
                   canStepWhite(sender, board: board)
                   canStepQueenBlue(sender, board: board)
@@ -2436,7 +2436,7 @@ extension StartGameViewController {
                      } else {
                          currentPlayerMove = .white
                          movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-             }
+                     }
                       if view.backgroundColor != .white {
                          view.backgroundColor = .black
                          view.layer.borderWidth = 0
@@ -2472,9 +2472,9 @@ extension StartGameViewController {
                           } else {
                               currentPlayerMove = .white
                               movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                  }
-                   }
-               }
+                          }
+                      }
+                    }
                     canStepGray(sender, board: board)
                     canStepWhite(sender, board: board)
                     canStepQueenBlue(sender, board: board)
@@ -2492,12 +2492,12 @@ extension StartGameViewController {
                          } else {
                              currentPlayerMove = .white
                              movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                 }
-                     if view.backgroundColor != .white {
-                        view.backgroundColor = .black
-                        view.layer.borderWidth = 0
+                         }
+                         if view.backgroundColor != .white {
+                             view.backgroundColor = .black
+                             view.layer.borderWidth = 0
+                         }
                      }
-                }
                     canStepGray(sender, board: board)
                     canStepWhite(sender, board: board)
                     canStepQueenBlue(sender, board: board)
@@ -2529,9 +2529,9 @@ extension StartGameViewController {
                            } else {
                                currentPlayerMove = .white
                                movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                   }
-                   }
-                }
+                           }
+                       }
+                     }
                      canStepGray(sender, board: board)
                      canStepWhite(sender, board: board)
                      canStepQueenBlue(sender, board: board)
@@ -2549,12 +2549,12 @@ extension StartGameViewController {
                          } else {
                              currentPlayerMove = .white
                              movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                 }
-                     if view.backgroundColor != .white {
-                        view.backgroundColor = .black
-                        view.layer.borderWidth = 0
-                }
-            }
+                         }
+                         if view.backgroundColor != .white {
+                             view.backgroundColor = .black
+                             view.layer.borderWidth = 0
+                         }
+                     }
                     canStepGray(sender, board: board)
                     canStepWhite(sender, board: board)
                     canStepQueenBlue(sender, board: board)
@@ -2568,76 +2568,51 @@ extension StartGameViewController {
                          scoreGreyPlayer += 1
                          greyPlayerScore.text = "\(scoreGreyPlayer)"
                          gameIsFinish()
-                                                        view.addSubview(checker)
+                         view.addSubview(checker)
                          checker.center = CGPoint(
                                              x: checkerSquare.frame.height / 2,
                                              y: checkerSquare.frame.height / 2)
-                                                        for view in board.subviews {
-                                                            if view.backgroundColor != .white {
-                                                                view.backgroundColor = .black
-                                                                view.layer.borderWidth = 0
-                                                                if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                    currentPlayerMove = .gray
-                                                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                } else {
-                                                                    currentPlayerMove = .white
-                                                                    movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                        }
-                                                            }
-                                                        }
+                        for view in board.subviews {
+                            if view.backgroundColor != .white {
+                                view.backgroundColor = .black
+                                view.layer.borderWidth = 0
+                                if moveGrayChecker(sender, board: viewBoard) == true {
+                                    currentPlayerMove = .gray
+                                    movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                } else {
+                                    currentPlayerMove = .white
+                                    movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                }
+                            }
+                        }
                          canStepGray(sender, board: board)
                          canStepWhite(sender, board: board)
                          canStepQueenBlue(sender, board: board)
                          canStepQueenRed(sender, board: board)
-                                                    } else {
-                                                        if view.subviews.isEmpty, view.backgroundColor != .white, sevenTop.first(where: {$0.subviews.isEmpty}) != nil {
-                                                            view.addSubview(checker)
-                                                            checker.center = CGPoint(
-                                                                                x: checkerSquare.frame.height / 2,
-                                                                                y: checkerSquare.frame.height / 2)
-                                                            for view in board.subviews {
-                                                                if view.backgroundColor != .white {
-                                                                    view.backgroundColor = .black
-                                                                    view.layer.borderWidth = 0
-                                                                    if moveGrayChecker(sender, board: viewBoard) == true {
-                                                                        currentPlayerMove = .gray
-                                                                        movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
-                                                                    } else {
-                                                                        currentPlayerMove = .white
-                                                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
-                                                            }
-                                                                }
-                                                            }
-                                                            canStepGray(sender, board: board)
-                                                            canStepWhite(sender, board: board)
-                                                            canStepQueenBlue(sender, board: board)
-                                                            canStepQueenRed(sender, board: board)
-                                                        }  else {
-//                                                            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-//                                                                checker.center = CGPoint(
-//                                                                    x: checkerSquare.frame.height / 2,
-//                                                                    y: checkerSquare.frame.height / 2)
-//                                                            }
-//                                                            for view in board.subviews {
-//                                                                if view.backgroundColor != .white {
-//                                                                    view.backgroundColor = .black
-//                                                                    view.layer.borderWidth = 0
-//                                                                }
-//                                                                }
-                                                            }
-                                                        }
-                                                    } else {
-//                                                        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-////                                                            checker.center = CGPoint(
-////                                                                x: checkerSquare.frame.height / 2,
-////                                                                y: checkerSquare.frame.height / 2)
-//                                                        }
-//                                                        for view in board.subviews {
-//                                                            if view.backgroundColor != .white {
-//                                                                view.backgroundColor = .black
-//                                                                view.layer.borderWidth = 0
-//                                                            }
-//                                                        }
+                    } else {
+                        if view.subviews.isEmpty, view.backgroundColor != .white, sevenTop.first(where: {$0.subviews.isEmpty}) != nil {
+                            view.addSubview(checker)
+                            checker.center = CGPoint(
+                                                x: checkerSquare.frame.height / 2,
+                                                y: checkerSquare.frame.height / 2)
+                            for view in board.subviews {
+                                if view.backgroundColor != .white {
+                                    view.backgroundColor = .black
+                                    view.layer.borderWidth = 0
+                                        if moveGrayChecker(sender, board: viewBoard) == true {
+                                            currentPlayerMove = .gray
+                                            movePlayerLabel.text = "moveGreyPlayerLabel_text_startGameVC".localized
+                                        } else {
+                                        currentPlayerMove = .white
+                                        movePlayerLabel.text = "moveWhitePlayerLabel_text_startGameVC".localized
+                                        }
+                                    }
+                                }
+                            canStepGray(sender, board: board)
+                            canStepWhite(sender, board: board)
+                            canStepQueenBlue(sender, board: board)
+                            canStepQueenRed(sender, board: board)
+                            }
                                                     }
                                                 }
                                             }
@@ -2649,33 +2624,6 @@ extension StartGameViewController {
                     }
                 }
             }
-    }
-                                                            }}
-    }
         }
     }
-    }
-}
-}
-}
-    }
-}
-                            }
-                            }
-                        }
-                    }
-                }
-                }
-            }
-        }
-    }
-}
-                                                    }
-  }
-                                            }
-                                        }
-                                    }
-                                }
-                                    }
-                                    }}}}}}}}}}}
-}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}

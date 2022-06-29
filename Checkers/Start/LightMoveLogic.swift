@@ -445,19 +445,6 @@ extension StartGameViewController {
                                                             view.layer.borderColor = UIColor.green.cgColor
                                                             view.layer.borderWidth = 3
                                                     }
-//                                                } else {
-//                                                    if (view.tag == (checkerSquare.tag - 32)) {
-//                                                        if view.subviews.isEmpty, view.backgroundColor != .white, filterEighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterThirtyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil && filterNineBottom.first?.subviews.first?.backgroundColor == .white && filterTwentyFiveBottom.first?.subviews.first?.backgroundColor == .white  {
-//                                                                view.layer.borderColor = UIColor.green.cgColor
-//                                                                view.layer.borderWidth = 3
-//                                                        }
-//                                                    } else {
-//                                                        if (view.tag == (checkerSquare.tag - 36)) {
-//                                                            if view.subviews.isEmpty, view.backgroundColor != .white,  filterEighteenBottom.first(where: {$0.subviews.isEmpty}) != nil &&
-//                                                                filterThirtySixBottom.first(where: {$0.subviews.isEmpty}) != nil && filterNineBottom.first?.subviews.first?.backgroundColor == .white && filterTwentySevenBottom.first?.subviews.first?.backgroundColor == .white  {
-//                                                                    view.layer.borderColor = UIColor.green.cgColor
-//                                                                    view.layer.borderWidth = 3
-//                                                            }
                                                 } else {
                 if (view.tag == (checkerSquare.tag - 32)) {
                     if view.subviews.isEmpty, view.backgroundColor != .white, filterEighteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterThirtyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil && filterNineBottom.first?.subviews.first?.backgroundColor == .white && filterTwentyFiveBottom.first?.subviews.first?.backgroundColor == .white {
@@ -511,11 +498,6 @@ extension StartGameViewController {
                                                 view.layer.borderWidth = 3
                                         }
                                 } else {
-//                                    if (view.tag == (checkerSquare.tag + 4)) {
-//                                        if view.subviews.isEmpty, view.backgroundColor != .white, filterFourteenBottom.first(where: {$0.subviews.isEmpty}) != nil &&  filterSevenBottom.first?.subviews.first?.backgroundColor == .white &&  filterFiveBottom.first?.subviews.first?.backgroundColor == .white  {
-//                                                view.layer.borderColor = UIColor.green.cgColor
-//                                                view.layer.borderWidth = 3
-//                                        }
                                     if (view.tag == (checkerSquare.tag + 4)) {
                                         if view.subviews.isEmpty, view.backgroundColor != .white, filterFourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterSevenBottom.first?.subviews.first?.backgroundColor == .white && filterFiveBottom.first?.subviews.first?.backgroundColor == .white {
                                                    view.layer.borderColor = UIColor.green.cgColor
@@ -529,52 +511,6 @@ extension StartGameViewController {
                                                     view.layer.borderColor = UIColor.green.cgColor
                                                     view.layer.borderWidth = 3
                                         }
-//                                } else {
-//                                    if (view.tag == (checkerSquare.tag - 32)) {
-//                                        if view.subviews.isEmpty, view.backgroundColor != .white, filterFourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterThirtyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil &&
-//                                            filterSevenBottom.first?.subviews.first?.backgroundColor == .white &&
-//                                            filterTwentyThreeBottom.first?.subviews.first?.backgroundColor == .white {
-//                                                view.layer.borderColor = UIColor.green.cgColor
-//                                                view.layer.borderWidth = 3
-//                                        }
-//                                } else {
-//                                    if (view.tag == (checkerSquare.tag - 46)) {
-//                                        if view.subviews.isEmpty, view.backgroundColor != .white,  filterFourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterTwentyEightBottom.first(where: {$0.subviews.isEmpty}) != nil &&
-//                                            filterFortySixBottom.first(where: {$0.subviews.isEmpty}) != nil &&
-//                                            filterSevenBottom.first?.subviews.first?.backgroundColor == .white &&
-//                                            filterTwentyOneBottom.first?.subviews.first?.backgroundColor == .white &&
-//                                            filterThirtySevenBottom.first?.subviews.first?.backgroundColor == .white {
-//                                                view.layer.borderColor = UIColor.green.cgColor
-//                                                view.layer.borderWidth = 3
-//                                        }
-//                                } else {
-//                                    if currentPlayerMove == .gray, checker.backgroundColor == .gray, view.tag == (checkerSquare.tag - 7) {
-//                                        if view.backgroundColor != .white, view.subviews.isEmpty,
-//                                           ((filterFourteenTop.first(where: {$0.subviews.isEmpty}) == nil ||
-//                                        filterSevenTop.first?.subviews.first?.backgroundColor != .white) ||
-//                                            filterSevenTop.first(where: {$0.subviews.isEmpty}) != nil) &&
-//                                        ((filterEighteenBottom.first(where: {$0.subviews.isEmpty}) == nil ||
-//                                        filterNineBottom.first?.subviews.first?.backgroundColor != .white) ||
-//                                         filterNineBottom.first(where: {$0.subviews.isEmpty}) != nil || filterEighteenBottom.first?.backgroundColor == .white) &&
-//                                            ((filterEighteenTop.first(where: {$0.subviews.isEmpty}) == nil ||
-//                                            filterNineTop.first?.subviews.first?.backgroundColor != .white) ||
-//                                             filterNineTop.first(where: {$0.subviews.isEmpty}) != nil) {
-//                                                            view.layer.borderColor = UIColor.green.cgColor
-//                                                            view.layer.borderWidth = 3
-//                                        }
-//                                } else {
-//                                    if currentPlayerMove == .gray, checker.backgroundColor == .gray, view.tag == (checkerSquare.tag - 9) {
-//                                        if view.backgroundColor != .white, view.subviews.isEmpty, ((filterEighteenTop.first(where: {$0.subviews.isEmpty}) == nil || filterNineTop.first?.subviews.first?.backgroundColor != .white) ||
-//                                            filterNineTop.first(where: {$0.subviews.isEmpty}) != nil) &&
-//                                        ((filterFourteenBottom.first(where: {$0.subviews.isEmpty}) == nil ||
-//                                        filterSevenBottom.first?.subviews.first?.backgroundColor != .white) ||
-//                                        filterSevenBottom.first(where: {$0.subviews.isEmpty}) != nil) &&
-//                                    ((filterFourteenTop.first(where: {$0.subviews.isEmpty}) == nil ||
-//                                      filterSevenTop.first?.subviews.first?.backgroundColor != .white) ||
-//                                                 filterSevenTop.first(where: {$0.subviews.isEmpty}) != nil) {
-//                                                        view.layer.borderColor = UIColor.green.cgColor
-//                                                        view.layer.borderWidth = 3
-//                                                                                    }
                     } else {
                         if (view.tag == (checkerSquare.tag - 32)) {
                             if view.subviews.isEmpty, view.backgroundColor != .white, filterFourteenBottom.first(where: {$0.subviews.isEmpty}) != nil && filterThirtyTwoBottom.first(where: {$0.subviews.isEmpty}) != nil && filterSevenBottom.first?.subviews.first?.backgroundColor == .white && filterTwentyThreeBottom.first?.subviews.first?.backgroundColor == .white {
@@ -588,7 +524,6 @@ extension StartGameViewController {
                                     view.layer.borderWidth = 3
                                     }
                     } else {
-                                  //                         CHECK!!!
                         if checker.backgroundColor == .gray, view.tag == (checkerSquare.tag - 7) {
                             if view.backgroundColor != .white, view.subviews.isEmpty,
                             ((filterFourteenTop.first(where: {$0.subviews.isEmpty}) == nil || filterSevenTop.first?.subviews.first?.backgroundColor != .white) || filterSevenTop.first(where: {$0.subviews.isEmpty}) != nil) && ((filterEighteenBottom.first(where: {$0.subviews.isEmpty}) == nil || filterNineBottom.first?.subviews.first?.backgroundColor != .white) || filterNineBottom.first(where: {$0.subviews.isEmpty}) != nil || filterEighteenBottom.first?.backgroundColor == .white) && ((filterEighteenTop.first(where: {$0.subviews.isEmpty}) == nil || filterNineTop.first?.subviews.first?.backgroundColor != .white) || filterNineTop.first(where: {$0.subviews.isEmpty}) != nil) {
@@ -600,7 +535,7 @@ extension StartGameViewController {
                                     if view.backgroundColor != .white, view.subviews.isEmpty, ((filterEighteenTop.first(where: {$0.subviews.isEmpty}) == nil || filterNineTop.first?.subviews.first?.backgroundColor != .white) || filterNineTop.first(where: {$0.subviews.isEmpty}) != nil) && ((filterFourteenBottom.first(where: {$0.subviews.isEmpty}) == nil || filterSevenBottom.first?.subviews.first?.backgroundColor != .white) || filterSevenBottom.first(where: {$0.subviews.isEmpty}) != nil) && ((filterFourteenTop.first(where: {$0.subviews.isEmpty}) == nil || filterSevenTop.first?.subviews.first?.backgroundColor != .white) || filterSevenTop.first(where: {$0.subviews.isEmpty}) != nil) {
                                             view.layer.borderColor = UIColor.green.cgColor
                                             view.layer.borderWidth = 3
-                                                                                                                                                                     }
+                                                                                            }
                                                                                 }
                                                                             }
                                                                         }
