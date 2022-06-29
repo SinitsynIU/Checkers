@@ -54,5 +54,5 @@
 "buttonStartAlertLoad_message_playerVC" = "Загрузить?";
 "resetAlert_text_startGameVC" = "Сброс?";
 "clearAlert_text_startGameVC" = "Очистить?";
-"titelAlert_text_settingVC" = "Сохранение настроек!";
+"titelAlert_text_settingVC" = "Сохранение!";
 "secondPlayerTextFieldplaceholder_text_alertView" = "Введите имя второго игрока";

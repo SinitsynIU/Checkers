@@ -54,5 +54,5 @@
 "buttonStartAlertLoad_message_playerVC" = "Load?";
 "resetAlert_text_startGameVC" = "Reset?";
 "clearAlert_text_startGameVC" = "Clear?";
-"titelAlert_text_settingVC" = "Save settings!";
+"titelAlert_text_settingVC" = "Save!";
 "secondPlayerTextFieldplaceholder_text_alertView" = "Enter name second player";
