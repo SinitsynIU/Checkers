@@ -117,7 +117,7 @@ extension StartGameViewController {
                         if checker.backgroundColor == .white, (view.tag == (checkerSquare.tag + 14)) {
                             if view.subviews.isEmpty, view.backgroundColor != .white,
                                 filterSevenTop.first?.subviews.first?.backgroundColor == .gray {
-                                filterNineTop.first?.layer.borderWidth = 0
+                                //filterNineTop.first?.layer.borderWidth = 0
                                 view.layer.borderColor = UIColor.green.cgColor
                                 view.layer.borderWidth = 3
                             }
@@ -224,7 +224,7 @@ extension StartGameViewController {
                             if checker.backgroundColor == .white, (view.tag == (checkerSquare.tag - 14)) {
                                 if view.subviews.isEmpty, view.backgroundColor != .white,
                                    filterSevenBottom.first?.subviews.first?.backgroundColor == .gray {
-                                    filterNineBottom.first?.layer.borderWidth = 0
+                                    //filterNineBottom.first?.layer.borderWidth = 0
                                     view.layer.borderColor = UIColor.green.cgColor
                                     view.layer.borderWidth = 3
                                 }
@@ -331,7 +331,7 @@ extension StartGameViewController {
             if checker.backgroundColor == .gray, (view.tag == (checkerSquare.tag + 18)) {
                 if view.subviews.isEmpty, view.backgroundColor != .white,
                    filterNineTop.first?.subviews.first?.backgroundColor == .white {
-                    filterSevenTop.first?.layer.borderWidth = 0
+                    //filterSevenTop.first?.layer.borderWidth = 0
                         view.layer.borderColor = UIColor.green.cgColor
                         view.layer.borderWidth = 3
                 }
@@ -381,7 +381,7 @@ extension StartGameViewController {
                                         if checker.backgroundColor == .gray, (view.tag == (checkerSquare.tag + 14)) {
                                             if view.subviews.isEmpty, view.backgroundColor != .white,
                                                filterSevenTop.first?.subviews.first?.backgroundColor == .white {
-                                                    filterNineTop.first?.layer.borderWidth = 0
+                                                   // filterNineTop.first?.layer.borderWidth = 0
                                                     view.layer.borderColor = UIColor.green.cgColor
                                                     view.layer.borderWidth = 3
                                             }
@@ -435,7 +435,7 @@ extension StartGameViewController {
                                             if checker.backgroundColor == .gray, (view.tag == (checkerSquare.tag - 18)) {
                                                 if view.subviews.isEmpty, view.backgroundColor != .white,
                                                    filterNineBottom.first?.subviews.first?.backgroundColor == .white {
-                                                    filterSevenBottom.first?.layer.borderWidth = 0
+                                                    //filterSevenBottom.first?.layer.borderWidth = 0
                                                     view.layer.borderColor = UIColor.green.cgColor
                                                     view.layer.borderWidth = 3
                                                 }
@@ -494,7 +494,7 @@ extension StartGameViewController {
                                     if checker.backgroundColor == .gray, (view.tag == (checkerSquare.tag - 14)) {
                                         if view.subviews.isEmpty, view.backgroundColor != .white,
                                            filterSevenBottom.first?.subviews.first?.backgroundColor == .white {
-                                                filterNineBottom.first?.layer.borderWidth = 0
+                                                //filterNineBottom.first?.layer.borderWidth = 0
                                                 view.layer.borderColor = UIColor.green.cgColor
                                                 view.layer.borderWidth = 3
                                                     }
