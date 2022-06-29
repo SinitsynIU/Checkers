@@ -45,6 +45,7 @@ class PlayerViewController: UIViewController {
         setupUI()
         setupLocalization()
         setupVisualEffectView()
+        setupAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +71,18 @@ class PlayerViewController: UIViewController {
             alertView.set(vsViewImage: true, leftButtonTitle: "OK", rightButtonTitle: "backButton_text_setVC".localized)
         } else {
             alertView.set(title: "buttonStartAlertLoad_message_playerVC".localized, body: "buttonStartAlert_message_playerVC".localized, leftButtonTitle: "buttonSaveAlertYes_message_startGameVC".localized, rightButtonTitle: "buttonSaveAlertNo_message_startGameVC".localized)
+        }
+    }
+    
+    private func setupAction () {
+        alertView.secondPlayerNameTextField.addTarget(self, action: #selector(secondPlayerNameTextFieldChangeAction), for: .editingChanged)
+    }
+    
+    @objc func secondPlayerNameTextFieldChangeAction () {
+        if (alertView.secondPlayerNameTextField.text?.count ?? 0) > 0 {
+            alertView.leftButton.isEnabled = true
+        } else {
+            alertView.leftButton.isEnabled = false
         }
     }
     

@@ -33,6 +33,7 @@ class AlertView: UIView {
         leftButton.layer.cornerRadius = 22
         rightButton.layer.cornerRadius = 22
         bgView.layer.cornerRadius = 50
+        leftButton.isEnabled = false
         secondPlayerNameTextField.layer.cornerRadius = 15
         secondPlayerNameTextField.layer.borderWidth = 1
         secondPlayerNameTextField.textAlignment = .center
